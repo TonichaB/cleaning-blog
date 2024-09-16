@@ -20,6 +20,8 @@ from core.views import home, about, contact
 from blog.views import blog
 from comments.views import my_comments
 from users.views import my_users
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +31,4 @@ urlpatterns = [
     path('blog/', blog, name='blog'), # Blog Page
     path('comments/', my_comments, name='comments'),
     path('users/', my_users, name='users'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])

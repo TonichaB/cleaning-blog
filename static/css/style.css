@@ -1,3 +1,9 @@
+/* Wildcard Selector to override default styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
 /* General Styling */
 
@@ -11,18 +17,115 @@ h1, h2, h3 {
 header {
     background-color: #7fffd4;
     font-family: "Raleway", system-ui;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    text-align: center;
+}
+
+#logo {
+    font-family: "Raleway", system-ui;
+    font-weight: 700;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8ff;
+    padding-top: 60px; /* Create space for fixed header */
+}
+
+main {
+    padding: 20px;
+    margin-top: 60px;
+    border-radius: 8px;
+}
+
+footer {
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Navigation Styling */
 
-#menu {
-
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #00ffff;
 }
 
-#menu>li {
-
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
 }
 
-.active {
+nav ul li {
+    margin: 0 15px;
+}
 
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #006400;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+
+.nav-toggle-label {
+    display: none;
+}
+
+#nav-toggle {
+    display: none;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    nav ul li a {
+        padding: 15px;
+        text-align: center;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    #nav-toggle:checked + .nav-toggle-label + nav #menu {
+        display: block;
+    }
+
+    .nav-toggle-label {
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+    }    
 }
