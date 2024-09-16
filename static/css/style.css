@@ -113,6 +113,7 @@ nav {
     display: flex;
     justify-content: center;
     background-color: #00ffff;
+    margin-bottom: -10px;
 }
 
 nav ul {
@@ -135,7 +136,7 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: #006400;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 /* Accessibility */
@@ -198,6 +199,7 @@ a:focus, button:focus {
         display: block;
         cursor: pointer;
         padding: 10px;
+        background-color: #00ffff;
     }
     
     /* Footer */
