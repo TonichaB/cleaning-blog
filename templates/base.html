@@ -1,0 +1,55 @@
+{% url 'base' as base_url %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Cleaning Blog</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="cleaning_blog/static/css/style.css">
+    <!-- Google Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/workspace/cleaning-blog/core/templates/home.html">
+            <h1 id="logo">Cleaning Together Blog</h1>
+        </a>
+        <input type="checkbox" id="nav-toggle" name="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label"><i class="fa-solid fa-bars"></i></label>
+        <nav>
+            <ul id="menu">
+                <li>
+                    <a href="/workspace/cleaning-blog/core/templates/home.html">Home</a>
+                </li>
+                <li>
+                    <a href="/workspace/cleaning-blog/blog/templates/blog.html">Blog</a>
+                </li>
+                <li>
+                    <a href="/workspace/cleaning-blog/core/templates/about.html">About</a>
+                </li>
+                <li>
+                    <a href="/workspace/cleaning-blog/core/templates/contact.html">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        {% block content %}
+
+
+        {% endblock content %}
+        
+    </main>
+    <footer>
+        <p>Footer Content To Go Here</p>
+    </footer>
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/96afde0967.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+
+/* General Styling */
+
+h1, h2, h3 {
+    font-family: "Raleway", system-ui;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000000;
+}
+
+header {
+    background-color: #7fffd4;
+    font-family: "Raleway", system-ui;
+}
+
+/* Navigation Styling */
+
+#menu {
+
+}
+
+#menu>li {
+
+}
+
+.active {
+
+}
