@@ -16,7 +16,7 @@
 </head>
 <body>
     <header>
-        <a href="/workspace/cleaning-blog/core/templates/home.html">
+        <a href="{% url 'home' %}">
             <h1 id="logo">Cleaning Together Blog</h1>
         </a>
         <input type="checkbox" id="nav-toggle" name="nav-toggle">
@@ -24,16 +24,16 @@
         <nav>
             <ul id="menu">
                 <li>
-                    <a href="/workspace/cleaning-blog/core/templates/home.html">Home</a>
+                    <a href="{% url 'home' %}">Home</a>
                 </li>
                 <li>
-                    <a href="/workspace/cleaning-blog/blog/templates/blog.html">Blog</a>
+                    <a href="{% url 'blog' %}">Blog</a>
                 </li>
                 <li>
-                    <a href="/workspace/cleaning-blog/core/templates/about.html">About</a>
+                    <a href="{% url 'about' %}">About</a>
                 </li>
                 <li>
-                    <a href="/workspace/cleaning-blog/core/templates/contact.html">Contact</a>
+                    <a href="{% url 'contact' %}">Contact</a>
                 </li>
             </ul>
         </nav>
