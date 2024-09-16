@@ -78,11 +78,17 @@ main {
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-#social-media-links li a:hover,
-#social-media-links li a:focus {
+#social-media-links li a:hover {
     color: #000000;
     transform: scale(1.2);
     outline: none;
+}
+
+#social-media-links li a:focus {
+    color: #000000;
+    transform: scale(1.2);
+    outline: 2px solid #005050;
+    outline-offset: 4px;
 }
 
 #footer p {
@@ -165,10 +171,6 @@ a:focus, button:focus {
 @media (max-width: 768px) {
     
     /* Nav Bar */
-    nav {
-        background-color: #00ffff;
-    }
-    
     nav ul {
         flex-direction: column;
         display: none;
@@ -199,5 +201,37 @@ a:focus, button:focus {
     }
     
     /* Footer */
+
+    #footer {
+        padding: 10px;
+        text-align: center;
+        position: fixed;
+    }
+
+    #footer p {
+        font-size: 13px;
+        margin: 5px 0;
+    }
+
+    #social-media-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 0;
+        margin: 0;
+        height: auto;
+        gap: 15px;
+    }
+
+    #social-media-links li {
+        margin: 0 10px;
+    }
+
+    #social-media-links li a {
+        font-size: 1rem;
+        line-height: 1;
+    }
+
 
 }
