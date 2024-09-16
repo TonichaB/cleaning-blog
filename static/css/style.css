@@ -40,6 +40,7 @@ body {
     line-height: 1.6;
     background-color: #f8f8ff;
     padding-top: 60px; /* Create space for fixed header */
+    padding-bottom: 60px; /* Create space for fixed footer */
 }
 
 main {
@@ -48,12 +49,56 @@ main {
     border-radius: 8px;
 }
 
-footer {
+/* Footer Styling */
+
+#footer {
+    background-color: #7fffd4;
+    color: #000000;
     padding: 10px 0;
     text-align: center;
-    position: relative;
+    position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
+    z-index: 1000;
+}
+
+#social-media-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+#social-media-links li a {
+    color:#005050;
+    font-size: 2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#social-media-links li a:hover,
+#social-media-links li a:focus {
+    color: #000000;
+    transform: scale(1.2);
+    outline: none;
+}
+
+#footer p {
+    margin-top: 5px;
+    font-size: 1rem;
+}
+
+#footer p a {
+    color: #005050;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+#footer p a:hover, #footer p a:focus {
+    color: #000000;
+    outline: none;
 }
 
 /* Navigation Styling */
@@ -118,6 +163,12 @@ a:focus, button:focus {
 /* Media Queries */
 
 @media (max-width: 768px) {
+    
+    /* Nav Bar */
+    nav {
+        background-color: #00ffff;
+    }
+    
     nav ul {
         flex-direction: column;
         display: none;
@@ -145,5 +196,8 @@ a:focus, button:focus {
         display: block;
         cursor: pointer;
         padding: 10px;
-    }    
+    }
+    
+    /* Footer */
+
 }
