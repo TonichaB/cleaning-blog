@@ -1,131 +1,166 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Cleaning Together Blog
 
-Welcome Tonicha Blackwell,
+The live site can be found here! (link to be added)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+*am i responsive image to go here*
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+![Github last commit](https://img.shields.io/github/last-commit/TonichaB/cleaning-blog?color=green)
+![GitHub contributors](https://img.shields.io/github/contributors/TonichaB/cleaning-blog?color=yellow)
+![GitHub language count](https://img.shields.io/github/languages/count/TonichaB/cleaning-blog?color=blue)
+![GitHub top language](https://img.shields.io/github/languages/top/TonichaB/cleaning-blog?color=red)
+<hr>
 
-## Gitpod Reminders
+# Contents Table
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- [Cleaning Together Blog](#cleaning-together-blog)
+- [Contents Table](#contents-table)
+  - [Overview](#overview)
+  - [UX](#ux)
+    - [Strategy](#strategy)
+    - [Scope](#scope)
+    - [Structure](#structure)
+    - [Skeleton](#skeleton)
+    - [Surface](#surface)
+  - [Agile Methodology](#agile-methodology)
+  - [Features](#features)
+    - [Existing Features](#existing-features)
+      - [Home Page](#home-page)
+      - [Contact Page](#contact-page)
+      - [About Page](#about-page)
+      - [Blog Page](#blog-page)
+      - [Footer](#footer)
+      - [Navigation Bar](#navigation-bar)
+      - [Blog Posts](#blog-posts)
+      - [Like/Comment on Posts](#likecomment-on-posts)
+      - [Like/Comment on Existing Comments](#likecomment-on-existing-comments)
+    - [Potential Future Features](#potential-future-features)
+  - [Responsive Layout and Design](#responsive-layout-and-design)
+  - [Tools Used](#tools-used)
+    - [Python Packages](#python-packages)
+  - [Testing](#testing)
+  - [Deployment](#deployment)
+    - [Deploy on Heroku](#deploy-on-heroku)
+    - [Fork Repository](#fork-repository)
+    - [Clone Repository](#clone-repository)
+  - [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+    - [Code](#code)
+  - [Acknowledgements](#acknowledgements)
 
-`python3 -m http.server`
+## Overview
 
-A blue button should appear to click: _Make Public_,
+## UX
 
-Another blue button should appear to click: _Open Browser_.
+The site has been created whilst observing the Five Planes of Website Design:
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+### Strategy
 
-A blue button should appear to click: _Make Public_,
+** User Stories and Epics **<br>
+The User Stories and Epics created for this project can be found on the [project board.]() <br>
 
-Another blue button should appear to click: _Open Browser_.
+** Project Goal ** <br>
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+The goal for this project is to create a blog for cleaners with various experience to share their tips and tricks of the trade. <br>
 
-To log into the Heroku toolbelt CLI:
+** Project Objectives **
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+### Scope
 
-### Connecting your Mongo database
+### Structure
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+### Skeleton
 
-------
+### Surface
 
-## Release History
+## Agile Methodology
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+## Features
 
-**June 18, 2024,** Add Mongo back into template
+### Existing Features
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+#### Home Page
 
-**May 28 2024:** Fix Mongo and Links installs
+#### Contact Page
 
-**April 26 2024:** Update node version to 16
+#### About Page
 
-**September 20 2023:** Update Python version to 3.9.17.
+#### Blog Page
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+#### Footer
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+#### Navigation Bar
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+#### Blog Posts
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+#### Like/Comment on Posts
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+#### Like/Comment on Existing Comments
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Potential Future Features
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## Responsive Layout and Design
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+## Tools Used
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Python Packages
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Testing
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+Details of the project testing can be found in [TESTING.md](TESTING.md)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Deployment
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Deploy on Heroku
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+In order to deploy the project to ***Heroku*** please follow the below instructions:
 
-------
+1. Create a Pipfile <br>
+In the terminal on the workspace enter the command "pip3 freeze > requirements.txt", to create a file which will contain the project requirements.
 
-## FAQ about the uptime script
+2. Set Up Heroku App
+  - Go to the [Heroku Website]()
+  - Log in to your Heroku app and select to *Create App*
+  - Select *New* and *Create a new app*
+  - Create an app name, and select your applicable location.
+  - Once the app has been created, navigate to the *Resources* tab
+  - From here, select *Heroku Postgres*
+  - Now navigate to the *Deploy* tab
+  - Under the Deployment method section, select *GitHub* and search for your copy of the repository.
+  - Once connected, you can now navigate tot eh *Settings* tab.
+  - Select to *Reveal Config Vars* and add set your required Environment Variables (e.g. DATABASE_URL and SECRET_KEYS)
 
-**Why have you added this script?**
+3. Deployment on Heroku
+  - Now that the app has been set up correctly, navigate to the *Deploy* tab
+  - Select the **main branch** for deploying and if preferred enable automatic deployment.
+  - Select *Manual Deploy* to build and deploy the app.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+After following the above steps you should be able to select ***Open App*** to open the deployed app in the browser.
 
-**How will this affect me?**
+### Fork Repository
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+If you wish to create a copy of the repository on your own account so you can make independant changes without impacting the original project, please follow the below instructions to ***Fork*** the repository:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+- On the [repository]() page, click the option to ***Fork*** shown on the top right of the page.
+- A forked version of my project should then appear in your own repository.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### Clone Repository
 
-**So….?**
+If you wish to ***Clone*** this repository on your local machine please follow the below instructions:
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+- On the [repository]() page, click the green ***Code*** button just above the code window.
+- Choose from HTTPS, SSH and GitHub CLI format, and copy the link provided (*Recommended: HTTPS*)
+- Open your preferred IDE and open Git Bash
+- Enter the command git clone followed by the copied URL
+- Your clone should have been successfully created.
 
-**Can I opt out?**
+## Credits
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+### Content
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+### Media
 
-**Anything more?**
+### Code
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+## Acknowledgements
