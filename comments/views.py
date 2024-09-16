@@ -3,5 +3,5 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-def my_comments(request):
+def comments(request):
     return HttpResponse("Hello World 3")

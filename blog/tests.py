@@ -3,13 +3,7 @@ from django.urls import reverse
 
 # Create your tests here.
 
-class SimpleViewTests(TestCase):
-    def test_blog_view(self):
-        # Make a GET request to the blog view
+class BlogViewsTests(TestCase):
+    def test_blog_page_uses_correct_template(self):
         response = self.client.get(reverse('blog'))
-
-        # Check if the view returns a 200 OK status
-        self.assertEqual(response.status_code, 200)
-
-        # Check if the response contains the expected text
-        self.assertContains(response, "Hello World 2")
+        self.assertTemplateUsed(response, 'blog.html')

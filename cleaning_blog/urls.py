@@ -18,8 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from core.views import home, about, contact
 from blog.views import blog
-from comments.views import my_comments
-from users.views import my_users
+from comments.views import comments
+from users.views import users
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -29,6 +29,6 @@ urlpatterns = [
     path('about/', about, name='about'), # About Page
     path('contact/', contact, name='contact'), # Contact Page
     path('blog/', blog, name='blog'), # Blog Page
-    path('comments/', my_comments, name='comments'),
-    path('users/', my_users, name='users'),
+    path('comments/', comments, name='comments'),
+    path('users/', users, name='users'),
 ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
