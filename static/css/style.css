@@ -170,6 +170,60 @@ img {
     box-shadow: 0 4px 8px #00000033;
 }
 
+/* Popular Posts Section */
+
+#popular-posts {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #00505088;
+    border-radius: 8px;
+}
+
+#popular-posts h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #000000;
+    font-family: "Raleway", system-ui;
+}
+
+#popular-posts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#popular-posts li {
+    margin-bottom: 15px;
+}
+
+#popular-posts li #post-title {
+    text-decoration: none;
+    font-weight: bold;
+    color: #005050;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+#popular-posts li #author-name {
+    text-decoration: none;
+    font-weight: bold;
+    color: #005050;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.75rem;
+}
+
+#popular-posts li a:hover {
+    color: #04a086;
+}
+
+#popular-posts p {
+    margin: 0;
+    color: #000000;
+    font-size: 1rem;
+}
+
 /* Accessibility */
 
 a:focus, button:focus {
