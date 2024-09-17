@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- Intro Section -->
 <div id="blog-intro">
     <p>Welcome to the Blog Page! Here you can see a list of the blog posts submitted by other users- so take some time and have a look through. You can refine your search using the filter options available.</p>
 </div>
-<div id="blog-container">
-    <!-- Blog Posts Section-->
+
+<!-- Blog Posts Section-->
+ <div id="blog-container">   
      <div id="blog-posts">
         {% for post in blog_posts %}
         <div class="blog-post">
@@ -28,6 +30,15 @@
                 <option value="">All</option>
                 <option value="product-reviews">Product Reviews</option>
                 <option value="tips-&-tricks">Tips & Tricks</option>
+            </select>
+            <label for="author">Author:</label>
+            <input type="text" name="author" id="authory" placeholder="Search by Author Name">
+            <label for="sort">Sort By:</label>
+            <select name="sort" id="sort">
+                <option value="published_date_desc">Date: Newest First</option>
+                <option value="published_date_asc">Date: Oldest First</option>
+                <option value="popularity_desc">Most Popular</option>
+                <option value="popularity_asc">Least Popular</option>
             </select>
             <button type="submit">Filter</button>
         </form>
