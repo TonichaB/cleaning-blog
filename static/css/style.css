@@ -162,9 +162,9 @@ p {
 
 img {
     display: block;
-    max-width: 100%;
+    max-width: 40%;
     height: auto;
-    margin: 20px 0;
+    margin: 20px auto;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px #00000033;
@@ -184,6 +184,7 @@ img {
     font-size: 1.5rem;
     color: #000000;
     font-family: "Raleway", system-ui;
+    text-align: center;
 }
 
 #popular-posts ul {
@@ -287,6 +288,12 @@ a:focus, button:focus {
         background-color: #00ffff;
     }
     
+    /* Home Page*/
+
+    img{
+        max-width: 70%;
+    }
+
     /* Footer */
 
     #footer {
