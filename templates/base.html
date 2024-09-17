@@ -38,16 +38,22 @@
                 <li>
                     <a href="{% url 'contact' %}">Contact</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="#" id="my-posts-button">My Posts</a>
+                </li>
+                {% endif %}
             </ul>
         </nav>
     </header>
     <main>
-
+        <!-- Main Content Block-->
         {% block content %}
-
-
         {% endblock content %}
         
+        <!-- Include My Posts Modal -->
+        {% include 'modal.html' %}
+
     </main>
     <footer id="footer">
         <p>Check us out on Social Media!</p>
