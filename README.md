@@ -82,6 +82,10 @@ The goal for this project is to create a blog for cleaners with various experien
 
 #### Home Page
 
+When first visiting the website, the user is presented with the home page. Within the home page there is a site introuction and relevant image providing context to the purpose of the website.<br>
+
+*image of home page to go here*
+
 #### Contact Page
 
 #### About Page
@@ -90,9 +94,23 @@ The goal for this project is to create a blog for cleaners with various experien
 
 #### Footer
 
+The site footer is present on all pages and fixed to the bottom of the page. Within the footer there are social media links that will open in a new tab when selected, and a general disclosure statement regarding the page contents. The footer is responsive to different screen sizes and adjusts the content accordingly to provide a positive user experience. <br>
+
+*2ximages or 1 combined image of footer for desktop/mobile view to go here*
+
 #### Navigation Bar
 
-The header contains a Navigation Bar with links to the home page, blog page, about page and contact page. This component is present on all pages of the site.
+The header contains a Navigation Bar with links to the home page, blog page, about page and contact page. This component is present on all pages of the site. The site page links are shown centrally for desktop view or larger screen sizes. Below is the standard nav bar accesible for all users. <br>
+
+*image of initial navbar here*<br>
+
+If a user has been authenticated the nav bar updates to also include a 'My Posts' link allowing logged in users to access a list of their own posts. <br>
+
+*image of authenticated navbar here* <br>
+
+For smaller screen sizes the navigation bar becomes hidden and the user is presented with a burger drop down icon which, when clicked, will show a dropdown list containing the navigation links. <br>
+
+*2 images/combined image for responsive navbar and dropdown display*
 
 #### Blog Posts
 

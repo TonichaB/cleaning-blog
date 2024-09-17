@@ -23,38 +23,42 @@
 
 ## User Story and Features Testing
 
-All completed user stories have been manually tested, including their corresponding features. Details of the test completed and the results can be seen below.
+The User Stories have been manually tested, including their corresponding features. Details of the test completed and the results can be seen below.
 
-<details>
-    <summary>Epic: Project Set Up</summary>
-    <details>
-        <summary>User Story: Django Set Up</summary>
-    </details>
-    <details>
-        <summary>User Story: Early Deployment</summary>
-    </details>
-    <details>
-        <summary>User Story: PostgreSQL Database</summary>
-    </details>
-</details><br>
-<details>
-    <summary>Epic: Home Page</summary>
-</details><br>
-<details>
-    <summary>Epic: Blog Page</summary>
-</details><br>
-<details>
-    <summary>Epic: Comments Section</summary>
-</details><br>
-<details>
-    <summary>Epic: Authentication & Authorisation</summary>
-</details><br>
-<details>
-    <summary>Epic: Search Function</summary>
-</details><br>
-<details>
-    <summary>Epic: Project Submission</summary>
-</details>
+**Epic: Home Page**
+
+| User Story | Feature Image | Test Action | Expected Result | Actual Result | Pass/Fail | Result Image |
+| -- | -- | -- | -- | -- | -- | -- |
+| [#11](https://github.com/TonichaB/cleaning-blog/issues/11) | img | Click on all navbar links for home, blog, about, and contact pages | User is redirected to the correct site page based on the link clicked | Redirection occurs as intended | Pass | rslt img |
+| [#12](https://github.com/TonichaB/cleaning-blog/issues/12) | img | Navigate to the site Home Page  | Site introduction should be clearly presented and responsive  | Site introduction on the home page is clearly presented and responds as expected to changes in screen sizes  | Pass  | rslt img  |
+| [#13](https://github.com/TonichaB/cleaning-blog/issues/13) | img | Click on the social media links in the footer | A new tab opens to reflect the correct social media platform relevant to the icon clicked | New tabs open and the correct platform website is shown | Pass | rslt img |
+| [#14](https://github.com/TonichaB/cleaning-blog/issues/14) | img | Scroll to view the popular posts section and refresh page | The Popular Posts section shows a message if no posts available | Popular post section correctly shows the correct message | Pass | rslt img | 
+| [#14](https://github.com/TonichaB/cleaning-blog/issues/14) | img | When blog posts have been created, scroll to view the popular posts section on the home page | The top 5 most popular posts, based on a 'likes' metric, are presented in order | | | rslt img |
+| [#15](https://github.com/TonichaB/cleaning-blog/issues/15) | img |  |  |  |  | rslt img |
+
+**Epic: Blog Page**
+
+| User Story | Feature Image | Test Action | Expected Result | Actual Result | Pass/Fail | Result Image |
+| -- | -- | -- | -- | -- | -- | -- |
+| [#18](https://github.com/TonichaB/cleaning-blog/issues/18) | img |  |  |  |  | rslt img |
+| [#20](https://github.com/TonichaB/cleaning-blog/issues/20) | img |  |  |  |  | rslt img |
+| [#21](https://github.com/TonichaB/cleaning-blog/issues/21) | img |  |  |  |  | rslt img |
+
+**Epic: Comments Section**
+
+| User Story | Feature Image | Test Action | Expected Result | Actual Result | Pass/Fail | Result Image |
+| -- | -- | -- | -- | -- | -- | -- |
+
+**Epic: Authentication & Authorisation**
+
+| User Story | Feature Image | Test Action | Expected Result | Actual Result | Pass/Fail | Result Image |
+| -- | -- | -- | -- | -- | -- | -- |
+
+**Epic: Search Function**
+
+| User Story | Feature Image | Test Action | Expected Result | Actual Result | Pass/Fail | Result Image |
+| -- | -- | -- | -- | -- | -- | -- |
+
 
 ## Automatic Testing
 
