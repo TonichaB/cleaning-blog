@@ -92,6 +92,8 @@ The goal for this project is to create a blog for cleaners with various experien
 
 #### Navigation Bar
 
+The header contains a Navigation Bar with links to the home page, blog page, about page and contact page. This component is present on all pages of the site.
+
 #### Blog Posts
 
 #### Like/Comment on Posts

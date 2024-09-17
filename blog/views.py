@@ -6,7 +6,8 @@ from .models import BlogPost
 
 # Show blog.html content
 def blog(request):
-    return render(request, 'blog.html')
+    blog_posts = BlogPost.objects.all()
+    return render(request, 'blog.html', {'blog_posts': blog_posts})
 
 # Obtain the initial top 5 popular posts
 def top_posts(request):

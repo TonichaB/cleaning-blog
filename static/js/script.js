@@ -5,7 +5,7 @@ function updatePopularPosts() {
         .then(response => response.json())
         .then(data => {
             const postsContainer = document.getElementById('popular-posts');
-            postsContainer.innerHTML = '';
+            postsContainer.innerHTML = ''; // Clear current posts
 
             if (data.length > 0) {
                 data.forEach(post => {

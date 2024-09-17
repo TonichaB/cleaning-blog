@@ -1,6 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Blog Page Content</h2>
-<p>This is temporary content for the blog page</p>
+<div id="blog-intro">
+    <p>Welcome to the Blog Page! Here you can see a list of the blog posts submitted by other users- so take some time and have a look through. You can refine your search using the filter options available.</p>
+</div>
+<div id="blog-container">
+    <!-- Blog Posts Section-->
+     <div id="blog-posts">
+        {% for post in blog_posts %}
+        <div class="blog-post">
+            <h2>{{ post.title }}</h2>
+            <p>By {{ post.author.username }} on {{ post.published_date }}</p>
+            <p>{{ post.excerpt }} <a href="{{ post.get_absolute_url }}">...Read More</a></p>
+        </div>
+        {% empty %}
+        <p id="no-posts">No Blog Posts Available</p>
+        {% endfor %}
+     </div>
+
+     <!-- Filtering Section -->
+
+     <aside id="blog-filters">
+        <h3>Filter Posts</h3>
+        <form method="GET" action="{% url 'blog' %}">
+            <label for="category">Catagory:</label>
+            <select name="category" id="category">
+                <option value="">All</option>
+                <option value="product-reviews">Product Reviews</option>
+                <option value="tips-&-tricks">Tips & Tricks</option>
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+     </aside>
+</div>
 {% endblock %}
