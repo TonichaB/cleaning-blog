@@ -6,9 +6,11 @@
     <p>Welcome to the Blog Page! Here you can see a list of the blog posts submitted by other users- so take some time and have a look through. You can refine your search using the filter options available.</p>
 </div>
 
-<!-- Blog Posts Section-->
- <div id="blog-container">   
-     <div id="blog-posts">
+<!-- Blog Page -->
+<div id="blog-container">  
+
+    <!-- Blog Posts Section-->
+    <div id="blog-posts">
         {% for post in blog_posts %}
         <div class="blog-post">
             <h2>{{ post.title }}</h2>
@@ -18,11 +20,22 @@
         {% empty %}
         <p id="no-posts">No Blog Posts Available</p>
         {% endfor %}
+    </div>
+
+    <!-- Pagination Controls -->
+     <div>
+        <span>
+            {% if blog_posts.has_previous %}
+                <a href="?{% if request.GET.page %}page={{ blog_posts.previous_page_number }}{% endif %}">&laquo; Previous</a>
+            {% endif %}
+
+            {% if blog_posts.has_next %}
+                <a href="?{% if request.GET.page %}page={{ blog_posts.next_page_number }}{% endif %}">Next &raquo;</a>
+            {% endif %}
+        </span>
      </div>
-
-     <!-- Filtering Section -->
-
-     <aside id="blog-filters">
+    <!-- Filtering Section -->
+    <aside id="blog-filters">
         <h3>Filter Posts</h3>
         <form method="GET" action="{% url 'blog' %}">
             <label for="category">Catagory:</label>
@@ -42,6 +55,6 @@
             </select>
             <button type="submit">Filter</button>
         </form>
-     </aside>
+    </aside>
 </div>
 {% endblock %}

@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models import BlogPost
@@ -12,6 +13,7 @@ def blog(request):
 
     blog_posts = BlogPost.objects.all()
 
+    # Blog Post display Filtering/Sorting options
     if category:
         blog_posts = blog_posts.filter(category=category)
     if author:
@@ -25,6 +27,17 @@ def blog(request):
         blog_posts = blog_posts.order_by('-likes')
     elif sort == 'popularity_asc':
         blog_posts = blog_posts.order_by('likes')
+
+    # Pagination
+    paginator = Paginator(blog_posts, 5)
+    page = request.GET.get('page')
+
+    try:
+        blog_posts = paginator.page(page)
+    except PageNotAnInteger:
+        blog_posts = paginator.page(1)
+    except EmptyPage:
+        blog_posts = paginator.page(paginator.num_pages)
         
     return render(request, 'blog.html', {'blog_posts': blog_posts})
 

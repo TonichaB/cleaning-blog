@@ -399,6 +399,29 @@ a:focus, button:focus {
         width: 90%;
     }
 
+    /* Pagination Controls */
+
+    #pagination {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    #pagination .step-links {
+        padding: 10px;
+        margin: 0 2px;
+        text-decoration: none;
+        color: #000000;
+    }
+
+    #pagination .step-links a:hover {
+        background-color: #005050;
+    }
+
+    #pagination .step-links .disabled {
+        color: #aaa;
+        pointer-events: none;
+    }
+
     /* Footer */
 
     #footer {
