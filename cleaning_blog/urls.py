@@ -19,7 +19,7 @@ from django.urls import path
 from core.views import home, about, contact
 from blog.views import blog, top_posts, get_popular_posts, user_post_detail, user_posts_api
 from comments.views import comments
-from users.views import users
+from users.views import register_view, login_view, logout_view
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -35,4 +35,7 @@ urlpatterns = [
     path('get-popular-posts/', get_popular_posts, name='get_popular_posts'),
     path('user-posts-api/', user_posts_api, name='user_posts_api'),
     path('user-post-detail', user_post_detail, name='user_post_detail'),
+    path('register/', register_view, name='register'),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
 ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
