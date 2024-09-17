@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core.views import home, about, contact
-from blog.views import blog, top_posts
+from blog.views import blog, top_posts, get_popular_posts
 from comments.views import comments
 from users.views import users
 from django.conf import settings
@@ -32,4 +32,5 @@ urlpatterns = [
     path('comments/', comments, name='comments'),
     path('users/', users, name='users'),
     path('top-posts/', top_posts, name='top_posts'),
+    path('get-popular-posts/', get_popular_posts, name='get_popular_posts'),
 ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
