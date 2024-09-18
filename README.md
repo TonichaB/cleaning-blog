@@ -94,6 +94,10 @@ When first visiting the website, the user is presented with the home page. Withi
 
 #### Blog Page
 
+On the blog page all published blog posts can be viewed with the options to filter/sort the results. There is also a button for user's to create a new post.<br>
+
+*image of blog page*
+
 #### Footer
 
 The site footer is present on all pages and fixed to the bottom of the page. Within the footer there are social media links that will open in a new tab when selected, and a general disclosure statement regarding the page contents. The footer is responsive to different screen sizes and adjusts the content accordingly to provide a positive user experience. <br>
@@ -122,6 +126,11 @@ Within the header for the site, to the top right, there is a button for the user
 *image of register modal* *image of login modal*
 
 #### Blog Posts
+
+Users can create new blog posts by following the button on the blog page, or within the My Posts modal. This will open a new modal that will ask the user to input a title and the content of their post, and they can then click to publish their post to the site. Once a post has been published it will be included in the blog posts display shown on the blog page. The user can exit out of the new post modal at any time by either clicking on the 'X' or clicking anywhere on the page outside of the modal.<br>
+
+*image of new post modal*<br>
+*image of published post*
 
 #### Like/Comment on Posts
 

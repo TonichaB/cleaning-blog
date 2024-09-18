@@ -38,8 +38,12 @@ The User Stories have been manually tested, including their corresponding featur
 
 | User Story | Feature Image | Test Action | Expected Result | Actual Result | Pass/Fail | Result Image |
 | -- | -- | -- | -- | -- | -- | -- |
-| [#18](https://github.com/TonichaB/cleaning-blog/issues/18) | img |  |  |  |  | rslt img |
+| [#18](https://github.com/TonichaB/cleaning-blog/issues/18) | img | Click the 'Blog' link on the home page | User is redirected to the blog page | Redirection to blog page occurs as expected | Pass | rslt img |
+| [#18](https://github.com/TonichaB/cleaning-blog/issues/18) | img | Click 'Create Post' button | New 'Create Post' modal opens with a form to be completed in order to publish the pist | Create Post modal appears as expected, with input fields for title and content required to publish a post | Pass | rslt img |
+| [#18](https://github.com/TonichaB/cleaning-blog/issues/18) | img | Click Publish button | Confirmation message to appear confirming post published and user redirected to blog page/my posts modal | Confirmation message appears as expected, and redirection occurs back to blog page/my posts modal where applicable | Pass | rslt img |
 | [#20](https://github.com/TonichaB/cleaning-blog/issues/20) | img |  |  |  |  | rslt img |
+| [#20](https://github.com/TonichaB/cleaning-blog/issues/20) | img |  |  |  |  | rslt img |
+| [#21](https://github.com/TonichaB/cleaning-blog/issues/21) | img |  |  |  |  | rslt img |
 | [#21](https://github.com/TonichaB/cleaning-blog/issues/21) | img |  |  |  |  | rslt img |
 
 **Epic: Comments Section**
