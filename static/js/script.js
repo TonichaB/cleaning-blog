@@ -191,6 +191,14 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error:', error));
     });
 
+    // Logout Dropdown
+
+    if (userButton) {
+        userButton.addEventListener('click', () => {
+            userDropdownContent.style.display = userDropdownContent.style.display === 'block' ? 'none' : 'block';
+        });
+    }
+    
     // Logout
     logoutLink?.addEventListener('click', (e) => {
         e.preventDefault();
@@ -201,11 +209,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     'X-CSRFToken': getCookie('csrftoken'),
                 },
             })
-            .then(response => response.json())
+            .then(response => {
+                if (response.redirected) {
+                    window.location.href = response.url;
+                } else {
+                    return response.json();
+                }
+            }) 
             .then(data => {
                 alert(data.message);
-                if (data.success) {
-                    location.reload();
+                if (data && data.success) {
+                    window.location.href = '/';
                 }
             })
             .catch(error => console.error('Error:', error));
