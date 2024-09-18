@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const createPostBtnModal = document.getElementById('create-post-btn-modal');
     const closeCreatePostModal = document.getElementById('close-create-post');
     const createPostForm = document.getElementById('create-post-form');
+    const toggleLinks = document.querySelectorAll('.toggle-content');
 
     // My Posts Modal
 
@@ -233,6 +234,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Toggle Blog Post Content
+
+    toggleLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const post = link.closest('.blog-post');
+            const summary = post.querySelector('.post-summary');
+            const fullContent = post.querySelector('.post-full-content');
+
+            if (fullContent.style.display === 'none') {
+                fullContent.style.display = 'block';
+                summary.style.display - 'none';
+                link.textContent = 'See Less';
+            } else {
+                fullContent.style.display = 'none';
+                summary.style.display = 'block';
+                link.textContent = 'Read More';
+            }
+        });
+    });
+    
     // Create Post Modal
 
     createPostBtn?.addEventListener('click', () => {
