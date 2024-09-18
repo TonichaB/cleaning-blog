@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const myPostsButton = document.getElementById('my-posts-button');
     const modal = document.getElementById('my-posts-modal');
     const closeModal = document.querySelector('#my-posts-modal .close');
-    const userPostsList = document.getElementById('user-posts-lists');
+    const userPostsList = document.getElementById('user-posts-list');
     const registerLoginButton = document.getElementById('register-login-button');
     const registerModal = document.getElementById('register-modal');
     const loginModal = document.getElementById('login-modal');
@@ -53,10 +53,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // My Posts Modal
 
     if (myPostsButton) {
-        myPostsButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            fetchUserPosts();
+        myPostsButton.addEventListener('click', () => {
             modal.style.display = 'block';
+            fetch('/user-posts-api/')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Fetched Data:', data);
+                    if (userPostsList) {
+                        userPostsList.innerHTML = data.map(post => `
+                            <div class="blog-post">
+                                <h2>${post.title}</h2>
+                                <p>${post.excerpt} <a href="${post.url}">...Read More</a></p>
+                            </div>
+                        `).join('');
+                    }
+                })
+                .catch(error => console.error('Error fetching user posts:', error));
         });
     }
 
@@ -255,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    
+
     // Create Post Modal
 
     createPostBtn?.addEventListener('click', () => {
