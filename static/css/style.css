@@ -17,22 +17,12 @@ h1, h2, h3 {
 header {
     background-color: #7fffd4;
     font-family: "Raleway", system-ui;
-    padding: 10px 0;
+    padding: 10px 20px;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-}
-
-header h1 {
-    margin: 0;
-    text-align: center;
-}
-
-#logo {
-    font-family: "Raleway", system-ui;
-    font-weight: 700;
 }
 
 body {
@@ -50,13 +40,41 @@ main {
     border-radius: 8px;
 }
 
+/* Container for logo and user auth */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    font-family: "Raleway", system-ui;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.user-auth {
+    display: flex;
+    align-items: center;
+}
+
+.user-auth button {
+    background: none;
+    border: none;
+    font-family: "Raleway", system-ui;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
 /* Navigation Styling */
 
 nav {
     display: flex;
     justify-content: center;
-    background-color: #00ffff;
-    margin-bottom: -10px;
+    background-color: #7fffd4;
+    margin-top: 0;
+    padding: 5px 0;
 }
 
 nav ul {
@@ -94,7 +112,7 @@ nav ul li a:hover {
 /* Footer Styling */
 
 #footer {
-    background-color: #7fffd4;
+    background-color: #00ffff;
     color: #000000;
     padding: 10px 0;
     text-align: center;
@@ -364,6 +382,16 @@ a:focus, button:focus {
 
 @media (max-width: 768px) {
     
+    /* Header Container */
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #logo {
+        margin-bottom: 5px;
+    }
+
     /* Nav Bar */
     nav ul {
         flex-direction: column;
@@ -376,7 +404,7 @@ a:focus, button:focus {
     }
 
     nav ul li a {
-        padding: 15px;
+        padding: 10px;
         text-align: center;
     }
 
@@ -391,8 +419,8 @@ a:focus, button:focus {
     .nav-toggle-label {
         display: block;
         cursor: pointer;
-        padding: 10px;
-        background-color: #00ffff;
+        padding: 0;
+        background-color: #7fffd4;
     }
     
     /* Home Page*/

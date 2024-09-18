@@ -30,7 +30,6 @@ urlpatterns = [
     path('contact/', contact, name='contact'), # Contact Page
     path('blog/', blog, name='blog'), # Blog Page
     path('comments/', comments, name='comments'),
-    path('users/', users, name='users'),
     path('top-posts/', top_posts, name='top_posts'),
     path('get-popular-posts/', get_popular_posts, name='get_popular_posts'),
     path('user-posts-api/', user_posts_api, name='user_posts_api'),

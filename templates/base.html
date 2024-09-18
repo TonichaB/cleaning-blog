@@ -16,9 +16,23 @@
 </head>
 <body>
     <header>
-        <a href="{% url 'home' %}">
-            <h1 id="logo">Cleaning Together Blog</h1>
-        </a>
+        <div class="header-container">
+            <a href="{% url 'home' %}"></a>
+                <h1 id="logo">Cleaning Together Blog</h1>
+            </a>
+            <div class="user-auth">
+                {% if user.is_authenticated %}
+                    <div class="user-dropdown">
+                        <button class="user-button">{{ user.username }}</button>
+                        <div class="dropdown-content">
+                            <a href="#" id="logout-link">Log Out</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <button id="register-login-button">Register/Login</button>
+                {% endif %}
+            </div>
+        </div>
         <input type="checkbox" id="nav-toggle" name="nav-toggle" aria-expanded="false">
         <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
             <i class="fa-solid fa-bars" aria-hidden="true"></i>
@@ -53,6 +67,8 @@
         
         <!-- Include My Posts Modal -->
         {% include 'modal.html' %}
+        <!-- Include Register & Login Modals -->
+         {% include 'user_modals.html' %}
 
     </main>
     <footer id="footer">

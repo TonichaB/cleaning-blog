@@ -32,6 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('my-posts-modal');
     const closeModal = document.querySelector('#my-posts-modal .close');
     const userPostsList = document.getElementById('user-posts-lists');
+    const registerLoginButton = document.getElementById('register-login-button');
+    const registerModal = document.getElementById('register-modal');
+    const loginModal = document.getElementById('login-modal');
+    const showLoginModal = document.getElementById('show-login-modal');
+    const closeRegister = document.getElementById('close-register');
+    const closeLogin = document.getElementById('close-login');
+    const registerForm = document.getElementById('register-form');
+    const loginForm = document.getElementById('login-form');
+    const userButton = document.getElementById('user-button');
+    const userDropdownContent = document.getElementById('user-dropdown-content');
+    const logoutLink = document.getElementById('logout-link');
 
     if (myPostsButton) {
         myPostsButton.addEventListener('click', (e) => {
@@ -113,6 +124,92 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error deleting post:', error);
             });
     }
+
+    // Open Register Modal
+    registerLoginButton?.addEventListener('click', () => {
+        registerModal.style.display = 'flex';
+    });
+
+    // Show login modal from register modal
+    showLoginModal?.addEventListener('click', (e) => {
+        e.preventDefault();
+        registerModal.style.display = 'none';
+        loginModal.style.display = 'flex';
+    });
+
+    // Close modals
+    closeRegister?.addEventListener('click', ( => {
+        registerModal.style.display = 'none';
+    }));
+    closeLogin?.addEventListener('click', () => {
+        loginModal.style.display = 'none';
+    });
+
+    // Register Form Submission
+    registerForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(registerform);
+
+        fetch('/register/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.success) {
+                location.reload();
+            }
+        })
+        .catch(error => console.error('Error', error));
+    });
+
+    // Login Form Submission
+
+    loginForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(loginForm);
+
+        fetch('/login/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.success) {
+                location.reload();
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+    // Logout
+    logoutLink?.addEventListener('click', (e) => {
+        e.preventDefault();
+        if(confirm('Are ou sure you want to log out?')) {
+            fetch('/logout/', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                if (data.success) {
+                    location.reload();
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    });
 
     // Function to get CSRF Token from cookies
 
