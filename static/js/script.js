@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(`/user-post-detail/${postId}/`, {
             method: 'DELETE',
             headers: {
-                'X-CSRFToken': getcookie('csrftoken')
+                'X-CSRFToken': getCookie('csrftoken')
             }
         })
             .then(response => {

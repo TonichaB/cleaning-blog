@@ -30,9 +30,11 @@ The live site can be found here! (link to be added)
       - [Blog Page](#blog-page)
       - [Footer](#footer)
       - [Navigation Bar](#navigation-bar)
+      - [Register/Login/Logout](#registerloginlogout)
       - [Blog Posts](#blog-posts)
       - [Like/Comment on Posts](#likecomment-on-posts)
       - [Like/Comment on Existing Comments](#likecomment-on-existing-comments)
+      - [Confirmation Messages](#confirmation-messages)
     - [Potential Future Features](#potential-future-features)
   - [Responsive Layout and Design](#responsive-layout-and-design)
   - [Tools Used](#tools-used)
@@ -112,11 +114,28 @@ For smaller screen sizes the navigation bar becomes hidden and the user is prese
 
 *2 images/combined image for responsive navbar and dropdown display*
 
+#### Register/Login/Logout
+
+Within the header for the site, to the top right, there is a button for the user to firstly Register/Login to an account. This button will change after the user has logged in to instead show the username as a new dropdown link that when clicked shows an option for the user to log out. When first selecting to Register/Login the user is also presented initially with a Register modal containing a form to register, or if they already have an account they can select to login instead which amends the modal to now request the login details.
+
+*image of register/login button* *image of logged in username and dropdown for logout*<br>
+*image of register modal* *image of login modal*
+
 #### Blog Posts
 
 #### Like/Comment on Posts
 
 #### Like/Comment on Existing Comments
+
+#### Confirmation Messages
+
+Throughout the site there are various occassions for a confirmation message to be presented to the user. Each confirmation message is shown below;<br>
+
+- Registration Successful
+- Login Successful
+- Log Out- Are you sure?
+- Log Out- Successful
+- 
 
 ### Potential Future Features
 

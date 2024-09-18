@@ -24,8 +24,8 @@
                 {% if user.is_authenticated %}
                     <div class="user-dropdown">
                         <button class="user-button">{{ user.username }}</button>
-                        <div class="dropdown-content">
-                            <a href="#" id="logout-link">Log Out</a>
+                        <div id="user-dropdown-content" class="dropdown-content">
+                            <a href="/logout/" id="logout-link">Log Out</a>
                         </div>
                     </div>
                 {% else %}

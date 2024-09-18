@@ -18,8 +18,6 @@
     - [Python](#python)
     - [Javascript](#javascript)
   - [Bugs](#bugs)
-    - [Unfixed Bugs](#unfixed-bugs)
-    - [Fixed Bugs](#fixed-bugs)
 
 ## User Story and Features Testing
 
@@ -53,6 +51,17 @@ The User Stories have been manually tested, including their corresponding featur
 
 | User Story | Feature Image | Test Action | Expected Result | Actual Result | Pass/Fail | Result Image |
 | -- | -- | -- | -- | -- | -- | -- |
+| [#27](https://github.com/TonichaB/cleaning-blog/issues/27) | img | Click Register/Login link in header |  |  |  | rslt img |
+| [#27](https://github.com/TonichaB/cleaning-blog/issues/27) | img | Click Register after inputting valid details in form |  |  |  | rslt img |
+| [#27](https://github.com/TonichaB/cleaning-blog/issues/27) | img | Click Register with non-matching passwords input |  |  |  | rslt img |
+| [#27](https://github.com/TonichaB/cleaning-blog/issues/27) | img | Click Register with existing details input |  |  |  | rslt img |
+| [#28](https://github.com/TonichaB/cleaning-blog/issues/28) | img | Click login link within register modal | Login Modal appears with form for user login | The login modal appears and replaces the register modal. Login form displays as expected. | Pass | rslt img |
+| [#28](https://github.com/TonichaB/cleaning-blog/issues/28) | img | Click to login using valid details | Using a valid username and password a successful login message appears and register/login button is replaced with the user's username | Confirmation message appears as expected, and register/login link is replaced with the correct username | Pass | rslt img |
+| [#28](https://github.com/TonichaB/cleaning-blog/issues/28) | img | Click to login using invalid details | Message to appear to notify user of invalid details entered | Message appears as expected to notify of invalid login details | Pass | rslt img |
+| [#28](https://github.com/TonichaB/cleaning-blog/issues/28) | img | Click 'X' in Login modal | Login modal is closed | Modal closes as expected | Pass | rslt img |
+| [#29](https://github.com/TonichaB/cleaning-blog/issues/29) | img | Click on username in header | Dropdown should appear and logout link is displayed | Dropdown works as intended and logout link is displayed | Pass | rslts img |
+| [#29](https://github.com/TonichaB/cleaning-blog/issues/29) | img | Click on logout link | Message to appear to confirm logout request, user can confirm or cancel | Message appears as expected with a button to confirm or cancel | Pass | rslt img |
+| [#29](https://github.com/TonichaB/cleaning-blog/issues/29) | img | Click to confirm logout | Message appears to confirm logout successful, and user redirected to home page with register/login buttons presented | Message confirmation appears as expected and page redirects to home page with button to register/login present | Pass | rslt img |
 
 **Epic: Search Function**
 
@@ -106,10 +115,8 @@ I have used the local db.sqlite3 database for testing the views contained within
 
 ## Bugs
 
-### Unfixed Bugs
-
-### Fixed Bugs
-
-| **Bug** | **Fix** | **Status** |
-| -- | -- | -- |
-| Register/Login Modal not displayed when clicking on the links in the header | Correct the CSS styling for the modal and modal content classes. | Bug Fixed |
+| **Bug** | **Fix** | **Status** | **Comments** |
+| -- | -- | -- | -- |
+| Register/Login Modal not displayed when clicking on the links in the header | Correct the CSS styling for the modal and modal content classes. | Bug Fixed |  |
+| 403 Forbidden Error- Get Popular Posts | Correct the url details within the JavaScript to correctly match the url pattern. | Bug Fixed |  |
+| 403 Forbidden Error- CSRF cookie not set | Correct typo errors within fetch requests, include CSRF verification in HTML, configure settings to include trusted CSRF origins | Bug Fixed |  |
