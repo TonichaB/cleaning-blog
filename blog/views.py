@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_GET, require_POST
@@ -91,3 +91,21 @@ def user_post_detail(request, post_id):
         return JsonResponse({'success': True})
     else:
         return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+# Create Blog Post
+@login_required
+def create_post_view(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        content = request.POST['content']
+        user = request.user
+
+        post = BlogPost.objects.create(
+            author=request.user,
+            title=title,
+            content=content
+        )
+
+        return JsonResponse({'success': True, 'message': 'Post Successfully Published!'})
+
+    return JsonResponse({'success': False, 'message': 'Invalid Request'})

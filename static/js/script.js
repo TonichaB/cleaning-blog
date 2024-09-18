@@ -43,6 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const userButton = document.getElementById('user-button');
     const userDropdownContent = document.getElementById('user-dropdown-content');
     const logoutLink = document.getElementById('logout-link');
+    const createPostModal = document.getElementById('createPostModal');
+    const createPostBtn = document.getElementById('create-post-btn');
+    const createPostBtnModal = document.getElementById('create-post-btn-modal');
+    const closeCreatePostModal = document.getElementById('close-create-post');
+    const createPostForm = document.getElementById('create-post-form');
+
+    // My Posts Modal
 
     if (myPostsButton) {
         myPostsButton.addEventListener('click', (e) => {
@@ -224,6 +231,49 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => console.error('Error:', error));
         }
+    });
+
+    // Create Post Modal
+
+    createPostBtn?.addEventListener('click', () => {
+        createPostModal.style.display = 'block';
+    });
+
+    createPostBtnModal?.addEventListener('click', () => {
+        createPostModal.style.display = 'block';
+    });
+
+    closeCreatePostModal?.addEventListener('click', () => {
+        createPostModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === createPostModal) {
+            createPostModal.style.display = 'none';
+        }
+    });
+
+    // Create Post Form Submission
+
+    createPostForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(createPostForm);
+
+        fetch('/create-post/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.success) {
+                location.reload();
+            }
+        })
+        .catch(error => console.error('Error:', error));
     });
 
     // Function to get CSRF Token from cookies

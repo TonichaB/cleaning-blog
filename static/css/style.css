@@ -88,12 +88,12 @@ main {
     display: block;
 }
 
-/* User Modals */
+/* Modals General Styling */
 
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
@@ -102,11 +102,59 @@ main {
 }
 
 .modal-content {
-    background-color: #f8f8ff;
+    background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    border: 1px solid #88888850;
+    width: 75%;
+    max-width: 600px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Create Post Modal */
+
+.modal-content input[type='text'],
+.modal-content input[type='file'],
+.modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modal-content button[type='submit'] {
+    background-color: #7fffd4;
+    color: #000000;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.open-modal-btn {
+    background-color: #7fffd4;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+    display: inline-block;
 }
 
 /* Navigation Styling */
@@ -354,41 +402,6 @@ img {
 
 #blog-filters h3 {
     margin-top: 0;
-}
-
-/* My Posts Modal */
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #88888850;
-    width: 75%;
-    max-width: 600px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover, .close:focus {
-    color: #000000;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 /* Accessibility */
