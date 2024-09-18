@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function deletePost(postId) {
         if (confirm('Are you sure you want to delete this post?')) {
-            fetch(`/user-post-detail/${postId}/`, {
+            fetch(`/delete-post/${postId}/`, {
                 method: 'DELETE',
                 headers: {
                     'X-CSRFToken': getCookie('csrftoken')
@@ -128,7 +128,11 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    document.querySelector(`.post-item[data-id="${postId}"]`).remove();
+                    document.querySelector(`.blog-post[data-id="${postId}"]`).remove();
+                    let myPostModal = document.getElementById('my-posts-modal');
+                    if (myPostModal) {
+                        myPostModal.style.display = 'none';
+                    }
                 } else {
                     console.error('Error deleting post:', data.message);
                 }
@@ -157,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Edit Post Button
     function handleEdit(postId) {
-        fetch(`/user-post-detail/${postId}/`)
+        fetch(`/edit-post/${postId}/`)
             .then(response => response.json())
             .then(post => populateCreatePostModal(post))
             .catch(error => console.error('Error fetching post for editing:', error));
