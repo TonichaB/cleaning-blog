@@ -12,7 +12,7 @@ class BlogPost(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE) 
 
     def get_absolute_url(self):
-        return reverse('user_post_detail', kwargs={'id': self.id})
+        return reverse('user_post_detail', kwargs={'post_id': self.id})
 
     def __str__(self):
         return self.title

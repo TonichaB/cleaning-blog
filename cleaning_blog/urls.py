@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core.views import home, about, contact
-from blog.views import blog, top_posts, get_popular_posts, user_post_detail, user_posts_api,create_post_view
+from blog.views import blog, top_posts, get_popular_posts, user_post_detail, user_posts_api,create_post_view, edit_post, delete_post
 from comments.views import comments
 from users.views import register_view, login_view, logout_view
 from django.conf import settings
@@ -33,9 +33,11 @@ urlpatterns = [
     path('top-posts/', top_posts, name='top_posts'),
     path('get-popular-posts/', get_popular_posts, name='get_popular_posts'),
     path('user-posts-api/', user_posts_api, name='user_posts_api'),
-    path('user-post-detail/<int:id>/', user_post_detail, name='user_post_detail'),
+    path('user-post-detail/<int:post_id>/', user_post_detail, name='user_post_detail'),
     path('register/', register_view, name='register'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('create-post/', create_post_view, name='create_post'),
+    path('edit-post/<int:pk>/', edit_post, name='edit_post'),
+    path('delete-post/<int:pk>/', delete_post, name='delete_post')
 ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])

@@ -50,27 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const createPostForm = document.getElementById('create-post-form');
     const toggleLinks = document.querySelectorAll('.toggle-content');
 
-    fetchUserPosts();
+
 
     // My Posts Modal
 
     if (myPostsButton) {
         myPostsButton.addEventListener('click', () => {
             modal.style.display = 'block';
-            fetch('/user-posts-api/')
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Fetched Data:', data);
-                    if (userPostsList) {
-                        userPostsList.innerHTML = data.map(post => `
-                            <div class="blog-post">
-                                <h2>${post.title}</h2>
-                                <p>${post.excerpt} <a href="${post.url}">...Read More</a></p>
-                            </div>
-                        `).join('');
-                    }
-                })
-                .catch(error => console.error('Error fetching user posts:', error));
+            fetchUserPosts();
         });
     }
 
@@ -133,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function deletePost(postId) {
         if (confirm('Are you sure you want to delete this post?')) {
             fetch(`/user-post-detail/${postId}/`, {
-                method: 'POST',
+                method: 'DELETE',
                 headers: {
                     'X-CSRFToken': getCookie('csrftoken')
                 }

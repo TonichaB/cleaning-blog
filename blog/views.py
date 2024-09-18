@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_GET, require_POST
@@ -19,7 +19,7 @@ def blog(request):
     if category:
         blog_posts = blog_posts.filter(category=category)
     if author:
-        blog_posts = blog_posts.filter(author__username__icontains=author)
+        blog_posts = blog_posts.filter(author__username__contains=author)
 
     if sort == 'published_date_desc':
         blog_posts = blog_posts.order_by('-published_date')
@@ -109,3 +109,24 @@ def create_post_view(request):
         return JsonResponse({'success': True, 'message': 'Post Successfully Published!'})
 
     return JsonResponse({'success': False, 'message': 'Invalid Request'})
+
+# Edit Blog Post
+@login_required
+@require_POST
+def edit_post(request, pk):
+    post = get_object_or_404(BlogPost, pk=pk, author=request.user)
+    title = request.POST.get('title')
+    content = request.POST.get('content')
+    if title and content:
+        post.title = title
+        post.content = content
+        post.save()
+        return JsonResponse({'success': True, 'message': 'Post Updated Successfully'})
+    return JsonResponse({'success': False, 'message': 'Error updating post.'})
+
+# Delete Blog Post
+
+def delete_post(request, pk):
+    post = get_object_or_404(BlogPost, pk=pk, author=request.user)
+    post.delete()
+    return JsonResponse({'success': True, 'message': 'Post Deleted Successfully'})
