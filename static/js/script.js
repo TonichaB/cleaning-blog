@@ -50,6 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const createPostForm = document.getElementById('create-post-form');
     const toggleLinks = document.querySelectorAll('.toggle-content');
 
+    fetchUserPosts();
+
     // My Posts Modal
 
     if (myPostsButton) {
@@ -95,15 +97,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     data.forEach(post => {
                         const postElement = document.createElement('div');
                         postElement.classList.add('post-item');
+                        postElement.setAttribute('data-id', post.id);
                         postElement.innerHTML = `
                             <h3>${post.title}</h3>
                             <p>${post.excerpt}</p>
-                            <a href="${post.url}">Edit</a>
+                            <a href="${post.url}" class="edit-button" data-id="${post.id}">Edit</a>
                             <button data-id="${post.id}" class="delete-button">Delete</button>
                         `;
                         userPostsList.appendChild(postElement);
                     });
                     addDeleteEventListeners();
+                    addEditEventListeners();
                 } else {
                     userPostsList.innerHTML = '<p>No Posts Available.</p>';
                 }
@@ -127,23 +131,50 @@ document.addEventListener('DOMContentLoaded', () => {
     // Delete Post Function
 
     function deletePost(postId) {
-        fetch(`/user-post-detail/${postId}/`, {
-            method: 'DELETE',
-            headers: {
-                'X-CSRFToken': getCookie('csrftoken')
-            }
+        if (confirm('Are you sure you want to delete this post?')) {
+            fetch(`/user-post-detail/${postId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken')
+                }
         })
-            .then(response => {
-                if (response.ok) {
-                    document.querySelector(`.delete-button[data-id="${postId}"]`).parentElement.remove();
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.querySelector(`.post-item[data-id="${postId}"]`).remove();
                 } else {
-                    console.error('Error deleting post:', response);
+                    console.error('Error deleting post:', data.message);
                 }
             })
-            .catch(error => {
-                console.error('Error deleting post:', error);
-            });
+            .catch(error => console.error('Error deleting post:', error));
+            };
     }
+
+    // Event listeners for post edit buttons
+    function addEditEventListeners(){
+        document.querySelectorAll('.edit-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const postId = e.target.getAttribute('data-id');
+                handleEdit(postId);
+            });
+        });
+    }
+
+    // Populate create post modal with existing content ready to edit
+    function populateCreatePostModal(post) {
+        createPostModal.querySelector('input[name="title"]').value = post.title;
+        createPostModal.querySelector('textarea[name="content"]').value = post.content;
+        createPostModal.querySelector('form').dataset.postId = post.id;
+        createPostModal.style.display = 'block';
+    }
+
+    // Edit Post Button
+    function handleEdit(postId) {
+        fetch(`/user-post-detail/${postId}/`)
+            .then(response => response.json())
+            .then(post => populateCreatePostModal(post))
+            .catch(error => console.error('Error fetching post for editing:', error));
+    }    
 
     // Open Register Modal
     registerLoginButton?.addEventListener('click', () => {
@@ -258,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (fullContent.style.display === 'none') {
                 fullContent.style.display = 'block';
-                summary.style.display - 'none';
+                summary.style.display = 'none';
                 link.textContent = 'See Less';
             } else {
                 fullContent.style.display = 'none';
