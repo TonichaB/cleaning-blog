@@ -1,7 +1,7 @@
 // Popular Post Live Updates function
 
 function updatePopularPosts() {
-    fetch('/get_popular_posts/')
+    fetch('/get-popular-posts/')
         .then(response => response.json())
         .then(data => {
             const postsContainer = document.getElementById('popular-posts');
@@ -20,7 +20,7 @@ function updatePopularPosts() {
                 postsContainer.innerHTML = `<li id="no-posts">No Popular Posts Available</li>`;
             }
         })
-        .catch(error => console.error('Error updated popular posts:', error));
+        .catch(error => console.error('Error updating popular posts:', error));
 }
 
 setInterval(updatePopularPosts, 60000);
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to fetch User Posts
 
     function fetchUserPosts() {
-        fetch('/user_posts_api/')
+        fetch('/user-posts-api/')
             .then(response => response.json())
             .then(data => {
                 userPostsList.innerHTML = '';
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Delete Post Function
 
     function deletePost(postId) {
-        fetch(`/user_post_detail/${postId}/`, {
+        fetch(`/user-post-detail/${postId}/`, {
             method: 'DELETE',
             headers: {
                 'X-CSRFToken': getcookie('csrftoken')
@@ -138,9 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Close modals
-    closeRegister?.addEventListener('click', ( => {
+    closeRegister?.addEventListener('click', () => {
         registerModal.style.display = 'none';
-    }));
+    });
     closeLogin?.addEventListener('click', () => {
         loginModal.style.display = 'none';
     });
@@ -148,7 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Register Form Submission
     registerForm?.addEventListener('submit', (e) => {
         e.preventDefault();
-        const formData = new FormData(registerform);
+        console.log('Register form submitted');
+        const formData = new FormData(registerForm);
 
         fetch('/register/', {
             method: 'POST',
@@ -219,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const cookies = document.cookie.split(';');
             for (let i = 0; i < cookies.length; i++) {
                 const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length = 1) === (name + '=')) {
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                     break;
                 }

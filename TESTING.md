@@ -110,6 +110,6 @@ I have used the local db.sqlite3 database for testing the views contained within
 
 ### Fixed Bugs
 
-| **Bug** | **Fix** |
-| -- | -- |
-| Bug: | Solution: |
+| **Bug** | **Fix** | **Status** |
+| -- | -- | -- |
+| Register/Login Modal not displayed when clicking on the links in the header | Correct the CSS styling for the modal and modal content classes. | Bug Fixed |
