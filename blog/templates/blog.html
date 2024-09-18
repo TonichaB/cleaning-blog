@@ -15,7 +15,14 @@
         <div class="blog-post">
             <h2>{{ post.title }}</h2>
             <p>By {{ post.author.username }} on {{ post.published_date }}</p>
-            <p>{{ post.excerpt }} <a href="{{ post.get_absolute_url }}">...Read More</a></p>
+            <!-- Trincated Content -->
+             <div class="post-summary">
+                <p>{{ post.excerpt }} <a href="#" class="toggle-content">Read More</a></p>
+             </div>
+            <!-- Full Content (Initially Hidden) -->
+            <div class="post-full-content" style="display: none;">
+                <p>{{ post.content }}</p>
+            </div>
         </div>
         {% empty %}
         <p id="no-posts">No Blog Posts Available</p>
