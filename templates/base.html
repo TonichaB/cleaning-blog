@@ -26,6 +26,10 @@
                         <button id="user-button">{{ user.username }}</button>
                         <div id="user-dropdown-content" class="dropdown-content">
                             <a href="/logout/" id="logout-link">Log Out</a>
+                            <!-- Check if Staff User-->
+                             {% if user.is_staff %}
+                             <a class="dropdown-item" href="/admin/">Admin Panel</a>
+                             {% endif %}
                         </div>
                     </div>
                 {% else %}
