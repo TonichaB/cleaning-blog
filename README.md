@@ -32,10 +32,12 @@ The live site can be found here! (link to be added)
       - [Navigation Bar](#navigation-bar)
       - [Register/Login/Logout](#registerloginlogout)
       - [Blog Posts](#blog-posts)
-      - [Like/Comment on Posts](#likecomment-on-posts)
-      - [Like/Comment on Existing Comments](#likecomment-on-existing-comments)
+      - [Like Posts](#like-posts)
       - [Confirmation Messages](#confirmation-messages)
     - [Potential Future Features](#potential-future-features)
+      - [Comments Section](#comments-section)
+      - [User Profile Management](#user-profile-management)
+      - [Search Bar](#search-bar)
   - [Responsive Layout and Design](#responsive-layout-and-design)
   - [Tools Used](#tools-used)
     - [Python Packages](#python-packages)
@@ -132,9 +134,7 @@ Users can create new blog posts by following the button on the blog page, or wit
 *image of new post modal*<br>
 *image of published post*
 
-#### Like/Comment on Posts
-
-#### Like/Comment on Existing Comments
+#### Like Posts
 
 #### Confirmation Messages
 
@@ -147,6 +147,24 @@ Throughout the site there are various occassions for a confirmation message to b
 - 
 
 ### Potential Future Features
+
+#### Comments Section
+
+- Blog Post Comments
+- Nested Comments
+- Like Comments
+
+#### User Profile Management
+
+- Resetting password
+- Profile Pictures
+- Edit Account Details
+- Delete Account
+
+#### Search Bar
+
+- Basic Search
+- Advanced Search
 
 ## Responsive Layout and Design
 
@@ -212,3 +230,9 @@ If you wish to ***Clone*** this repository on your local machine please follow t
 ### Code
 
 ## Acknowledgements
+
+I would like to acknowledge my partner, Paul, who has continued to encourage me throughout my coding journey. His continued kind words, and regular pep talks have kept me going!<br>
+
+I also want to thank the Slack community who are always so helpful and supportive.<br>
+
+Lastly, I would like to thank Code Institute who have taught me everything I know so far and have been very supportive throughout my time on the course.

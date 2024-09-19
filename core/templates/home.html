@@ -20,7 +20,7 @@
         {% for post in popular_posts %}
         <li>
             <a href="{% url 'post_detail' post.id %}" id="post-title">{{ post.title }}</a> <!-- Link to the post detail page -->
-            <span id="author-name">by {{ post.author.username }}</span>> <!-- Display Author Username -->
+            <span id="author-name">by {{ post.author.username }}</span> <!-- Display Author Username -->
             <p>{{ post.content|slice:":200" }}<a href="{% url 'post_detail' post.id %}" class="read-more">... Read More</a></p> <!-- Display an excerpt from the post content and link to post detail page -->
         </li>
         {% empty %}

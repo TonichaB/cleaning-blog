@@ -1,29 +1,33 @@
 // Popular Post Live Updates function
 
-function updatePopularPosts() {
-    fetch('/get-popular-posts/')
-        .then(response => response.json())
-        .then(data => {
-            const postsContainer = document.getElementById('popular-posts');
-            postsContainer.innerHTML = ''; // Clear current posts
+document.addEventListener('DOMContentLoaded', function() {
+    function updatePopularPosts() {
+        fetch('/get-popular-posts/')
+            .then(response => response.json())
+            .then(data => {
+                const postsContainer = document.querySelector('#popular-posts ul');
+                postsContainer.innerHTML = ''; // Clear current posts
 
-            if (data.popular_posts.length > 0) {
-                data.popular_posts.forEach(post => {
-                    const postElement = document.createElement('li');
-                    postElement.innerHTML = `
-                        <a href="${post.url}">${post.title}</a> by ${post.author}<br>
-                        ${post.excerpt} <a href="${post.url}">...</a>
-                    `;
-                    postsContainer.appendChild(postElement);
-                });
-            } else {
-                postsContainer.innerHTML = `<li id="no-posts">No Popular Posts Available</li>`;
-            }
-        })
-        .catch(error => console.error('Error updating popular posts:', error));
-}
+                if (data.popular_posts.length > 0) {
+                    data.popular_posts.forEach(post => {
+                        const postElement = document.createElement('li');
+                        postElement.innerHTML = `
+                            <a href="${post.url}" id="post-title">${post.title}</a>
+                            <span id="author-name">by ${post.author}</span>
+                            <p>${post.excerpt}<a href="${post.url}" class="read-more">... Read More</a></p>
+                        `;
+                        postsContainer.appendChild(postElement);
+                    });
+                } else {
+                    postsContainer.innerHTML = `<li id="no-posts">No Popular Posts Available</li>`;
+                }
+            })
+            .catch(error => console.error('Error updating popular posts:', error));
+    }
 
-setInterval(updatePopularPosts, 60000);
+    updatePopularPosts();
+    setInterval(updatePopularPosts, 60000);
+});
 
 // Manage Modals
 
