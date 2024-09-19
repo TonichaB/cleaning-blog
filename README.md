@@ -54,6 +54,8 @@ The live site can be found here! (link to be added)
 
 ## Overview
 
+Cleaning Together log is a community driven platform where cleaning enthusiasts and professionals alike can share tips, tricks and experiences. The blog aims to foster a supportive environmental for people interested in cleaning, providing a space for sharing valuable content and engaging with others through blog posts and likes.
+
 ## UX
 
 The site has been created whilst observing the Five Planes of Website Design:
@@ -227,6 +229,13 @@ tested devices-
 
 ### Python Packages
 
+- asgiref         3.8.1
+- dj-database-url 0.5.0
+- Django          4.2.16
+- gunicorn        20.1.0
+- psycopg2        2.9.9
+- sqlparse        0.5.1
+
 ## Testing
 
 Details of the project testing can be found in [TESTING.md](TESTING.md)
@@ -280,9 +289,28 @@ If you wish to ***Clone*** this repository on your local machine please follow t
 
 ### Content
 
+Most of the content contained in the site currently has been written by me, however I have used the following as guidance;
+
+- [Site Introduction Guidance](https://coschedule.com/blog/blog-post-introductions)- Guidance on writing an engaging site introduction for the home page.
+- 
 ### Media
 
+I have used the following for the media contained in the site;
+
+- The image contained in the home page of the site has been sourced using [Pexels.com](https://www.pexels.com/).
+- The burger drop down button and the like buttons have been created with icons from [fontawesome.](https://fontawesome.com/)
+
 ### Code
+
+I have utilised the following resources to assist me in writing the code for this project:
+
+- [Secret Key Generator](https://djecrety.ir/) - Used to generate the required secret key variables for the site.
+- [Noopender and Noreferrer](https://stackoverflow.com/questions/50709625/link-with-target-blank-and-rel-noopener-noreferrer-still-vulnerable) - Used to understand the purpose of the two when considering site vulnerability following certian links.
+- [Django Password Hashing Framework](https://docs.djangoproject.com/en/5.1/topics/auth/passwords/#:~:text=By%20default%2C%20Django%20uses%20the,of%20computing%20time%20to%20break.) - the Django documentation has helped me in ensuring my site has been set up with the function of hashing passwords for additional security.
+- [ChatGPT](https://chatgpt.com/) - I have found ChatGPT to be very useful in assisting me to debug features within the project.
+- The Code Institute learning portal has also been referred to throughout the development process to ensure I have the correct understanding on what is needed to build the site.
+- [Mozilla](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) - This site contains useful guidance on the javascript fetch API which has been utilised within various functions in the JavaScript file for this project.
+- [Stack Overflow](https://stackoverflow.com/questions/62879957/how-to-implement-a-like-system-in-django-templates)- This particular page was used as a reference point when building the 'Like' system model within the site.
 
 ## Acknowledgements
 

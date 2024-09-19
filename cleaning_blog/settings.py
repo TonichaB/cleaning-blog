@@ -41,6 +41,9 @@ ALLOWED_HOSTS = [
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-tonichab-cleaningblog-sb0kndpfmmw.ws.codeinstitute-ide.net'
+    '.herokuapp.com'
+    'localhost',
+    '127.0.0.1'
 ]
 
 # Application definition
