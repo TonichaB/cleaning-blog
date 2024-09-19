@@ -37,6 +37,7 @@ ALLOWED_HOSTS = [
     '.herokuapp.com',
     'localhost',
     '127.0.0.1'
+    'https://cleaning-blog-a7931fa873c1.herokuapp.com/'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -44,6 +45,7 @@ CSRF_TRUSTED_ORIGINS = [
     '.herokuapp.com'
     'localhost',
     '127.0.0.1'
+    'https://cleaning-blog-a7931fa873c1.herokuapp.com/'
 ]
 
 # Application definition
