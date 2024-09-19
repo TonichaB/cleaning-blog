@@ -61,24 +61,60 @@ The site has been created whilst observing the Five Planes of Website Design:
 ### Strategy
 
 ** User Stories and Epics **<br>
-The User Stories and Epics created for this project can be found on the [project board.]() <br>
+The User Stories and Epics created for this project can be found on the [project board.](https://github.com/users/TonichaB/projects/3) <br>
 
 ** Project Goal ** <br>
 
 The goal for this project is to create a blog for cleaners with various experience to share their tips and tricks of the trade. <br>
 
 ** Project Objectives **
-
+- Develop blog website making use of UX to encourage a positive emotional response from users;
+- To provide clear layouts for staff and/or user login accounts;
+- To implement a custom model alongside relevant features and design to enhance the user experience.
+- To make a responsive site that works well on multiple devices or screensizes.
 
 ### Scope
 
+**Simple and Intuitive UX**
+
+**Relevant Content**
+
+**Features for Upgraded Experience**
+
+**Authorisation & Authentication**
+
+**Responsiveness**
+
 ### Structure
+
+- Home
+- Blog
+- Register/Login
+- Logout
+- Staff Login
+- Create, view, delete Posts
+
+**Flowchart**
 
 ### Skeleton
 
+**Wireframes** 
+
+**Models**
+
 ### Surface
 
+**Colour Scheme**
+
+**fonts**
+
+**Notifications**
+
 ## Agile Methodology
+
+epics & user stories registered using GitHub Issues. project board used to monitor progress.
+
+**Sprints**
 
 ## Features
 
@@ -168,7 +204,26 @@ Throughout the site there are various occassions for a confirmation message to b
 
 ## Responsive Layout and Design
 
+Breakpoints-
+tested devices-
+
 ## Tools Used
+
+- github
+- visual studio
+- heroku
+- balsamiq
+- visual paradigm (flowchart)
+- font awesome
+- google fonts
+- jshint
+- pep8 validator
+- w3c html validator
+- css jagsaw css validator
+- WAVE
+- Google Dev Tools
+- Code Institute PostgreSQL
+- lighthouse
 
 ### Python Packages
 
