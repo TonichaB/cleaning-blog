@@ -145,3 +145,20 @@ def delete_post(request, pk):
     post = get_object_or_404(BlogPost, pk=pk, author=request.user)
     post.delete()
     return JsonResponse({'success': True, 'message': 'Post Deleted Successfully'})
+
+# Like Posts
+def like_post(request):
+    if request.method == 'POST':
+        try:
+            import json
+            data = json.loads(request.body)
+            post_id = data.get('post_id')
+            post = BlogPost.objects.get(id=post_id)
+            post.likes += 1
+            post.save()
+            return JsonResponse({'likes': post.likes})
+        except BlogPost.DoesNotExist:
+            return JsonResponse({'error': 'Post not found'}, status=404)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    return JsonResponse({'error': 'Invalid request'}, status=400)
