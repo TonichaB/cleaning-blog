@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 from django.views.decorators.csrf import csrf_exempt
-from .models import BlogPost
+from .models import BlogPost, Like
 
 # Create your views here.
 
@@ -147,18 +147,25 @@ def delete_post(request, pk):
     return JsonResponse({'success': True, 'message': 'Post Deleted Successfully'})
 
 # Like Posts
+@login_required
 def like_post(request):
     if request.method == 'POST':
+        post_id = request.POST.get('post_id')
+        user = request.user
+
         try:
-            import json
-            data = json.loads(request.body)
-            post_id = data.get('post_id')
             post = BlogPost.objects.get(id=post_id)
-            post.likes += 1
-            post.save()
-            return JsonResponse({'likes': post.likes})
         except BlogPost.DoesNotExist:
             return JsonResponse({'error': 'Post not found'}, status=404)
-        except Exception as e:
-            return JsonResponse({'error': str(e)}, status=500)
-    return JsonResponse({'error': 'Invalid request'}, status=400)
+        
+        if Like.objects.filter(user=user, blog_post=post).exists():
+            return JsonResponse({'status': 'error', 'message': 'You have already liked this post.'})
+        
+        Like.objects.create(user=user, blog_post=post)
+
+        post.likes += 1
+        post.save()
+        
+        return JsonResponse({'status': 'success', 'likes': post.likes})
+    
+    return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)

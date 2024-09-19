@@ -445,28 +445,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const likeButtons = document.querySelectorAll('.like-button');
 
     likeButtons.forEach(button => {
-        button.addEventListener('click', async () => {
-            const postId = button.getAttribute('data-post-id');
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
 
-            try {
-                const response = await fetch(`/like-post/`, {
+            const postId = this.dataset.postId;
+
+            fetch(`/like-post/`, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/x-www-form-urlencoded',
                         'X-CSRFToken': getCookie('csrftoken')
                     },
-                    body: JSON.stringify({ post_id: postId })
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    button.querySelector('.like-count').textContent = data.likes;
-                } else {
-                    console.error('Failed to like the post');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-            }
+                    body: new URLSearchParams({
+                        'post_id': postId
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        const likeCountElement = this.querySelector('.like-count');
+                        likeCountElement.textContent = data.likes;
+                    } else if (data.status === 'error') {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
         });
     });
 
@@ -486,4 +490,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return cookieValue;
     }
-})

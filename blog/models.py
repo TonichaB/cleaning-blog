@@ -16,3 +16,10 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    blog_post = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'blog_post')
