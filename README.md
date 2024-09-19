@@ -250,7 +250,7 @@ In order to deploy the project to ***Heroku*** please follow the below instructi
 In the terminal on the workspace enter the command "pip3 freeze > requirements.txt", to create a file which will contain the project requirements.
 
 2. Set Up Heroku App
-  - Go to the [Heroku Website]()
+  - Go to the [Heroku Website](http://www.heroku.com/)
   - Log in to your Heroku app and select to *Create App*
   - Select *New* and *Create a new app*
   - Create an app name, and select your applicable location.
@@ -272,14 +272,14 @@ After following the above steps you should be able to select ***Open App*** to o
 
 If you wish to create a copy of the repository on your own account so you can make independant changes without impacting the original project, please follow the below instructions to ***Fork*** the repository:
 
-- On the [repository]() page, click the option to ***Fork*** shown on the top right of the page.
+- On the [repository](https://github.com/TonichaB/cleaning-blog) page, click the option to ***Fork*** shown on the top right of the page.
 - A forked version of my project should then appear in your own repository.
 
 ### Clone Repository
 
 If you wish to ***Clone*** this repository on your local machine please follow the below instructions:
 
-- On the [repository]() page, click the green ***Code*** button just above the code window.
+- On the [repository](https://github.com/TonichaB/cleaning-blog) page, click the green ***Code*** button just above the code window.
 - Choose from HTTPS, SSH and GitHub CLI format, and copy the link provided (*Recommended: HTTPS*)
 - Open your preferred IDE and open Git Bash
 - Enter the command git clone followed by the copied URL
