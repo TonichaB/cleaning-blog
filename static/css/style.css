@@ -383,10 +383,31 @@ img {
 .blog-post {
     border-bottom: 1px solid #000000;
     padding: 15px 0;
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .blog-post h2 {
     margin: 0 0 5px;
+}
+
+/* Like Button */
+
+.like-button {
+    position: relative;
+    bottom: 10px;
+    left: 90%;
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+}
+
+.like-button .like-count {
+    margin-left: 8px;
 }
 
 /* Filtering Section */
@@ -418,7 +439,7 @@ a:focus, button:focus {
     margin: -1px;
     padding: 0;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    clip-path: rect(0, 0, 0, 0);
     border: 0;
 }
 
@@ -613,5 +634,9 @@ a:focus, button:focus {
 
     #blog-intro {
         margin-top: 15px;
+    }
+
+    .like-button {
+        left: 80%;
     }
 }

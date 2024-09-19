@@ -21,8 +21,12 @@
              </div>
             <!-- Full Content (Initially Hidden) -->
             <div class="post-full-content" style="display: none;">
-                <p>{{ post.content }}</p>
+                <p>{{ post.content|safe }}</p>
             </div>
+            <button class="like-button" data-post-id="{{ post.id }}">
+                <i class="fa-regular fa-thumbs-up"></i>
+                <span class="like-count">{{ post.likes }}</span>
+            </button>
         </div>
         {% empty %}
         <p id="no-posts">No Blog Posts Available</p>
@@ -33,11 +37,11 @@
      <div>
         <span>
             {% if blog_posts.has_previous %}
-                <a href="?{% if request.GET.page %}page={{ blog_posts.previous_page_number }}{% endif %}">&laquo; Previous</a>
+                <a href="?page={{ blog_posts.previous_page_number }}">&laquo; Previous</a>
             {% endif %}
 
             {% if blog_posts.has_next %}
-                <a href="?{% if request.GET.page %}page={{ blog_posts.next_page_number }}{% endif %}">Next &raquo;</a>
+                <a href="?page={{ blog_posts.next_page_number }}">Next &raquo;</a>
             {% endif %}
         </span>
      </div>
@@ -56,7 +60,7 @@
                 <option value="tips-&-tricks">Tips & Tricks</option>
             </select>
             <label for="author">Author:</label>
-            <input type="text" name="author" id="authory" placeholder="Search by Author Name">
+            <input type="text" name="author" id="author" placeholder="Search by Author Name">
             <label for="sort">Sort By:</label>
             <select name="sort" id="sort">
                 <option value="published_date_desc">Date: Newest First</option>

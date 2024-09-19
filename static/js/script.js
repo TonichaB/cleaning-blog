@@ -25,12 +25,27 @@ function updatePopularPosts() {
 
 setInterval(updatePopularPosts, 60000);
 
-// Manage Posts Modal
+// Manage Modals
 
 document.addEventListener('DOMContentLoaded', () => {
+    // My Posts Modal
     const myPostsButton = document.getElementById('my-posts-button');
-    const modal = document.getElementById('my-posts-modal');
-    const closeModal = document.querySelector('#my-posts-modal .close');
+    const myPostsModal = document.getElementById('my-posts-modal');
+    const closeMyPostsModal = document.querySelector('.close');
+
+    // Create Posts Modal
+    const createPostModal = document.getElementById('createPostModal');
+    const createPostBtn = document.getElementById('create-post-btn');
+    const createPostBtnModal = document.getElementById('create-post-btn-modal');
+    const closeCreatePostButton = document.getElementById('close-create-post');
+    const createPostForm = document.getElementById('create-post-form');
+
+    // Edit Post Modal
+    const editPostModal = document.getElementById('editPostModal');
+    const closedEditPostButton = document.getElementById('close-edit-post');
+    const editPostForm = document.getElementById('edit-post-form')
+
+    // User Modals
     const userPostsList = document.getElementById('user-posts-list');
     const registerLoginButton = document.getElementById('register-login-button');
     const registerModal = document.getElementById('register-modal');
@@ -43,33 +58,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const userButton = document.getElementById('user-button');
     const userDropdownContent = document.getElementById('user-dropdown-content');
     const logoutLink = document.getElementById('logout-link');
-    const createPostModal = document.getElementById('createPostModal');
-    const createPostBtn = document.getElementById('create-post-btn');
-    const createPostBtnModal = document.getElementById('create-post-btn-modal');
-    const closeCreatePostModal = document.getElementById('close-create-post');
-    const createPostForm = document.getElementById('create-post-form');
+
     const toggleLinks = document.querySelectorAll('.toggle-content');
-
-
 
     // My Posts Modal
 
     if (myPostsButton) {
         myPostsButton.addEventListener('click', () => {
-            modal.style.display = 'block';
+            myPostsModal.style.display = 'block';
             fetchUserPosts();
         });
     }
 
-    if (closeModal) {
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
+    if (closeMyPostsModal) {
+        closeMyPostsModal.addEventListener('click', () => {
+            myPostsModal.style.display = 'none';
         });
     }
 
     window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
+        if (e.target === myPostsModal) {
+            myPostsModal.style.display = 'none';
         }
     });
 
@@ -88,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         postElement.innerHTML = `
                             <h3>${post.title}</h3>
                             <p>${post.excerpt}</p>
-                            <a href="${post.url}" class="edit-button" data-id="${post.id}">Edit</a>
+                            <a href="#" class="edit-button" data-id="${post.id}">Edit</a>
                             <button data-id="${post.id}" class="delete-button">Delete</button>
                         `;
                         userPostsList.appendChild(postElement);
@@ -138,34 +147,179 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .catch(error => console.error('Error deleting post:', error));
-            };
+            }
     }
 
     // Event listeners for post edit buttons
     function addEditEventListeners(){
         document.querySelectorAll('.edit-button').forEach(button => {
             button.addEventListener('click', (e) => {
-                const postId = e.target.getAttribute('data-id');
-                handleEdit(postId);
+                handleEdit(e);
             });
         });
     }
 
-    // Populate create post modal with existing content ready to edit
-    function populateCreatePostModal(post) {
-        createPostModal.querySelector('input[name="title"]').value = post.title;
-        createPostModal.querySelector('textarea[name="content"]').value = post.content;
-        createPostModal.querySelector('form').dataset.postId = post.id;
-        createPostModal.style.display = 'block';
+    // Populate edit post modal with existing content ready to edit
+    function populateEditPostModal(post) {
+        const editPostModal = document.getElementById('editPostModal');
+        if (!editPostModal) {
+            console.error('Edit post modal not found in DOM');
+            return;
+        }
+
+        const titleInput = editPostModal.querySelector('input[name="title"');
+        const contentTextarea = editPostModal.querySelector('textarea[name="content"]');
+        if (!titleInput || !contentTextarea) {
+            console.error('Edit post modal inputs are not found in the DOM');
+            return;
+        }
+
+        titleInput.value = post.title;
+        contentTextarea.value = post.content;
+        editPostForm.dataset.postId = post.id;
+        editPostModal.style.display = 'block';
     }
 
     // Edit Post Button
-    function handleEdit(postId) {
-        fetch(`/edit-post/${postId}/`)
+    function handleEdit(event) {
+        event.preventDefault();
+
+        const postId = event.target.getAttribute('data-id');
+
+        fetch(`/user-post-detail/${postId}/`)
             .then(response => response.json())
-            .then(post => populateCreatePostModal(post))
-            .catch(error => console.error('Error fetching post for editing:', error));
+            .then(data => {
+                if (data.success) {
+                    populateEditPostModal(data.post);
+                } else {
+                    console.error('Error fetching post details:', data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
     }    
+
+    // Submit Post Changes
+    function submitPostChanges(postId) {
+        const formData = new FormData(createPostForm);
+        formData.append('post_id', postId);
+        formData.append('action', 'edit');
+
+        fetch('/edit-post', {
+            method: 'POST',
+            body:formData,
+            headers: {
+                'X-CSRFTOKEN': getCookie('csrftoken'),
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                updatePostOnPage(postId, data.post);
+                closeEditPostModal();
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    // Close Edit Modal
+    function closeEditPostModal() {
+        editPostModal.style.display = 'none';
+        editPostForm.reset();
+        delete editPostForm.dataset.postId;
+    }
+
+    // Toggle Blog Post Content
+
+    toggleLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const post = link.closest('.blog-post');
+            const summary = post.querySelector('.post-summary');
+            const fullContent = post.querySelector('.post-full-content');
+
+            if (fullContent.style.display === 'none') {
+                fullContent.style.display = 'block';
+                summary.style.display = 'none';
+                link.textContent = 'See Less';
+            } else {
+                fullContent.style.display = 'none';
+                summary.style.display = 'block';
+                link.textContent = 'Read More';
+            }
+        });
+    });
+
+    // Create Post Modal
+
+    createPostBtn?.addEventListener('click', () => {
+        createPostModal.style.display = 'block';
+    });
+
+    createPostBtnModal?.addEventListener('click', () => {
+        createPostModal.style.display = 'block';
+    });
+
+    closeCreatePostButton?.addEventListener('click', () => {
+        createPostModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === createPostModal) {
+            createPostModal.style.display = 'none';
+        }
+    });
+
+    // Function to Create a New Post
+    function createNewPost(){
+        const formData = new FormData(createPostForm);
+
+        fetch('/create-post/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.success) {
+                location.reload();
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    // Create Post Form Submission
+
+    createPostForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const postId = createPostForm.dataset.postId;
+
+        if (postId) {
+            submitPostChanges(postId);
+        } else {
+            createNewPost();
+        }
+    });
+
+    // Update post on blog page
+    function updatePostOnPage(postId, post) {
+        const postElement = document.querySelector(`.post-item[data-id="${postId}"]`);
+        if (postElement) {
+            postElement.querySelector('h3').textContent = post.title;
+            postElement.querySelector('p').textContent = post.excerpt;
+        }
+    }
+
+    // Close Post Modal
+    function closeCreatePostModal() {
+        createPostModal.style.display = 'none';
+        createPostForm.rest();
+        delete createPostForm.dataset.postId;
+        delete createPostForm.dataset.method;
+    }
 
     // Open Register Modal
     registerLoginButton?.addEventListener('click', () => {
@@ -266,71 +420,6 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => console.error('Error:', error));
         }
-    });
-
-    // Toggle Blog Post Content
-
-    toggleLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            const post = link.closest('.blog-post');
-            const summary = post.querySelector('.post-summary');
-            const fullContent = post.querySelector('.post-full-content');
-
-            if (fullContent.style.display === 'none') {
-                fullContent.style.display = 'block';
-                summary.style.display = 'none';
-                link.textContent = 'See Less';
-            } else {
-                fullContent.style.display = 'none';
-                summary.style.display = 'block';
-                link.textContent = 'Read More';
-            }
-        });
-    });
-
-    // Create Post Modal
-
-    createPostBtn?.addEventListener('click', () => {
-        createPostModal.style.display = 'block';
-    });
-
-    createPostBtnModal?.addEventListener('click', () => {
-        createPostModal.style.display = 'block';
-    });
-
-    closeCreatePostModal?.addEventListener('click', () => {
-        createPostModal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (e) => {
-        if (e.target === createPostModal) {
-            createPostModal.style.display = 'none';
-        }
-    });
-
-    // Create Post Form Submission
-
-    createPostForm?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(createPostForm);
-
-        fetch('/create-post/', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'X-CSRFToken': getCookie('csrftoken'),
-            },
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert(data.message);
-            if (data.success) {
-                location.reload();
-            }
-        })
-        .catch(error => console.error('Error:', error));
     });
 
     // Function to get CSRF Token from cookies

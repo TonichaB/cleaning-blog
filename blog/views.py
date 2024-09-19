@@ -2,7 +2,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_GET, require_POST
+from django.views.decorators.http import require_GET, require_POST, require_http_methods
+from django.views.decorators.csrf import csrf_exempt
 from .models import BlogPost
 
 # Create your views here.
@@ -89,6 +90,18 @@ def user_post_detail(request, post_id):
 
         post.delete()
         return JsonResponse({'success': True})
+    elif request.method == 'GET':
+        try:
+            post = BlogPost.objects.get(id=post_id, author=request.user)
+            data = {
+                'id': post.id,
+                'title': post.title,
+                'content': post.content
+            }
+            return JsonResponse({'success': True, 'post': data})
+        except BlogPost.DoesNotExist:
+            return JsonResponse({'success': False, 'message': 'Post not found'})
+            
     else:
         return JsonResponse({'error': 'Method not allowed'}, status=405)
 
@@ -117,12 +130,14 @@ def edit_post(request, pk):
     post = get_object_or_404(BlogPost, pk=pk, author=request.user)
     title = request.POST.get('title')
     content = request.POST.get('content')
+    
     if title and content:
         post.title = title
         post.content = content
         post.save()
         return JsonResponse({'success': True, 'message': 'Post Updated Successfully'})
-    return JsonResponse({'success': False, 'message': 'Error updating post.'})
+    else:
+        return JsonResponse({'success': False, 'message': 'Title and Content are required.'})
 
 # Delete Blog Post
 
