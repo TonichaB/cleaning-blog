@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
+import json
 from .models import BlogPost, Like
 
 # Create your views here.
@@ -140,9 +141,9 @@ def edit_post(request, post_id):
         data = json.loads(request.body)
         post.title = data['title']
         post.content = data['content']
-        if title and content:
-            post.title = title
-            post.content = content
+        if post.title and post.content:
+            post.title = post.title
+            post.content = post.content
             post.save()
             return JsonResponse({'success': True, 'message': 'Post Updated Successfully'})
         else:

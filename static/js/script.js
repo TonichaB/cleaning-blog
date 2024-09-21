@@ -141,9 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addDeleteEventListeners();
 
+    let isEditing = false;
+
     // Event listener for Edit button
     function addEditEventListeners(){
-        document.querySelectorAll('.edit-button').forEach(button => {
+        document.querySelectorAll('.edit-post').forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
                 const postId = button.getAttribute('data-id');
@@ -154,45 +156,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Populate edit post modal with existing content ready to edit
-    function populateEditPostModal(post) {
-        const editPostModal = document.getElementById('editPostModal');
-        if (!editPostModal) {
-            console.error('Edit post modal not found in DOM');
-            return;
-        }
-
-        const titleInput = editPostModal.querySelector('input[name="title"');
-        const contentTextarea = editPostModal.querySelector('textarea[name="content"]');
-        if (!titleInput || !contentTextarea) {
-            console.error('Edit post modal inputs are not found in the DOM');
-            return;
-        }
-
-        titleInput.value = post.title;
-        contentTextarea.value = post.content;
-        editPostForm.dataset.postId = post.id;
-        editPostModal.style.display = 'block';
-    }
-
     // Edit Post Modal
     function openEditModal(postId, title, content) {
         const modal = document.getElementById('edit-post-modal');
         document.getElementById('edit-post-id').value = postId;
         document.getElementById('edit-post-title').value = title;
         document.getElementById('edit-post-content').value = content;
-        modal.style.display = 'block'
-
-        let originalTitle = title;
-        let originalContent = content;
+        
+        isEditing = true;
+        modal.style.display = 'block';
 
         const closeButton = modal.querySelector('.close-edit-post');
         closeButton.onclick = function() {
-            const currentTitle = document.getElementById('edit-post-title').value;
-            const currentContent = document.getElementById('edit-post-content').value;
+            if (isEditing) {
+                const currentTitle = document.getElementById('edit-post-title').value;
+                const currentContent = document.getElementById('edit-post-content').value;
 
-            if (currentTitle !== originalTitle || currentContent !== originalContent) {
-                if (confirm('You have unsaved changes. Do you want to disgard them?')) {
+                if (currentTitle !== title || currentContent !== content) {
+                    if (confirm('You have unsaved changes. Do you want to disgard them?')) {
+                        isEditing = false;
+                        modal.style.display = 'none';
+                    }
+                } else {
+                    isEditing = false;
                     modal.style.display = 'none';
                 }
             } else {
@@ -209,18 +195,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = document.getElementById('edit-post-title').value;
         const content = document.getElementById('edit-post-content').value;
 
-        fetch(` /edit-post/${postId}`, {
+        fetch(`/edit-post/${postId}/`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            body: JSON.stringify({ title: title, content: content })
+            body: JSON.stringify({ title, content })
         })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
                 fetchUserPosts();
+                isEditing = false,
                 document.getElementById('edit-post-modal').style.display = 'none';
             } else {
                 console.error('Error updating post:', data.message);
