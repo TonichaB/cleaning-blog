@@ -235,6 +235,7 @@ tested devices-
 - gunicorn        20.1.0
 - psycopg2        2.9.9
 - sqlparse        0.5.1
+- whitenoise      6.7.0
 
 ## Testing
 
