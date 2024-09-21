@@ -31,8 +31,10 @@ The live site can be found here! (link to be added)
       - [Footer](#footer)
       - [Navigation Bar](#navigation-bar)
       - [Register/Login/Logout](#registerloginlogout)
-      - [Blog Posts](#blog-posts)
-      - [Like Posts](#like-posts)
+      - [My Posts](#my-posts)
+      - [Create New Post](#create-new-post)
+      - [Editing Posts](#editing-posts)
+      - [Like/Unlike Posts](#likeunlike-posts)
       - [Confirmation Messages](#confirmation-messages)
     - [Potential Future Features](#potential-future-features)
       - [Comments Section](#comments-section)
@@ -94,7 +96,7 @@ The goal for this project is to create a blog for cleaners with various experien
 - Register/Login
 - Logout
 - Staff Login
-- Create, view, delete Posts
+- Create, view, edit, delete Posts
 
 **Flowchart**
 
@@ -108,9 +110,7 @@ The goal for this project is to create a blog for cleaners with various experien
 
 **Colour Scheme**
 
-**fonts**
-
-**Notifications**
+**Fonts**
 
 ## Agile Methodology
 
@@ -134,7 +134,7 @@ When first visiting the website, the user is presented with the home page. Withi
 
 #### Blog Page
 
-On the blog page all published blog posts can be viewed with the options to filter/sort the results. There is also a button for user's to create a new post.<br>
+On the blog page all published blog posts can be viewed with the options to filter/sort the results based on their desired content.<br>
 
 *image of blog page*
 
@@ -165,14 +165,31 @@ Within the header for the site, to the top right, there is a button for the user
 *image of register/login button* *image of logged in username and dropdown for logout*<br>
 *image of register modal* *image of login modal*
 
-#### Blog Posts
+#### My Posts
 
-Users can create new blog posts by following the button on the blog page, or within the My Posts modal. This will open a new modal that will ask the user to input a title and the content of their post, and they can then click to publish their post to the site. Once a post has been published it will be included in the blog posts display shown on the blog page. The user can exit out of the new post modal at any time by either clicking on the 'X' or clicking anywhere on the page outside of the modal.<br>
+After a user logs into their account, the navbar is updated to show a My Posts page. On this page the user can view/edit/delete any of their own published posts. If a user does try to delete a post, they will first see a Confirm Post Deletion message to avoid any accidental deletions. Any posts confirmed to be deleted are then removed from the database and therefore do not show on the My Posts or Blog page. <br>
 
-*image of new post modal*<br>
-*image of published post*
+*image of My Posts page*<br>
 
-#### Like Posts
+#### Create New Post
+
+On the My Posts page, the user is presented with a button to create a new post, and by clicking this they will open a modal with a form to complete in order to create the post. After completed all required fields, the user can click to publish their post, which will become available via the My Posts and Blog pages. For a post to be succesfully posted it must contain a title, content and a selected catagory, if any of these items are missed the user will not be able to publish, and is shown the missing items to be completed. There are also confirmation messages that will appear to notify the user if their post has been Successfully Published, or if there has been an Publishing Post Error<br>
+
+*image of create post button*<br>
+*image of create post modal*
+
+#### Editing Posts
+
+For each of the post entries shown on the My Posts page, there is an edit button that allows the user to edit the post content as they wish. By clicking on the button, an edit post modal will open containing the already saved content for the post available for the user to edit, with a button to save their changes. There is also a button to close the modal, and depending on the editing status the user could be faced with a Unsaved Changed Notification, Successfully Updated Notification, or if the content remains unedited the modal will simple close.<br>
+
+*image of edit post modal*
+
+#### Like/Unlike Posts
+
+Each of the published posts on the Blog Page have a like button that allows authorised users the ability to like posts. When a post has already been liked by a user, the icon shows as a filled in thumbs up, whilst unliked posts will show with an unfilled thumbs up. When a post is liked or unlike, the counter to the right of the icon also updates accordingly. As this is only for authorised users, should a user who has not logged into their account try to like a post, they will receive a Non-Verified User Confirmation Message which encourages them to Register/Login so that they can interact with posts or even create their own. <br>
+
+*image of like button (liked)*<br>
+*image of like button (unliked)*<br>
 
 #### Confirmation Messages
 
@@ -182,7 +199,14 @@ Throughout the site there are various occassions for a confirmation message to b
 - Login Successful
 - Log Out- Are you sure?
 - Log Out- Successful
-- 
+- Non-Verified User- There are some actions that are limited to users who are logged in only. If a non-verified user attempts to complete these actions they receive a notification encouraging them to register/login;
+  - *image of non-verified user notification when trying to like a post*
+  - *image of non-verified user notification when trying to comment on a post*
+- Confirm Post Deletion
+- Successfully Published Post
+- Publishing Post Error
+- Unsaved Changed Notification
+- Successfully Updated Notification
 
 ### Potential Future Features
 

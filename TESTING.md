@@ -41,8 +41,18 @@ The User Stories have been manually tested, including their corresponding featur
 | [#18](https://github.com/TonichaB/cleaning-blog/issues/18) | img | Click the 'Blog' link on the home page | User is redirected to the blog page | Redirection to blog page occurs as expected | Pass | rslt img |
 | [#18](https://github.com/TonichaB/cleaning-blog/issues/18) | img | Click 'Create Post' button | New 'Create Post' modal opens with a form to be completed in order to publish the pist | Create Post modal appears as expected, with input fields for title and content required to publish a post | Pass | rslt img |
 | [#18](https://github.com/TonichaB/cleaning-blog/issues/18) | img | Click Publish button | Confirmation message to appear confirming post published and user redirected to blog page/my posts modal | Confirmation message appears as expected, and redirection occurs back to blog page/my posts modal where applicable | Pass | rslt img |
-| [#20](https://github.com/TonichaB/cleaning-blog/issues/20) | img |  |  |  |  | rslt img |
-| [#20](https://github.com/TonichaB/cleaning-blog/issues/20) | img |  |  |  |  | rslt img |
+| [#19](https://github.com/TonichaB/cleaning-blog/issues/19) | img | Click Like as an unauthroised user | If not logged in, clicking like on a post will open the non-verified user notification. The like icon and count should remain unchanged. | The non-verified user notification appears as expected, and the like icon and count remain unaffected. |  | rslt img |
+| [#19](https://github.com/TonichaB/cleaning-blog/issues/19) | img | Click Like as an authorised User for an unliked post | Like icon changes to show as filled in, and like count increases by 1. | The icon changes as expected and the like count has increased by 1 | Pass | rslt img |
+| [#19](https://github.com/TonichaB/cleaning-blog/issues/19) | img | Click Like on a previously liked post | Like icon changes to the regular icon and the like count decreases by 1. | The like icon changes as expected and the like count has decreased by 1 | Pass | rslt img |
+| [#20](https://github.com/TonichaB/cleaning-blog/issues/20) | img | Click on My Posts in navbar | User is redirected to My Posts site page and list of user posts displayed | Page redirects as expected, and the correct list of posts applicable to the logged in user are present. | Pass | rslt img |
+| [#20](https://github.com/TonichaB/cleaning-blog/issues/20) | img | Click Edit button for a post entry | An edit post modal opens pre-populated with the content of the post ready to edit. | The modal appears as expected and the correct data for the relevant post has been prepopulated. | Pass | rslt img |
+| [#20](https://github.com/TonichaB/cleaning-blog/issues/20) | img | Close Edit Modal with no changes made. | Clicking on the 'x' within the edit modal, when no changes have been made, will close the modal. | After making no changes, the modal closes as expected when clicking 'x'. | Pass | rslt img |
+| [#20](https://github.com/TonichaB/cleaning-blog/issues/20) | img | Click to close Edit Modal with unsaved changes | An alert should appear to the user to notify them of the unsaved changes and will request their confirmation before closing. | Alert appears as expected and clearly states there are unsaved changes. | Pass | rslt img |
+| [#20](https://github.com/TonichaB/cleaning-blog/issues/20) | img | Click to confirm close with unsaved changes | The modal should close and unsaved changes will not update on the post | Clicking to confirm changes closes the model as expected. The post remains unchanged. | Pass | rslt img |
+| [#20](https://github.com/TonichaB/cleaning-blog/issues/20) | img | Click cancel on unsaved changes alert. | Clicking cancel will not close the modal to allow the user to save their changes | The modal does not close and editing can continue as expected | Pass | rslt img |
+| [#20](https://github.com/TonichaB/cleaning-blog/issues/20) | img | Click Save Changes Button | The edit modal should close and the edited content will have been updated in the my posts and blog pages. | The modal closes as expected, and the edits made to the post are sucessfully updated in the published post | Pass | rslt img |
+| [#20](https://github.com/TonichaB/cleaning-blog/issues/20) | img | Click Delete button for a post entry | An alert should appear asking the user to confirm they want to delete. | Alert appears as expected with the further option to confirm or cancel. | Pass | rslt img |
+| [#20](https://github.com/TonichaB/cleaning-blog/issues/20) | img | Click to confirm post deletion | The my posts page refreshes and the applicable post is no longer present. | The page refreshes as expected and the post has been successfully removed. | Pass | rslt img |
 | [#21](https://github.com/TonichaB/cleaning-blog/issues/21) | img |  |  |  |  | rslt img |
 | [#21](https://github.com/TonichaB/cleaning-blog/issues/21) | img |  |  |  |  | rslt img |
 
@@ -50,6 +60,13 @@ The User Stories have been manually tested, including their corresponding featur
 
 | User Story | Feature Image | Test Action | Expected Result | Actual Result | Pass/Fail | Result Image |
 | -- | -- | -- | -- | -- | -- | -- |
+| [#22](https://github.com/TonichaB/cleaning-blog/issues/22) | img | Click Like on a previously liked post |  |  |  | rslt img |
+| [#23](https://github.com/TonichaB/cleaning-blog/issues/23) | img | Click Like on a previously liked post |  |  |  | rslt img |
+| [#24](https://github.com/TonichaB/cleaning-blog/issues/24) | img | Click Like on a previously liked post |  |  |  | rslt img |
+| [#25](https://github.com/TonichaB/cleaning-blog/issues/25) | img | Click Like on a previously liked post |  |  |  | rslt img |
+| [#26](https://github.com/TonichaB/cleaning-blog/issues/26) | img | Click Like on a previously liked post |  |  |  | rslt img |
+|  | img | Click Like on a previously liked post |  |  |  | rslt img |
+|  | img | Click Like on a previously liked post |  |  |  | rslt img |
 
 **Epic: Authentication & Authorisation**
 
@@ -66,12 +83,18 @@ The User Stories have been manually tested, including their corresponding featur
 | [#29](https://github.com/TonichaB/cleaning-blog/issues/29) | img | Click on username in header | Dropdown should appear and logout link is displayed | Dropdown works as intended and logout link is displayed | Pass | rslts img |
 | [#29](https://github.com/TonichaB/cleaning-blog/issues/29) | img | Click on logout link | Message to appear to confirm logout request, user can confirm or cancel | Message appears as expected with a button to confirm or cancel | Pass | rslt img |
 | [#29](https://github.com/TonichaB/cleaning-blog/issues/29) | img | Click to confirm logout | Message appears to confirm logout successful, and user redirected to home page with register/login buttons presented | Message confirmation appears as expected and page redirects to home page with button to register/login present | Pass | rslt img |
+| [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | img | Click Like on a previously liked post |  |  |  | rslt img |
+| [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | img | Click Like on a previously liked post |  |  |  | rslt img |
+| [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | img | Click Like on a previously liked post |  |  |  | rslt img |
+| [#31](https://github.com/TonichaB/cleaning-blog/issues/31) | img | Click Like on a previously liked post |  |  |  | rslt img |
+| [#32](https://github.com/TonichaB/cleaning-blog/issues/32) | img | Click Like on a previously liked post |  |  |  | rslt img |
 
 **Epic: Search Function**
 
 | User Story | Feature Image | Test Action | Expected Result | Actual Result | Pass/Fail | Result Image |
 | -- | -- | -- | -- | -- | -- | -- |
-
+| [#33](https://github.com/TonichaB/cleaning-blog/issues/33) | img | Click Like on a previously liked post |  |  |  | rslt img |
+| [#34](https://github.com/TonichaB/cleaning-blog/issues/34) | img | Click Like on a previously liked post |  |  |  | rslt img |
 
 ## Automatic Testing
 
