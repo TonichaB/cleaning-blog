@@ -78,17 +78,20 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch('/user-posts-api/')
             .then(response => response.json())
             .then(data => {
+                const userPostsList = document.querySelector('.my-posts-container ul');
                 userPostsList.innerHTML = '';
                 if (data.length > 0) {
                     data.forEach(post => {
-                        const postElement = document.createElement('div');
-                        postElement.classList.add('post-item');
-                        postElement.setAttribute('data-id', post.id);
+                        const postElement = document.createElement('li');
                         postElement.innerHTML = `
-                            <h3>${post.title}</h3>
-                            <p>${post.excerpt}</p>
-                            <a href="#" class="edit-button" data-id="${post.id}">Edit</a>
-                            <button data-id="${post.id}" class="delete-button">Delete</button>
+                            <div class="post-header">
+                                <h3>${post.title}</h3>
+                                <p id="my-post-content">${post.excerpt}</p>
+                            </div>
+                            <div>
+                                <a href="#" class="edit-post" data-id="${post.id}">Edit</a>
+                                <button class="delete-post" data-id="${post.id}">Delete</button>
+                            </div>
                         `;
                         userPostsList.appendChild(postElement);
                     });
@@ -106,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event Listeners for delete buttons
 
     function addDeleteEventListeners() {
-        document.querySelectorAll('.delete-button').forEach(button => {
+        document.querySelectorAll('.delete-post').forEach(button => {
             button.addEventListener('click', (e) => {
                 const postId = e.target.getAttribute('data-id');
                 deletePost(postId);
@@ -127,11 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    document.querySelector(`.blog-post[data-id="${postId}"]`).remove();
-                    let myPostModal = document.getElementById('my-posts-modal');
-                    if (myPostModal) {
-                        myPostModal.style.display = 'none';
-                    }
+                    fetchUserPosts();
                 } else {
                     console.error('Error deleting post:', data.message);
                 }
@@ -139,6 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Error deleting post:', error));
             }
     }
+
+    addDeleteEventListeners();
 
     // Event listeners for post edit buttons
     function addEditEventListeners(){
