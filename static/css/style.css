@@ -50,8 +50,11 @@ main {
 #logo {
     font-family: "Raleway", system-ui;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     margin: 0;
+    text-align: center;
+    position: relative;
+    left: 40px;
 }
 
 .user-auth {
@@ -441,18 +444,12 @@ img {
     text-align: center;
 }
 
-#my-post-title {
-    margin-bottom: 10px;
-}
-
-#my-post-content {
-    margin-top: 0;
-    margin-bottom: 15px;
-    text-align: left;
-}
-
 .my-posts-container p {
     text-align: center;
+}
+
+.post-header p {
+    text-align: left;
 }
 
 .my-posts-container ul {
@@ -545,6 +542,7 @@ a:focus, button:focus {
 
     #logo {
         margin-bottom: 5px;
+        left: 0;
     }
 
     /* Nav Bar */
@@ -651,6 +649,18 @@ a:focus, button:focus {
         pointer-events: none;
     }
 
+    /* My Posts Page*/
+
+    .my-posts-container {
+        padding: 15px;
+    }
+
+    .my-posts-container a, .my-posts-container button {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
     /* Footer */
 
     #footer {
@@ -719,4 +729,18 @@ a:focus, button:focus {
     .like-button {
         left: 80%;
     }
+
+    /* My Posts Page */
+
+    .my-posts-container {
+        padding: 15px;
+        max-width: 95%;
+    }
+
+    .my-posts-container a, .my-posts-container button {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
 }

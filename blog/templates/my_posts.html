@@ -11,9 +11,11 @@
             <div class="post-header">
                 <h3>{{ post.title }}</h3>
                 <p id="my-post-content">{{ post.content }}</p>
+            </div>
+            <div>
+                <a href="#" class="edit-post">Edit</a>
+                <button class="delete-post" data-id="{{ post.id }}">Delete</button>
             </div>        
-            <a href="#" class="edit-post">Edit</a>
-            <button class="delete-post" data-id="{{ post.id }}">Delete</button>
         </li>
         {% empty %}
         <li>No Posts Found.</li>
