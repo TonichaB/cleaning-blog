@@ -50,17 +50,17 @@
                 <li>
                     <a href="{% url 'blog' %}">Blog</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'my_posts' %}" id="my-posts-button">My Posts</a>
+                </li>
+                {% endif %}
                 <li>
                     <a href="{% url 'about' %}">About</a>
                 </li>
                 <li>
                     <a href="{% url 'contact' %}">Contact</a>
                 </li>
-                {% if user.is_authenticated %}
-                <li>
-                    <a href="{% url 'my_posts' %}" id="my-posts-button">My Posts</a>
-                </li>
-                {% endif %}
             </ul>
         </nav>
     </header>
