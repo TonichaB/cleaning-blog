@@ -441,6 +441,16 @@ img {
     text-align: center;
 }
 
+#my-post-title {
+    margin-bottom: 10px;
+}
+
+#my-post-content {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
 .my-posts-container p {
     text-align: center;
 }

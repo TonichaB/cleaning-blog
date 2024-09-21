@@ -8,7 +8,10 @@
     <ul>
         {% for post in posts %}
         <li>
-            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            <div class="post-header">
+                <h3>{{ post.title }}</h3>
+                <p id="my-post-content">{{ post.content }}</p>
+            </div>        
             <a href="#" class="edit-post">Edit</a>
             <button class="delete-post" data-id="{{ post.id }}">Delete</button>
         </li>
