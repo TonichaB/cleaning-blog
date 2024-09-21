@@ -63,6 +63,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const toggleLinks = document.querySelectorAll('.toggle-content');
 
+    // Notifications Modal
+    function showNotification(message) {
+        const notificationModal = document.getElementById('notification-modal');
+        const notificationMessage = document.getElementById('notification-message');
+
+        notificationMessage.textContent = message;
+        notificationModal.classList.add('show');
+
+        setTimeout(() => {
+            notificationModal.classList.remove('show');
+        }, 5000);
+
+        document.getElementById('close-notification').onclick = function() {
+            notificationModal.classList.remove('show');
+        };
+    }
+
     // My Posts Modal
 
     if (myPostsButton) {
