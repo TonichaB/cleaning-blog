@@ -64,6 +64,12 @@ def get_popular_posts(request):
     ]
     return JsonResponse({'popular_posts': data})
 
+# Display My Posts
+@login_required
+def my_posts(request):
+    posts = BlogPost.objects.filter(author=request.user)
+    return render(request, 'my_posts.html', {'posts': posts})
+
 # API to fetch user-specific posts
 @login_required
 @require_GET

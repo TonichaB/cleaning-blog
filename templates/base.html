@@ -58,7 +58,7 @@
                 </li>
                 {% if user.is_authenticated %}
                 <li>
-                    <a href="#" id="my-posts-button">My Posts</a>
+                    <a href="{% url 'my_posts' %}" id="my-posts-button">My Posts</a>
                 </li>
                 {% endif %}
             </ul>
@@ -69,8 +69,6 @@
         {% block content %}
         {% endblock content %}
         
-        <!-- Include My Posts Modal -->
-        {% include 'modal.html' %}
         <!-- Include Register & Login Modals -->
          {% include 'user_modals.html' %}
          <!-- Include Create Post Modal -->
