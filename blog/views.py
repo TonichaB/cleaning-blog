@@ -4,6 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 from django.views.decorators.csrf import csrf_exempt
+from django.utils import timezone
 from .models import BlogPost, Like
 
 # Create your views here.
@@ -116,7 +117,8 @@ def create_post_view(request):
         post = BlogPost.objects.create(
             author=request.user,
             title=title,
-            content=content
+            content=content,
+            published_date=timezone.now(),
         )
 
         return JsonResponse({'success': True, 'message': 'Post Successfully Published!'})

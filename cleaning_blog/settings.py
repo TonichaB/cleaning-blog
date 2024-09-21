@@ -32,22 +32,20 @@ STATIC_URL = '/static/'
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True 
 
 ALLOWED_HOSTS = [
     '8000-tonichab-cleaningblog-sb0kndpfmmw.ws.codeinstitute-ide.net',
+    'https://8000-tonichab-cleaningblog-sb0kndpfmmw.ws.codeinstitute-ide.net',
     '.herokuapp.com',
     'localhost',
-    '127.0.0.1'
-    'https://cleaning-blog-a7931fa873c1.herokuapp.com/'
+    '127.0.0.1',
+    'https://cleaning-blog-a7931fa873c1.herokuapp.com/',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-tonichab-cleaningblog-sb0kndpfmmw.ws.codeinstitute-ide.net'
-    '.herokuapp.com'
-    'localhost',
-    '127.0.0.1'
-    'https://cleaning-blog-a7931fa873c1.herokuapp.com/'
+    'https://8000-tonichab-cleaningblog-sb0kndpfmmw.ws.codeinstitute-ide.net',
+    'https://cleaning-blog-a7931fa873c1.herokuapp.com/',
 ]
 
 # Application definition
@@ -139,7 +137,7 @@ PASSWORD_HASHERS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/London'
 
 USE_I18N = True
 
