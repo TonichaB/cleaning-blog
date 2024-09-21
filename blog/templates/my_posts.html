@@ -2,17 +2,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>My Posts</h2>
-<p>Welcome to your posts page! Here you can view, edit or delete your published posts.</p>
-<ul>
-    {% for post in posts %}
-    <li>
-        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-        <a href="#">Edit</a>
-        <button class="delete-post" data-id="{{ post.id }}">Delete</button>
-    </li>
-    {% empty %}
-    <li>No Posts Found.</li>
-    {% endfor %}
-</ul>
+<div class="my-posts-container">
+    <h2>My Posts</h2>
+    <p>Welcome to your posts page! Here you can view, edit or delete your published posts.</p>
+    <ul>
+        {% for post in posts %}
+        <li>
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            <a href="#" class="edit-post">Edit</a>
+            <button class="delete-post" data-id="{{ post.id }}">Delete</button>
+        </li>
+        {% empty %}
+        <li>No Posts Found.</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
