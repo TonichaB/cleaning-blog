@@ -133,19 +133,22 @@ def create_post_view(request):
 
 # Edit Blog Post
 @login_required
-@require_POST
-def edit_post(request, pk):
-    post = get_object_or_404(BlogPost, pk=pk, author=request.user)
-    title = request.POST.get('title')
-    content = request.POST.get('content')
-    
-    if title and content:
-        post.title = title
-        post.content = content
-        post.save()
-        return JsonResponse({'success': True, 'message': 'Post Updated Successfully'})
+@require_http_methods(["PUT"])
+def edit_post(request, post_id):
+    post = BlogPost.objects.get(id=post_id)
+    if request.user == post.author:
+        data = json.loads(request.body)
+        post.title = data['title']
+        post.content = data['content']
+        if title and content:
+            post.title = title
+            post.content = content
+            post.save()
+            return JsonResponse({'success': True, 'message': 'Post Updated Successfully'})
+        else:
+            return JsonResponse({'success': False, 'message': 'Title and Content are required.'})
     else:
-        return JsonResponse({'success': False, 'message': 'Title and Content are required.'})
+        return JsonResponse({'success': False, 'message': 'Unauthorised'})
 
 # Delete Blog Post
 

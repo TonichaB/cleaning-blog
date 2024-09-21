@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const createPostForm = document.getElementById('create-post-form');
 
     // Edit Post Modal
-    const editPostModal = document.getElementById('editPostModal');
+    const editPostModal = document.getElementById('edit-post-modal');
     const closedEditPostButton = document.getElementById('close-edit-post');
     const editPostForm = document.getElementById('edit-post-form')
 
@@ -141,11 +141,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addDeleteEventListeners();
 
-    // Event listeners for post edit buttons
+    // Event listener for Edit button
     function addEditEventListeners(){
         document.querySelectorAll('.edit-button').forEach(button => {
             button.addEventListener('click', (e) => {
-                handleEdit(e);
+                e.preventDefault();
+                const postId = button.getAttribute('data-id');
+                const title = button.closest('li').querySelector('h3').textContent;
+                const content = button.closest('li').querySelector('#my-post-content').textContent;
+                openEditModal(postId, title, content);
             });
         });
     }
@@ -171,53 +175,61 @@ document.addEventListener('DOMContentLoaded', () => {
         editPostModal.style.display = 'block';
     }
 
-    // Edit Post Button
-    function handleEdit(event) {
-        event.preventDefault();
+    // Edit Post Modal
+    function openEditModal(postId, title, content) {
+        const modal = document.getElementById('edit-post-modal');
+        document.getElementById('edit-post-id').value = postId;
+        document.getElementById('edit-post-title').value = title;
+        document.getElementById('edit-post-content').value = content;
+        modal.style.display = 'block'
 
-        const postId = event.target.getAttribute('data-id');
+        let originalTitle = title;
+        let originalContent = content;
 
-        fetch(`/user-post-detail/${postId}/`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    populateEditPostModal(data.post);
-                } else {
-                    console.error('Error fetching post details:', data.message);
+        const closeButton = modal.querySelector('.close-edit-post');
+        closeButton.onclick = function() {
+            const currentTitle = document.getElementById('edit-post-title').value;
+            const currentContent = document.getElementById('edit-post-content').value;
+
+            if (currentTitle !== originalTitle || currentContent !== originalContent) {
+                if (confirm('You have unsaved changes. Do you want to disgard them?')) {
+                    modal.style.display = 'none';
                 }
-            })
-            .catch(error => console.error('Error:', error));
+            } else {
+                modal.style.display = 'none';
+            }
+        };
     }    
 
     // Submit Post Changes
-    function submitPostChanges(postId) {
-        const formData = new FormData(createPostForm);
-        formData.append('post_id', postId);
-        formData.append('action', 'edit');
+    document.getElementById('edit-post-form').addEventListener('submit', function (e) {
+        e.preventDefault();
 
-        fetch('/edit-post', {
-            method: 'POST',
-            body:formData,
+        const postId = document.getElementById('edit-post-id').value;
+        const title = document.getElementById('edit-post-title').value;
+        const content = document.getElementById('edit-post-content').value;
+
+        fetch(` /edit-post/${postId}`, {
+            method: 'PUT',
             headers: {
-                'X-CSRFTOKEN': getCookie('csrftoken'),
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
             },
+            body: JSON.stringify({ title: title, content: content })
         })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                updatePostOnPage(postId, data.post);
-                closeEditPostModal();
+                fetchUserPosts();
+                document.getElementById('edit-post-modal').style.display = 'none';
+            } else {
+                console.error('Error updating post:', data.message);
             }
         })
-        .catch(error => console.error('Error:', error));
-    }
+        .catch(error => console.error('Error updating post:', error));
+    })
 
-    // Close Edit Modal
-    function closeEditPostModal() {
-        editPostModal.style.display = 'none';
-        editPostForm.reset();
-        delete editPostForm.dataset.postId;
-    }
+    addEditEventListeners();
 
     // Toggle Blog Post Content
 
