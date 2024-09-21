@@ -126,6 +126,29 @@ main {
     cursor: pointer;
 }
 
+/* Notifications Modal */
+
+.notification-modal {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #005050;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px #00000033;
+    transition: top 0.5s ease;
+    z-index: 1000;
+}
+
+.notification-modal.show {
+    top: 20px;
+}
+
+.notification-modal.hide {
+    top: -100px;
+}
+
 /* Create Post Modal */
 
 .modal-content input[type='text'],
