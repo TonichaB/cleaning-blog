@@ -166,14 +166,18 @@ def like_post(request):
         except BlogPost.DoesNotExist:
             return JsonResponse({'error': 'Post not found'}, status=404)
         
-        if Like.objects.filter(user=user, blog_post=post).exists():
-            return JsonResponse({'status': 'error', 'message': 'You have already liked this post.'})
-        
-        Like.objects.create(user=user, blog_post=post)
+        like, created = Like.objects.get_or_create(user=user, blog_post=post)
 
-        post.likes += 1
+        if not created:
+            like.delete()
+            post.likes -= 1
+            liked = False
+        else:
+            post.likes += 1
+            liked = True
+        
         post.save()
         
-        return JsonResponse({'status': 'success', 'likes': post.likes})
+        return JsonResponse({'status': 'success', 'likes': post.likes, 'liked': liked})
     
     return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)

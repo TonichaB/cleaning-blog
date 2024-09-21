@@ -34,8 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', () => {
     // My Posts Modal
     const myPostsButton = document.getElementById('my-posts-button');
-    const myPostsModal = document.getElementById('my-posts-modal');
-    const closeMyPostsModal = document.querySelector('.close');
 
     // Create Posts Modal
     const createPostModal = document.getElementById('createPostModal');
@@ -69,22 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (myPostsButton) {
         myPostsButton.addEventListener('click', () => {
-            myPostsModal.style.display = 'block';
+            window.location.href = '/my-posts/';
             fetchUserPosts();
         });
     }
-
-    if (closeMyPostsModal) {
-        closeMyPostsModal.addEventListener('click', () => {
-            myPostsModal.style.display = 'none';
-        });
-    }
-
-    window.addEventListener('click', (e) => {
-        if (e.target === myPostsModal) {
-            myPostsModal.style.display = 'none';
-        }
-    });
 
     // Function to fetch User Posts
 
@@ -469,6 +455,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (data.status === 'success') {
                         const likeCountElement = this.querySelector('.like-count');
                         likeCountElement.textContent = data.likes;
+
+                        const iconElement = this.querySelector('i');
+                        if (data.liked) {
+                            iconElement.classList.remove('fa-regular', 'fa-thumbs-up');
+                            iconElement.classList.add('fa-solid', 'fa-thumbs-up');
+                        } else {
+                            iconElement.classList.remove('fa-solid', 'fa-thumbs-up');
+                            iconElement.classList.add('fa-regular', 'fa-thumbs-up');
+                        }
                     } else if (data.status === 'error') {
                         alert(data.message);
                     }
