@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from core.views import home, about, contact
 from blog.views import blog, top_posts, get_popular_posts, user_post_detail, user_posts_api,create_post_view, edit_post, delete_post, like_post, my_posts
-from comments.views import add_comment, like_comment, edit_comment, delete_comment
+from comments.views import add_comment, like_comment, edit_comment, delete_comment, load_comments
 from users.views import register_view, login_view, logout_view
 from django.conf import settings
 from django.conf.urls.static import static
@@ -29,7 +29,6 @@ urlpatterns = [
     path('about/', about, name='about'), # About Page
     path('contact/', contact, name='contact'), # Contact Page
     path('blog/', blog, name='blog'), # Blog Page
-    path('comments/', comments, name='comments'),
     path('top-posts/', top_posts, name='top_posts'),
     path('get-popular-posts/', get_popular_posts, name='get_popular_posts'),
     path('user-posts-api/', user_posts_api, name='user_posts_api'),

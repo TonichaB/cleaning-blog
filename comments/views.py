@@ -5,6 +5,32 @@ from blog.models import BlogPost
 
 # Create your views here.
 
+# Load the Comments Section
+def load_comments(request, pod_id):
+    post = get_object_or_404(BlogPost, id=post_id)
+    comments = post.comments.all().order_by('created_at')
+
+    # Arrange the Comments
+    comments_data = []
+    for comment in comments:
+        comments_data.append({
+            'author': comment.author.username,
+            'content': comment.content,
+            'created_at': comment.created_at.strftime('%Y-%m-%d %H: %M: %S'),
+            'likes_count': comment.likes.count(),
+            'is_liked': comment.likes.filter(id=request.user.id).exists() if request.user.is_authenticated else False,
+            'comment_id': comment.id,
+            'replies': [
+                {
+                    'author': reply.author.username,
+                    'content': reply.content,
+                    'created_at': reply.created_at.strftime('%Y-%m-%d %H: %M: %S'),
+                }
+                for reply in comment.replies.all()
+            ]
+        })
+    return JsonResponse({'comments': comments_data})
+
 # Adding New Comments/Replies
 
 def add_comment(request, post_id):
