@@ -34,3 +34,19 @@ def like_comment(request):
             comment.likes.add(request.user)
             liked = True
         return JsonResponse({'success': True, 'liked': liked, 'likes_count': comment.likes.count()})
+
+# Edit Comment
+def edit_comment(request, comment_id):
+    if request.method == 'POST':
+        content = request.POST.get('content')
+        comment = get_object_or_404(Comment, id=comment_id, user=request.user)
+        comment.content = content
+        comment.save()
+        return JsonResponse({'success': True, 'message': 'Comment Updated'})
+
+# Delete Comment
+def delete_comment(request, comment_id):
+    if request.method == 'POST':
+        comment = get_object_or_404(Comment, id=comment_id, user=request.user)
+        comment.delete()
+        return JsonResponse({'success': True, 'message': 'Comment Deleted'})
