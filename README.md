@@ -132,6 +132,10 @@ When first visiting the website, the user is presented with the home page. Withi
 
 #### About Page
 
+There is an about page containing a general introduction to the creators of the blog site and the story behind the site and it's purpose. The page provides further information for new users to the site who may want to know more before registering for an account.<br>
+
+*image of the about page*
+
 #### Blog Page
 
 On the blog page all published blog posts can be viewed with the options to filter/sort the results based on their desired content.<br>
@@ -162,7 +166,8 @@ For smaller screen sizes the navigation bar becomes hidden and the user is prese
 
 Within the header for the site, to the top right, there is a button for the user to firstly Register/Login to an account. This button will change after the user has logged in to instead show the username as a new dropdown link that when clicked shows an option for the user to log out. When first selecting to Register/Login the user is also presented initially with a Register modal containing a form to register, or if they already have an account they can select to login instead which amends the modal to now request the login details.
 
-*image of register/login button* *image of logged in username and dropdown for logout*<br>
+*image of register/login button* <br>
+*image of logged in username and dropdown for logout*<br>
 *image of register modal* *image of login modal*
 
 #### My Posts
@@ -186,7 +191,7 @@ For each of the post entries shown on the My Posts page, there is an edit button
 
 #### Like/Unlike Posts
 
-Each of the published posts on the Blog Page have a like button that allows authorised users the ability to like posts. When a post has already been liked by a user, the icon shows as a filled in thumbs up, whilst unliked posts will show with an unfilled thumbs up. When a post is liked or unlike, the counter to the right of the icon also updates accordingly. As this is only for authorised users, should a user who has not logged into their account try to like a post, they will receive a Non-Verified User Confirmation Message which encourages them to Register/Login so that they can interact with posts or even create their own. <br>
+Each of the published posts on the Blog Page have a like button that allows authorised users the ability to like posts. When a post has already been liked by a user, the icon shows as a filled in thumbs up, whilst unliked posts will show with an unfilled thumbs up. When a post is liked or unliked, the counter to the right of the icon also updates accordingly. As this is only for authorised users, should a user who has not logged into their account try to like a post, they will receive a Non-Verified User Confirmation Message which encourages them to Register/Login so that they can interact with posts or even create their own. <br>
 
 *image of like button (liked)*<br>
 *image of like button (unliked)*<br>
@@ -195,18 +200,25 @@ Each of the published posts on the Blog Page have a like button that allows auth
 
 Throughout the site there are various occassions for a confirmation message to be presented to the user. Each confirmation message is shown below;<br>
 
-- Registration Successful
-- Login Successful
+- Registration Successful- When the registration form has been completed successfully a notification is displayed to the user confirming and welcoming them to the site.
+  - *image of registration successful notification*
+- Login Successful - When a user has sucessfully logged in a notification appears to confirm, with a welcome back message.
+  - *image of successful login notification*
 - Log Out- Are you sure?
-- Log Out- Successful
+- Log Out- Successful- After a user has confirmed they want to log out, and once the home page has loaded a notification appears to confirm the user has successfully logged out.
+  - *logout successful notification image*
 - Non-Verified User- There are some actions that are limited to users who are logged in only. If a non-verified user attempts to complete these actions they receive a notification encouraging them to register/login;
   - *image of non-verified user notification when trying to like a post*
   - *image of non-verified user notification when trying to comment on a post*
-- Confirm Post Deletion
-- Successfully Published Post
+- Confirm Post Deletion- 
+- Successfully Published Post - After a user creates a new blog post, they will receive a notification to confirm the post has been successfully published.
+  - *image of post successfully published notification*
 - Publishing Post Error
-- Unsaved Changed Notification
-- Successfully Updated Notification
+- Confirm discard changes
+- Unsaved Changes Notification- if a user exits the editing post modal and confirms they are happy to discard their changes, they will see a notification to confirm the changes have not been saved.
+  - *image of discarded changes notification*
+- Successfully Updated Notification- After making changes to one of their existing posts and saving the changes, the user received a notification to confirm the edits have been updated successfully.
+  - *image of successful edit update notification*
 
 ### Potential Future Features
 

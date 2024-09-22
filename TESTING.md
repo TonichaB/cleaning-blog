@@ -60,11 +60,11 @@ The User Stories have been manually tested, including their corresponding featur
 
 | User Story | Feature Image | Test Action | Expected Result | Actual Result | Pass/Fail | Result Image |
 | -- | -- | -- | -- | -- | -- | -- |
-| [#22](https://github.com/TonichaB/cleaning-blog/issues/22) | img | Click Like on a previously liked post |  |  |  | rslt img |
-| [#23](https://github.com/TonichaB/cleaning-blog/issues/23) | img | Click Like on a previously liked post |  |  |  | rslt img |
-| [#24](https://github.com/TonichaB/cleaning-blog/issues/24) | img | Click Like on a previously liked post |  |  |  | rslt img |
-| [#25](https://github.com/TonichaB/cleaning-blog/issues/25) | img | Click Like on a previously liked post |  |  |  | rslt img |
-| [#26](https://github.com/TonichaB/cleaning-blog/issues/26) | img | Click Like on a previously liked post |  |  |  | rslt img |
+| [#22](https://github.com/TonichaB/cleaning-blog/issues/22) | img |  |  |  |  | rslt img |
+| [#23](https://github.com/TonichaB/cleaning-blog/issues/23) | img |  |  |  |  | rslt img |
+| [#24](https://github.com/TonichaB/cleaning-blog/issues/24) | img |  |  |  |  | rslt img |
+| [#25](https://github.com/TonichaB/cleaning-blog/issues/25) | img |  |  |  |  | rslt img |
+| [#26](https://github.com/TonichaB/cleaning-blog/issues/26) | img |  |  |  |  | rslt img |
 |  | img | Click Like on a previously liked post |  |  |  | rslt img |
 |  | img | Click Like on a previously liked post |  |  |  | rslt img |
 
@@ -72,10 +72,10 @@ The User Stories have been manually tested, including their corresponding featur
 
 | User Story | Feature Image | Test Action | Expected Result | Actual Result | Pass/Fail | Result Image |
 | -- | -- | -- | -- | -- | -- | -- |
-| [#27](https://github.com/TonichaB/cleaning-blog/issues/27) | img | Click Register/Login link in header |  |  |  | rslt img |
-| [#27](https://github.com/TonichaB/cleaning-blog/issues/27) | img | Click Register after inputting valid details in form |  |  |  | rslt img |
-| [#27](https://github.com/TonichaB/cleaning-blog/issues/27) | img | Click Register with non-matching passwords input |  |  |  | rslt img |
-| [#27](https://github.com/TonichaB/cleaning-blog/issues/27) | img | Click Register with existing details input |  |  |  | rslt img |
+| [#27](https://github.com/TonichaB/cleaning-blog/issues/27) | img | Click Register/Login link in header | Register modal opens with a registration form requiring a username, email password and password confirmation. | Register modal appears as expected with fully functioning form for user input. | Pass | rslt img |
+| [#27](https://github.com/TonichaB/cleaning-blog/issues/27) | img | Click Register after inputting valid details in form | Notification appears to confirm successfuly registration, and user is automatically logged in to their account. Register/login button is replaced with username dropdown link. | Notification appears as expected and the page refreshes to show the logged in username as a dropdown link replacing the register/login button. | Pass | rslt img |
+| [#27](https://github.com/TonichaB/cleaning-blog/issues/27) | img | Click Register with non-matching passwords input | Notification to appear advising the passwords do not match and account not registered. Register modal remains to allow the user to amend and resubmit. |  |  | rslt img |
+| [#27](https://github.com/TonichaB/cleaning-blog/issues/27) | img | Click Register with existing details input | Notification to appear advising account already exists and suggesting the user should instead login. |  |  | rslt img |
 | [#28](https://github.com/TonichaB/cleaning-blog/issues/28) | img | Click login link within register modal | Login Modal appears with form for user login | The login modal appears and replaces the register modal. Login form displays as expected. | Pass | rslt img |
 | [#28](https://github.com/TonichaB/cleaning-blog/issues/28) | img | Click to login using valid details | Using a valid username and password a successful login message appears and register/login button is replaced with the user's username | Confirmation message appears as expected, and register/login link is replaced with the correct username | Pass | rslt img |
 | [#28](https://github.com/TonichaB/cleaning-blog/issues/28) | img | Click to login using invalid details | Message to appear to notify user of invalid details entered | Message appears as expected to notify of invalid login details | Pass | rslt img |
@@ -83,11 +83,10 @@ The User Stories have been manually tested, including their corresponding featur
 | [#29](https://github.com/TonichaB/cleaning-blog/issues/29) | img | Click on username in header | Dropdown should appear and logout link is displayed | Dropdown works as intended and logout link is displayed | Pass | rslts img |
 | [#29](https://github.com/TonichaB/cleaning-blog/issues/29) | img | Click on logout link | Message to appear to confirm logout request, user can confirm or cancel | Message appears as expected with a button to confirm or cancel | Pass | rslt img |
 | [#29](https://github.com/TonichaB/cleaning-blog/issues/29) | img | Click to confirm logout | Message appears to confirm logout successful, and user redirected to home page with register/login buttons presented | Message confirmation appears as expected and page redirects to home page with button to register/login present | Pass | rslt img |
-| [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | img | Click Like on a previously liked post |  |  |  | rslt img |
-| [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | img | Click Like on a previously liked post |  |  |  | rslt img |
-| [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | img | Click Like on a previously liked post |  |  |  | rslt img |
-| [#31](https://github.com/TonichaB/cleaning-blog/issues/31) | img | Click Like on a previously liked post |  |  |  | rslt img |
-| [#32](https://github.com/TonichaB/cleaning-blog/issues/32) | img | Click Like on a previously liked post |  |  |  | rslt img |
+| [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | img | Click to like a post when not logged in | Notification should appear to advise user to register/login in order to like posts, and the login modal should open. Notification should dissappear after 3 seconds. | Notification appears and dissapears as expected, advising only logged in users can like a post, and login modal opens automatically. | Pass | rslt img |
+| [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | img | Click to comment on a post when not logged in | Notification should appear to advise user to register/login in order to comment on a post |  |  | rslt img |
+| [#31](https://github.com/TonichaB/cleaning-blog/issues/31) | img |  |  |  |  | rslt img |
+| [#32](https://github.com/TonichaB/cleaning-blog/issues/32) | img |  |  |  |  | rslt img |
 
 **Epic: Search Function**
 
@@ -149,3 +148,4 @@ I have used the local db.sqlite3 database for testing the views contained within
 | 403 Forbidden Error- CSRF cookie not set | Correct typo errors within fetch requests, include CSRF verification in HTML, configure settings to include trusted CSRF origins | Bug Fixed |  |
 | Username link dropdown not displaying correctly. Logout link displays below username rather than inside the dropdown | Add JavaScript to deal with the dropdown function and update css styling for better positioning | Bug Fixed |  |
 | After logging out, user is not redirected to the home page | Amend the urlpatterns for the root url path to connect to the core homepage. | Bug Fixed |  |
+| Notifications do not appear when function called on | Correct the styling and using console.logs isolated the issue with the javascript functions calling the notification function incorrectly.  | Bug Fixed | |
