@@ -1,36 +1,3 @@
-// Popular Post Live Updates function
-
-document.addEventListener('DOMContentLoaded', function() {
-    function updatePopularPosts() {
-        fetch('/get-popular-posts/')
-            .then(response => response.json())
-            .then(data => {
-                const postsContainer = document.querySelector('#popular-posts ul');
-                postsContainer.innerHTML = ''; // Clear current posts
-
-                if (data.popular_posts.length > 0) {
-                    data.popular_posts.forEach(post => {
-                        const postElement = document.createElement('li');
-                        postElement.innerHTML = `
-                            <a href="${post.url}" id="post-title">${post.title}</a>
-                            <span id="author-name">by ${post.author}</span>
-                            <p>${post.excerpt}<a href="${post.url}" class="read-more">... Read More</a></p>
-                        `;
-                        postsContainer.appendChild(postElement);
-                    });
-                } else {
-                    postsContainer.innerHTML = `<li id="no-posts">No Popular Posts Available</li>`;
-                }
-            })
-            .catch(error => console.error('Error updating popular posts:', error));
-    }
-
-    updatePopularPosts();
-    setInterval(updatePopularPosts, 60000);
-});
-
-// Manage Modals
-
 document.addEventListener('DOMContentLoaded', () => {
     // My Posts Modal
     const myPostsButton = document.getElementById('my-posts-button');
@@ -63,8 +30,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const toggleLinks = document.querySelectorAll('.toggle-content');
 
+    // Notification Storage Check
+
+    const notificationMessage = sessionStorage.getItem('notificationMessage');
+    if (notificationMessage) {
+        showNotification(notificationMessage);
+        // Clear Session Storage
+        sessionStorage.removeItem('notificationMessage');
+    }
+
+    // Popular Post Live Updates function
+
+    function updatePopularPosts() {
+        const postsContainer = document.querySelector('#popular-posts ul');
+
+        if (!postsContainer) {
+            console.log('Popular posts container not found on this page');
+            return;
+        }
+
+        fetch('/get-popular-posts/')
+            .then(response => response.json())
+            .then(data => {
+                const postsContainer = document.querySelector('#popular-posts ul');
+                postsContainer.innerHTML = ''; // Clear current posts
+
+                if (data.popular_posts.length > 0) {
+                    data.popular_posts.forEach(post => {
+                        const postElement = document.createElement('li');
+                        postElement.innerHTML = `
+                            <a href="${post.url}" id="post-title">${post.title}</a>
+                            <span id="author-name">by ${post.author}</span>
+                            <p>${post.excerpt}<a href="${post.url}" class="read-more">... Read More</a></p>
+                        `;
+                        postsContainer.appendChild(postElement);
+                    });
+                } else {
+                    postsContainer.innerHTML = `<li id="no-posts">No Popular Posts Available</li>`;
+                }
+            })
+            .catch(error => console.error('Error updating popular posts:', error));
+    }
+
+    updatePopularPosts();
+    setInterval(updatePopularPosts, 60000);
+
     // Notifications Modal
     function showNotification(message) {
+        console.log("showing notifications:", message);
         const notificationModal = document.getElementById('notification-modal');
         const notificationMessage = document.getElementById('notification-message');
 
@@ -73,9 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             notificationModal.classList.remove('show');
-        }, 5000);
+        }, 3000);
 
-        document.getElementById('close-notification').onclick = function() {
+        document.getElementById('close-notification-modal').onclick = function() {
             notificationModal.classList.remove('show');
         };
     }
@@ -147,9 +160,10 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
+                    sessionStorage.setItem('notificationMessage', "Post has been Deleted.");
                     fetchUserPosts();
                 } else {
-                    console.error('Error deleting post:', data.message);
+                    showNotification(data.message);
                 }
             })
             .catch(error => console.error('Error deleting post:', error));
@@ -290,8 +304,9 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => response.json())
         .then(data => {
-            alert(data.message);
             if (data.success) {
+                console.log("notification triggered with message:", data.message);
+                sessionStorage.setItem('notificationMessage', "Post Successfully Published!");
                 location.reload();
             }
         })
@@ -363,8 +378,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => response.json())
         .then(data => {
-            alert(data.message);
             if (data.success) {
+                sessionStorage.setItem('notificationMessage', "Registration Successful. Welcome!");
                 location.reload();
             }
         })
@@ -386,8 +401,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => response.json())
         .then(data => {
-            alert(data.message);
             if (data.success) {
+                sessionStorage.setItem('notificationMessage', "Login Successful. Welcome Back!");
                 location.reload();
             }
         })
@@ -420,8 +435,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }) 
             .then(data => {
-                alert(data.message);
                 if (data && data.success) {
+                    sessionStorage.setItem('notificationMessage', "Logged Out Successfully. See you next time!");
                     window.location.href = '/';
                 }
             })

@@ -130,7 +130,7 @@ main {
 
 .notification-modal {
     position: fixed;
-    top: -100px;
+    top: -150px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #005050;
@@ -139,15 +139,11 @@ main {
     border-radius: 5px;
     box-shadow: 0 4px 8px #00000033;
     transition: top 0.5s ease;
-    z-index: 1000;
+    z-index: 2000;
 }
 
 .notification-modal.show {
-    top: 20px;
-}
-
-.notification-modal.hide {
-    top: -100px;
+    top: 50px;
 }
 
 /* Create Post Modal */
