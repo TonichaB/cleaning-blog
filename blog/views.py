@@ -33,6 +33,12 @@ def blog(request):
     elif sort == 'popularity_asc':
         blog_posts = blog_posts.order_by('likes')
 
+    # Get the likes for the current user
+    liked_posts = []
+    print(liked_posts)
+    if request.user.is_authenticated:
+        liked_posts = Like.objects.filter(user=request.user).values_list('blog_post_id', flat=True)
+
     # Pagination
     paginator = Paginator(blog_posts, 5)
     page = request.GET.get('page')
@@ -46,7 +52,8 @@ def blog(request):
 
     context = {
         'blog_posts': blog_posts,
-        'is_authenticated': request.user.is_authenticated
+        'is_authenticated': request.user.is_authenticated,
+        'liked_posts': liked_posts
     }
 
     return render(request, 'blog.html', context)

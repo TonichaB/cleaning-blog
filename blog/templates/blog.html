@@ -24,7 +24,7 @@
                 <p>{{ post.content|safe }}</p>
             </div>
             <button class="like-button" data-post-id="{{ post.id }}">
-                <i class="fa-regular fa-thumbs-up"></i>
+                <i class="{% if post.id in liked_posts %}fa-solid fa-thumbs-up{% else %}fa-regular{% endif %} fa-thumbs-up"></i>
                 <span class="like-count">{{ post.likes }}</span>
             </button>
         </div>
