@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerModal = document.getElementById('register-modal');
     const loginModal = document.getElementById('login-modal');
     const showLoginModal = document.getElementById('show-login-modal');
+    const openRegisterLink = document.getElementById('open-register-modal');
     const closeRegister = document.getElementById('close-register');
     const closeLogin = document.getElementById('close-login');
     const registerForm = document.getElementById('register-form');
@@ -358,6 +359,12 @@ document.addEventListener('DOMContentLoaded', () => {
     registerLoginButton?.addEventListener('click', () => {
         registerModal.style.display = 'flex';
     });
+
+    openRegisterLink?.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginModal.style.display = 'none';
+        registerModal.style.display = 'flex';
+    })
 
     // Show login modal from register modal
     showLoginModal?.addEventListener('click', (e) => {
