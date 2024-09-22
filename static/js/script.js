@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'X-CSRFToken': getCookie('csrftoken')
                 }
-        })
+            })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .catch(error => console.error('Error deleting post:', error));
-            }
+        }
     }
 
     addDeleteEventListeners();
@@ -455,31 +455,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Function to get CSRF Token from cookies
+    // Like Button Functionality
 
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
-});
-
-// Like Button Functionality
-document.addEventListener('DOMContentLoaded', () => {
     const likeButtons = document.querySelectorAll('.like-button');
 
     likeButtons.forEach(button => {
         button.addEventListener('click', function (event) {
             event.preventDefault();
+
+            console.log('isAuthentication value:', isAuthenticated);
+            
+            if (isAuthenticated === 'false') {
+                showNotification("Please Log In or Register to like posts.");
+
+                const loginModal = document.getElementById('login-modal');
+                if (loginModal) {
+                    loginModal.style.display = 'block';
+                }
+                return;
+            }
 
             const postId = this.dataset.postId;
 
@@ -514,7 +508,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 .catch(error => console.error('Error:', error));
             });
         });
-    });
 
     // Function to get CSRF Token from cookies
 
@@ -532,3 +525,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return cookieValue;
     }
+});
+

@@ -112,5 +112,10 @@
     <!-- Font Awesome Kit -->
     <script src="https://kit.fontawesome.com/96afde0967.js" crossorigin="anonymous"></script>
     <script src="{% static 'js/script.js' %}"></script>
+    <!-- Is Authenticated Check -->
+     <script>
+        const isAuthenticated = "{{ is_authenticated|yesno:'true,false'|lower }}";
+        console.log("is use authenticated?", isAuthenticated);
+     </script>
 </body>
 </html>

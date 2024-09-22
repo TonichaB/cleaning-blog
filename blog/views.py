@@ -44,7 +44,12 @@ def blog(request):
     except EmptyPage:
         blog_posts = paginator.page(paginator.num_pages)
 
-    return render(request, 'blog.html', {'blog_posts': blog_posts})
+    context = {
+        'blog_posts': blog_posts,
+        'is_authenticated': request.user.is_authenticated
+    }
+
+    return render(request, 'blog.html', context)
 
 # Obtain the initial top 5 popular posts
 def top_posts(request):
