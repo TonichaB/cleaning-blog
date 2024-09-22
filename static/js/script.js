@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 if (data.success) {
                     sessionStorage.setItem('notificationMessage', "Post has been Deleted.");
-                    fetchUserPosts();
+                    location.reload();
                 } else {
                     showNotification(data.message);
                 }
@@ -207,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (confirm('You have unsaved changes. Do you want to disgard them?')) {
                         isEditing = false;
                         modal.style.display = 'none';
+                        showNotification("Changes have been discarded.");
                     }
                 } else {
                     isEditing = false;
@@ -234,17 +235,27 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             body: JSON.stringify({ title, content })
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Newtwork response was not ok' + response.statusText);
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.success) {
                 fetchUserPosts();
                 isEditing = false,
                 document.getElementById('edit-post-modal').style.display = 'none';
+                showNotification("Post has been updated.");
             } else {
                 console.error('Error updating post:', data.message);
+                showNotification('Error:' + data.message);
             }
         })
-        .catch(error => console.error('Error updating post:', error));
+        .catch(error => {
+            console.error('Error udpating post:', error);
+            showNotification("An error has occured whilst editing the post. Please try again.");
+        });
     })
 
     addEditEventListeners();
