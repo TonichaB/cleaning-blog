@@ -534,6 +534,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Comments Feature Functionality
+
+    // Load Comments relating to a specific post
     function loadComments(postId) {
         fetch(`/load-comments/${postId}/`)
             .then(response => response.json())
@@ -564,11 +566,35 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => console.error('Error loading comments:', error));
     }
-    
-    // Load Comments relating to a specific post
 
     // Add New Comment
+    document.querySelectorAll('.comment-form').forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const postId = form.dataset.postId;
+            const formData = new FormData(form);
 
+            fetch(`/add-comment/${postId}/`, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    loadComments(postId);
+                    form.reset();
+                    showNotification("Comment added successfully.");
+                } else {
+                    showNotification(data.message);
+                }
+            })
+            .catch(error => console.error('Error adding comment:', error));
+        });
+    });
+    
     // Reply to a Comment
 
     // Edit Comment
