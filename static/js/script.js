@@ -561,6 +561,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     commentsContainer.innerHTML = '<p>No comments yet, be the first!</p>';
                 }
+
+                const commentForm = `
+                    <form id="comment-form-${postId}" method="POST" action="/add-comment/${postId}/" class="comment-form">
+                        <textarea name="content" placeholder="Write a comment..."></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
+                `;
+                commentsContainer.innerHTML += commentForm;
+
                 addCommentListeners();
             })
             .catch(error => console.error('Error loading comments:', error));

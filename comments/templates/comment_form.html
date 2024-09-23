@@ -1,6 +1,6 @@
 <!-- Comments Form -->
 
-<form id="comment-form-{{ post_id }}" method="POST" action="{% url 'add_comment' post.id %}" class="comment-form">
+<form id="comment-form-{{ post_id }}" method="POST" action="{% url 'add_comment' post_id %}" class="comment-form">
     {% csrf_token %}
     <textarea name="content" placeholder="Write a comment..."></textarea>
     <button type="submit">Submit</button>
