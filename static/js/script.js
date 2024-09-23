@@ -635,7 +635,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Edit Comment
+    function addEditCommentListeners() {
+        document.querySelectorAll('.edit-comment-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const commentId = button.dataset.commentId;
+                const commentContent = document.getElementById(`comment-content-${commentId}`);
+                const editForm = document.getElementById(`edit-form-${commentId}`);
+                editForm.style.display = 'block';
 
+                editForm.querySelector('textarea').value = commentContent.textContent;
+
+                editForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const formData = new FormData(editForm);
+
+                    fetch(`/edit-comment/${commentId}/`, {
+                        method: 'PUT',
+                        body: formData,
+                        headers: {
+                            'X-CSRFToken': getCookie('csrftoken')
+                        },
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            loadComments(editForm.dataset.postId);
+                            showNotification("Comment Updated");
+                        } else {
+                            showNotification(data.message);
+                        }
+                    })
+                    .catch(error => console.error('Error editing comment:', error));
+                });
+            });
+        });
+    }
+    
     // Delete Comment
 
     // Like Comments Functionality
