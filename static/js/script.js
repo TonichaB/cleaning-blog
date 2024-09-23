@@ -700,11 +700,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Like Comments Functionality
+    function addLikeCommentListeners() {
+        document.querySelectorAll('.like-comment-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const commentId = button.dataset.commentId;
+
+                fetch(`/like-comment/${commentId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        loadComments(button.closest('.blog-post').dataset.postId);
+                    } else {
+                        showNotification(data.message);
+                    }
+                })
+                .catch(error => console.error('Error liking comment:', error));
+            });
+        });
+    }
 
     // Initialise comment-related event listeners
     addCommentListeners();
     addEditCommentListeners();
     addDeleteCommentListeners();
+    addLikeCommentListeners();
 
 });
 
