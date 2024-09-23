@@ -670,13 +670,41 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-    
+
     // Delete Comment
+    function addDeleteCommentListeners() {
+        document.querySelectorAll('.delete-comment-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const commentId = button.dataset.commentId;
+
+                if (confirm("Are you sure you want to delete this comment?")) {
+                    fetch(`/delete-comment/${commentId}/`, {
+                        method: 'DELETE',
+                        headers: {
+                            'X-CSRFToken': getCookie('csrftoken')
+                        },
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            loadComments(button.closest('.blog-post').dataset.postId);
+                            showNotification("Comment has been deleted.");
+                        } else {
+                            showNotification(data.message);
+                        }
+                    })
+                    .catch(error => console.error('Error deleting comment:', error));
+                }
+            });
+        });
+    }
 
     // Like Comments Functionality
 
     // Initialise comment-related event listeners
     addCommentListeners();
+    addEditCommentListeners();
+    addDeleteCommentListeners();
 
 });
 
