@@ -448,6 +448,121 @@ img {
     margin-top: 0;
 }
 
+/* Comments Section */
+
+.comments-container {
+    margin-top: 20px;
+    border-top: 1px solid #000000;
+    padding-top: 15px;
+}
+
+.comment {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    position: relative;
+}
+
+.comment p {
+    margin: 0;
+    color: #333;
+    font-size: 1rem;
+}
+
+.comment span.author-info {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 5px;
+    display: block;
+}
+
+.comment .reply-button,
+.comment .edit-comment-button,
+.comment .delete-comment-button,
+.comment .like-comment-button {
+    background: none;
+    border: none;
+    color: #005050;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.comment .reply-button:hover,
+.comment .edit-comment-button:hover,
+.comment .delete-comment-button:hover,
+.comment .like-comment-button:hover {
+    color: #008080;
+}
+
+.comment .like-comment-button i {
+    margin-right: 5px;
+}
+
+.comment .like-comment-button .like-count {
+    font-size: 0.85rem;
+}
+
+.replies {
+    margin-left: 30px;
+    padding-left: 15px;
+    border-left: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.comments-container p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.add-comment-button {
+    background-color: #005050;
+}
+
+.comment-form {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.comment-form button {
+    align-self: flex-end;
+    padding: 8px 12px;
+    background-color: #007b7b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comment-form button:hover {
+    background-color: #005050;
+}
+
+.comment.reply {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 /* My Posts Page */
 
 .my-posts-container {
