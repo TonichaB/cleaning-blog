@@ -532,5 +532,51 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return cookieValue;
     }
+
+    // Comments Feature Functionality
+    function loadComments(postId) {
+        fetch(`/load-comments/${postId}/`)
+            .then(response => response.json())
+            .then(data => {
+                const commentsContainer = document.getElementById('comments-container-${postId}');
+                commentsContainer.innerHTML = '';
+                if (data.comments.length > 0) {
+                    data.comments.forEach(comment => {
+                        const commentElement = document.createElement('div');
+                        commentElement.classList.add('comment');
+                        commentElement.innerHTML = `
+                            <p>${comment.context} by ${comment.author}</p>
+                            <button class="reply-button" data-comment-id="${comment.id}">Reply</button>
+                            <button class="edit-comment-button" data-comment-id="${comment.id}">Edit</button>
+                            <button class="delete-comment-button" data-comment-id="${comment.id}">Delete</button>
+                            <button class="like-comment-button" data-comment-id="${comment.id}">
+                                <i class="${comment.liked ? 'fa-solid' : 'fa-regular'} fa-thumbs-up"></i>
+                                <span class="like-count">${comment.likes}</span>
+                            </button>
+                            <div class="replies" id="replies-${comment.id}"></div>
+                        `;
+                        commentsContainer.appendChild(commentElement);
+                    });
+                } else {
+                    commentsContainer.innerHTML = '<p>No comments yet, be the first!</p>';
+                }
+                addCommentListeners();
+            })
+            .catch(error => console.error('Error loading comments:', error));
+    }
+    
+    // Load Comments relating to a specific post
+
+    // Add New Comment
+
+    // Reply to a Comment
+
+    // Edit Comment
+
+    // Delete Comment
+
+    // Like Comments Functionality
+
+    // Initialise comment-related event listeners
 });
 
