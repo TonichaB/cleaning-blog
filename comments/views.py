@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from .models import Comment
 from blog.models import BlogPost
 
@@ -29,7 +29,7 @@ def load_comments(request, post_id):
                 for reply in comment.replies.all()
             ]
         })
-    return JsonResponse({'comments': comments_data})
+    return JsonResponse({'comments': comments_data}, status=200)
 
 # Adding New Comments/Replies
 
