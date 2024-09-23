@@ -6,7 +6,7 @@ from blog.models import BlogPost
 # Create your views here.
 
 # Load the Comments Section
-def load_comments(request, pod_id):
+def load_comments(request, post_id):
     post = get_object_or_404(BlogPost, id=post_id)
     comments = post.comments.all().order_by('created_at')
 

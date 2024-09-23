@@ -536,7 +536,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Comments Feature Functionality
 
     // Load Comments relating to a specific post
-    function loadComments(postId) {
+    function loadComments(postId, commentsContainer) {
         fetch(`/load-comments/${postId}/`)
             .then(response => response.json())
             .then(data => {
@@ -566,6 +566,23 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => console.error('Error loading comments:', error));
     }
+
+    document.querySelectorAll('.see-comments-button').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const postId = button.dataset.postId;
+            const commentsContainer = document.getElementById(`comments-container-${postId}`);
+
+            if (commentsContainer.style.display === 'none' || commentsContainer.style.display === '') {
+                loadComments(postId, commentsContainer);
+                commentsContainer.style.display = 'block';
+                buttong.textContent = 'Hide Comments';
+            } else {
+                commentsContainer.style.display = 'none';
+                button.textContent = 'See Comments';
+            }
+        });
+    });
 
     // Add New Comment
     document.querySelectorAll('.comment-form').forEach(form => {
