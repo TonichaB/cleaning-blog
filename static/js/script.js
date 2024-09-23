@@ -546,13 +546,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         const commentElement = document.createElement('div');
                         commentElement.classList.add('comment');
                         commentElement.innerHTML = `
-                            <p>${comment.context} by ${comment.author}</p>
+                            <p>${comment.content} by ${comment.author}</p>
                             <button class="reply-button" data-comment-id="${comment.id}">Reply</button>
                             <button class="edit-comment-button" data-comment-id="${comment.id}">Edit</button>
                             <button class="delete-comment-button" data-comment-id="${comment.id}">Delete</button>
                             <button class="like-comment-button" data-comment-id="${comment.id}">
                                 <i class="${comment.liked ? 'fa-solid' : 'fa-regular'} fa-thumbs-up"></i>
-                                <span class="like-count">${comment.likes}</span>
+                                <span class="like-count">${comment.likes_count}</span>
                             </button>
                             <div class="replies" id="replies-${comment.id}"></div>
                         `;
@@ -562,8 +562,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     commentsContainer.innerHTML = '<p>No comments yet, be the first!</p>';
                 }
 
+                const csrfToken = getCookie('csrftoken');
+
                 const commentForm = `
                     <form id="comment-form-${postId}" method="POST" action="/add-comment/${postId}/" class="comment-form">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="${csrfToken}">
                         <textarea name="content" placeholder="Write a comment..."></textarea>
                         <button type="submit">Submit</button>
                     </form>

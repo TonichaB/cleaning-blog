@@ -14,7 +14,7 @@ def load_comments(request, post_id):
     comments_data = []
     for comment in comments:
         comments_data.append({
-            'author': comment.author.username,
+            'author': comment.user.username,
             'content': comment.content,
             'created_at': comment.created_at.strftime('%Y-%m-%d %H: %M: %S'),
             'likes_count': comment.likes.count(),
@@ -22,7 +22,7 @@ def load_comments(request, post_id):
             'comment_id': comment.id,
             'replies': [
                 {
-                    'author': reply.author.username,
+                    'author': reply.user.username,
                     'content': reply.content,
                     'created_at': reply.created_at.strftime('%Y-%m-%d %H: %M: %S'),
                 }
@@ -45,7 +45,11 @@ def add_comment(request, post_id):
         else:
             comment = Comment.objects.create(user=request.user, post=post, content=content,)
     
-    return JsonResponse({'success': True, 'message': 'Comment added', 'comment_id': comment_id})
+        comment_id= comment.id
+
+        return JsonResponse({'success': True, 'message': 'Comment added', 'comment_id': comment_id})
+    
+    return JsonResponse({'success': False, 'message': 'Invalid request'}, status=400)
 
 # Like/Unlike a Comment
 
