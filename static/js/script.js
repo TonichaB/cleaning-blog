@@ -594,8 +594,45 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Error adding comment:', error));
         });
     });
-    
+
     // Reply to a Comment
+    function addCommentListeners() {
+        document.querySelectorAll('.reply-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const commentId = button.dataset.commentId;
+                const replyForm = document.getElementById(`reply-form-${commentId}`);
+                replyForm.style.display = 'block';
+            });
+        });
+
+        // Submit Reply 
+        document.querySelectorAll('.reply-form').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const commentId = form.dataset.commentId;
+                const formData = new FormData(form);
+
+                fetch(`/reply-comment/${commentId}/`, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        loadComments(form.dataset.postId);
+                        form.reset();
+                        showNotification("Reply added successfully");
+                    } else {
+                        showNotification("data.message")
+                    }
+                })
+                .catch(error => console.error('Error replying to comment:', error));
+            });
+        });
+    }
 
     // Edit Comment
 
@@ -604,5 +641,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Like Comments Functionality
 
     // Initialise comment-related event listeners
+    addCommentListeners();
+
 });
 
