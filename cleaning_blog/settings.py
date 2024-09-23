@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'blog',
     'comments',
     'users',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -154,3 +155,14 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SUMMERNOTE_CONFIG = {
+    'toolbar': [
+        ['style', ['bold', 'italic', 'underline', 'clear']],
+        ['insert', ['link', 'picture', 'video']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['height', ['height']],
+    ],
+    'width': '100%',
+    'height': '300px',
+}

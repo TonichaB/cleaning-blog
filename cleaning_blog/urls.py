@@ -46,4 +46,5 @@ urlpatterns = [
     path('like/', like_comment, name='like_comment'),
     path('edit/<int:comment_id>/', edit_comment, name='edit_comment'),
     path('delete/<int:comment_id>/', delete_comment, name='delete_comment'),
+    path('summernote/', include('django_summernote.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
