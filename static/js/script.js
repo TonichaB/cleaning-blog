@@ -516,22 +516,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-    // Function to get CSRF Token from cookies
-
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
+    
 
     // Comments Feature Functionality
     
@@ -547,14 +532,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         commentElement.classList.add('comment');
                         commentElement.innerHTML = `
                             <p>${comment.content} by ${comment.author}</p>
-                            <button class="reply-button" data-comment-id="${comment.id}">Reply</button>
-                            <button class="edit-comment-button" data-comment-id="${comment.id}">Edit</button>
-                            <button class="delete-comment-button" data-comment-id="${comment.id}">Delete</button>
-                            <button class="like-comment-button" data-comment-id="${comment.id}">
-                                <i class="${comment.liked ? 'fa-solid' : 'fa-regular'} fa-thumbs-up"></i>
-                                <span class="like-count">${comment.likes_count}</span>
-                            </button>
-                            <div class="replies" id="replies-${comment.id}"></div>
                         `;
                         commentsContainer.appendChild(commentElement);
                     });
@@ -575,7 +552,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 commentsContainer.innerHTML += commentForm;
 
-                addCommentListeners();
+                document.getElementById(`comment-form-${postId}`).addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    if (isAuthenticated === 'false') {
+                        showNotification("Please Log In or Register to comment.");
+                        document.getElementById('login-modal').style.display = 'block';
+                        return;
+                    }
+
+                    const formData = new FormData(e.target);
+                    fetch(`/add-comment/${postId}/`, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-CSRFToken': getCookie('csrftoken')
+                        },
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            loadComments(postId, commentsContainer);
+                            e.target.reset();
+                            showNotification("Comment added successfully");
+                        }
+                    })
+                    .catch(error => console.error("Error adding comment", error));
+                });
             })
             .catch(error => console.error('Error loading comments:', error));
     }
@@ -605,168 +608,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Add New Comment
-    document.querySelectorAll('.comment-form').forEach(form => {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const postId = form.dataset.postId;
-            const formData = new FormData(form);
+    // Function to get CSRF Token from cookies
 
-            fetch(`/add-comment/${postId}/`, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-CSRFToken': getCookie('csrftoken')
-                },
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    loadComments(postId);
-                    form.reset();
-                    showNotification("Comment added successfully.");
-                } else {
-                    showNotification(data.message);
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
                 }
-            })
-            .catch(error => console.error('Error adding comment:', error));
-        });
-    });
-
-    // Reply to a Comment
-    function addCommentListeners() {
-        document.querySelectorAll('.reply-button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const commentId = button.dataset.commentId;
-                const replyForm = document.getElementById(`reply-form-${commentId}`);
-                replyForm.style.display = 'block';
-            });
-        });
-
-        // Submit Reply 
-        document.querySelectorAll('.reply-form').forEach(form => {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const commentId = form.dataset.commentId;
-                const formData = new FormData(form);
-
-                fetch(`/reply-comment/${commentId}/`, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'X-CSRFToken': getCookie('csrftoken')
-                    },
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        loadComments(form.dataset.postId);
-                        form.reset();
-                        showNotification("Reply added successfully");
-                    } else {
-                        showNotification("data.message")
-                    }
-                })
-                .catch(error => console.error('Error replying to comment:', error));
-            });
-        });
+            }
+        }
+        return cookieValue;
     }
-
-    // Edit Comment
-    function addEditCommentListeners() {
-        document.querySelectorAll('.edit-comment-button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const commentId = button.dataset.commentId;
-                const commentContent = document.getElementById(`comment-content-${commentId}`);
-                const editForm = document.getElementById(`edit-form-${commentId}`);
-                editForm.style.display = 'block';
-
-                editForm.querySelector('textarea').value = commentContent.textContent;
-
-                editForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const formData = new FormData(editForm);
-
-                    fetch(`/edit-comment/${commentId}/`, {
-                        method: 'PUT',
-                        body: formData,
-                        headers: {
-                            'X-CSRFToken': getCookie('csrftoken')
-                        },
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            loadComments(editForm.dataset.postId);
-                            showNotification("Comment Updated");
-                        } else {
-                            showNotification(data.message);
-                        }
-                    })
-                    .catch(error => console.error('Error editing comment:', error));
-                });
-            });
-        });
-    }
-
-    // Delete Comment
-    function addDeleteCommentListeners() {
-        document.querySelectorAll('.delete-comment-button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const commentId = button.dataset.commentId;
-
-                if (confirm("Are you sure you want to delete this comment?")) {
-                    fetch(`/delete-comment/${commentId}/`, {
-                        method: 'DELETE',
-                        headers: {
-                            'X-CSRFToken': getCookie('csrftoken')
-                        },
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            loadComments(button.closest('.blog-post').dataset.postId);
-                            showNotification("Comment has been deleted.");
-                        } else {
-                            showNotification(data.message);
-                        }
-                    })
-                    .catch(error => console.error('Error deleting comment:', error));
-                }
-            });
-        });
-    }
-
-    // Like Comments Functionality
-    function addLikeCommentListeners() {
-        document.querySelectorAll('.like-comment-button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const commentId = button.dataset.commentId;
-
-                fetch(`/like-comment/${commentId}/`, {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRFToken': getCookie('csrftoken')
-                    },
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        loadComments(button.closest('.blog-post').dataset.postId);
-                    } else {
-                        showNotification(data.message);
-                    }
-                })
-                .catch(error => console.error('Error liking comment:', error));
-            });
-        });
-    }
-
-    // Initialise comment-related event listeners
-    addCommentListeners();
-    addEditCommentListeners();
-    addDeleteCommentListeners();
-    addLikeCommentListeners();
-
 });
 

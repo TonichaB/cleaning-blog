@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from core.views import home, about, contact
 from blog.views import blog, top_posts, get_popular_posts, user_post_detail, user_posts_api,create_post_view, edit_post, delete_post, like_post, my_posts
-from comments.views import add_comment, like_comment, edit_comment, delete_comment, load_comments
+from comments.views import add_comment, load_comments
 from users.views import register_view, login_view, logout_view
 from django.conf import settings
 from django.conf.urls.static import static
@@ -46,5 +46,4 @@ urlpatterns = [
     path('like/', like_comment, name='like_comment'),
     path('edit/<int:comment_id>/', edit_comment, name='edit_comment'),
     path('delete/<int:comment_id>/', delete_comment, name='delete_comment'),
-    path('summernote/', include('django_summernote.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
