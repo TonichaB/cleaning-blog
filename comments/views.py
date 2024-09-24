@@ -17,7 +17,7 @@ def load_comments(request, post_id):
         comments_data.append({
             'author': comment.user.username,
             'content': comment.content,
-            'created_at': comment.created_at.strftime('%Y-%m-%d %H: %M: %S'),
+            'created_at': comment.created_at.strftime('%d-%m-%Y %H: %M'),
             'comment_id': comment.id,
         })
     return JsonResponse({'comments': comments_data}, status=200)

@@ -529,7 +529,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         const commentElement = document.createElement('div');
                         commentElement.classList.add('comment');
                         commentElement.innerHTML = `
-                            <p>${comment.content} by ${comment.author}</p>
+                            <p><strong>${comment.author}</strong> - on ${comment.created_at}</p>
+                            <p>${comment.content}</p>
                         `;
                         commentsContainer.appendChild(commentElement);
                     });
