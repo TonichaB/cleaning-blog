@@ -438,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Logout
     logoutLink?.addEventListener('click', (e) => {
         e.preventDefault();
-        if(confirm('Are ou sure you want to log out?')) {
+        if(confirm('Are you sure you want to log out?')) {
             fetch('/logout/', {
                 method: 'POST',
                 headers: {
@@ -516,8 +516,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-    
-
     // Comments Feature Functionality
     
     // Load Comments relating to a specific post
@@ -545,8 +543,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <form id="comment-form-${postId}" method="POST" action="/add-comment/${postId}/" class="comment-form">
                         <input type="hidden" name="csrfmiddlewaretoken" value="${csrfToken}">
                         <textarea name="content" placeholder="Write a comment..."></textarea>
-                        <button type="button" class="emoji-button">&smile;</button>
-                        <emoji-picker></emoji-picker>
                         <button type="submit">Submit</button>
                     </form>
                 `;

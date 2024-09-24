@@ -43,7 +43,4 @@ urlpatterns = [
     path('like-post/', like_post, name='like_post'),
     path('load-comments/<int:post_id>/', load_comments, name='load_comments'),
     path('add-comment/<int:post_id>/', add_comment, name='add_comment'),
-    path('like/', like_comment, name='like_comment'),
-    path('edit/<int:comment_id>/', edit_comment, name='edit_comment'),
-    path('delete/<int:comment_id>/', delete_comment, name='delete_comment'),
 ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
