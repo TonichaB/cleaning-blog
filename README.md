@@ -36,6 +36,7 @@ The live site can be found here! (link to be added)
       - [Editing Posts](#editing-posts)
       - [Like/Unlike Posts](#likeunlike-posts)
       - [Confirmation Messages](#confirmation-messages)
+      - [Blog Post Comments](#blog-post-comments)
     - [Potential Future Features](#potential-future-features)
       - [Comments Section](#comments-section)
       - [User Profile Management](#user-profile-management)
@@ -97,6 +98,7 @@ The goal for this project is to create a blog for cleaners with various experien
 - Logout
 - Staff Login
 - Create, view, edit, delete Posts
+- Comments
 
 **Flowchart**
 
@@ -220,13 +222,20 @@ Throughout the site there are various occassions for a confirmation message to b
 - Successfully Updated Notification- After making changes to one of their existing posts and saving the changes, the user received a notification to confirm the edits have been updated successfully.
   - *image of successful edit update notification*
 
+#### Blog Post Comments
+
+For each of the published blog posts, there is a comments section were users can currently add comments to their chosen post. Each comment displays the comment content, the author's username, and the date and time the comment was added. The feature is currently in it's earlier stages of development with future enhancements to include nested comments, and liking comment features.<br>
+
+*image of comments section*
+
 ### Potential Future Features
 
 #### Comments Section
 
-- Blog Post Comments
-- Nested Comments
-- Like Comments
+In the future I would like to expand on the functionality for the comments section with the following;
+- Rich Text- By implementing rich text using a library such as Django Summernotes, the comments form could be enhanced to allow a user to add emojis, attach files, and add various stylings to their text.
+- Nested Comments- Ideally I would like to have the facility for nested comments that would allow users the ability to get involved in their own discussions within the comments. This can provide for a better user experience.
+- Like Comments- Similar to the existing feature of liking blog posts, I would also like to implement the function of liking comments. This could lead to further enhancements to organise the comments structure with the most popular comments being presented at the top of the comments section.
 
 #### User Profile Management
 

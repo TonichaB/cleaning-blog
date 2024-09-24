@@ -31,8 +31,7 @@ The User Stories have been manually tested, including their corresponding featur
 | [#12](https://github.com/TonichaB/cleaning-blog/issues/12) | img | Navigate to the site Home Page  | Site introduction should be clearly presented and responsive  | Site introduction on the home page is clearly presented and responds as expected to changes in screen sizes  | Pass  | rslt img  |
 | [#13](https://github.com/TonichaB/cleaning-blog/issues/13) | img | Click on the social media links in the footer | A new tab opens to reflect the correct social media platform relevant to the icon clicked | New tabs open and the correct platform website is shown | Pass | rslt img |
 | [#14](https://github.com/TonichaB/cleaning-blog/issues/14) | img | Scroll to view the popular posts section and refresh page | The Popular Posts section shows a message if no posts available | Popular post section correctly shows the correct message | Pass | rslt img | 
-| [#14](https://github.com/TonichaB/cleaning-blog/issues/14) | img | When blog posts have been created, scroll to view the popular posts section on the home page | The top 5 most popular posts, based on a 'likes' metric, are presented in order | | | rslt img |
-| [#15](https://github.com/TonichaB/cleaning-blog/issues/15) | img |  |  |  |  | rslt img |
+| [#14](https://github.com/TonichaB/cleaning-blog/issues/14) | img | When blog posts have been created, scroll to view the popular posts section on the home page | The top 5 most popular posts, based on a 'likes' metric, are presented in order | Popular posts are displayed as expected | Pass | rslt img |
 
 **Epic: Blog Page**
 
@@ -60,10 +59,9 @@ The User Stories have been manually tested, including their corresponding featur
 
 | User Story | Feature Image | Test Action | Expected Result | Actual Result | Pass/Fail | Result Image |
 | -- | -- | -- | -- | -- | -- | -- |
-| [#22](https://github.com/TonichaB/cleaning-blog/issues/22) | img |  |  |  |  | rslt img |
-| [#23](https://github.com/TonichaB/cleaning-blog/issues/23) | img |  |  |  |  | rslt img |
-| [#24](https://github.com/TonichaB/cleaning-blog/issues/24) | img |  |  |  |  | rslt img |
-| [#25](https://github.com/TonichaB/cleaning-blog/issues/25) | img |  |  |  |  | rslt img |
+| [#22](https://github.com/TonichaB/cleaning-blog/issues/22) | img | Click Show Comments Button (Exising Comments Available) | Hidden comments section should appear to show the list of existing comments applicable to the post | The comments section appears as expected and shows the list of existing comments | Pass | rslt img |
+| [#22](https://github.com/TonichaB/cleaning-blog/issues/22) | img | Click Show Comments Button (No Comments Available) | Hidden comments section should appear with a message to confirm there are no current comments. | The comments section appears as expected and a paragraph confirms no existing comments and encourages the user to post the first comment. | Pass | rslt img |
+| [#22](https://github.com/TonichaB/cleaning-blog/issues/22) | img | Input comment text and click submit | Notification appears to confirm comment posted, and comments section updates to show the new comment | Notification appears as expected, and comments section has been correctly updated | Pass | rslt img |
 | [#26](https://github.com/TonichaB/cleaning-blog/issues/26) | img |  |  |  |  | rslt img |
 |  | img | Click Like on a previously liked post |  |  |  | rslt img |
 |  | img | Click Like on a previously liked post |  |  |  | rslt img |
@@ -83,17 +81,10 @@ The User Stories have been manually tested, including their corresponding featur
 | [#29](https://github.com/TonichaB/cleaning-blog/issues/29) | img | Click on username in header | Dropdown should appear and logout link is displayed | Dropdown works as intended and logout link is displayed | Pass | rslts img |
 | [#29](https://github.com/TonichaB/cleaning-blog/issues/29) | img | Click on logout link | Message to appear to confirm logout request, user can confirm or cancel | Message appears as expected with a button to confirm or cancel | Pass | rslt img |
 | [#29](https://github.com/TonichaB/cleaning-blog/issues/29) | img | Click to confirm logout | Message appears to confirm logout successful, and user redirected to home page with register/login buttons presented | Message confirmation appears as expected and page redirects to home page with button to register/login present | Pass | rslt img |
-| [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | img | Click to like a post when not logged in | Notification should appear to advise user to register/login in order to like posts, and the login modal should open. Notification should dissappear after 3 seconds. | Notification appears and dissapears as expected, advising only logged in users can like a post, and login modal opens automatically. | Pass | rslt img |
-| [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | img | Click to comment on a post when not logged in | Notification should appear to advise user to register/login in order to comment on a post |  |  | rslt img |
+| [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | img | Click to like a post when not logged in | Notification should appear to advise user to register/login in order to like posts, and the login modal should open. | Notification appears as expected, advising only logged in users can like a post, and login modal opens automatically. | Pass | rslt img |
+| [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | img | Click to comment on a post when not logged in | Notification should appear to advise user to register/login in order to comment on a post, and login modal opens | Notification and login model appear as expected | Pass | rslt img |
 | [#31](https://github.com/TonichaB/cleaning-blog/issues/31) | img |  |  |  |  | rslt img |
 | [#32](https://github.com/TonichaB/cleaning-blog/issues/32) | img |  |  |  |  | rslt img |
-
-**Epic: Search Function**
-
-| User Story | Feature Image | Test Action | Expected Result | Actual Result | Pass/Fail | Result Image |
-| -- | -- | -- | -- | -- | -- | -- |
-| [#33](https://github.com/TonichaB/cleaning-blog/issues/33) | img | Click Like on a previously liked post |  |  |  | rslt img |
-| [#34](https://github.com/TonichaB/cleaning-blog/issues/34) | img | Click Like on a previously liked post |  |  |  | rslt img |
 
 ## Automatic Testing
 
