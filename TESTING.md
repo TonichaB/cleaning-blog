@@ -62,9 +62,7 @@ The User Stories have been manually tested, including their corresponding featur
 | [#22](https://github.com/TonichaB/cleaning-blog/issues/22) | img | Click Show Comments Button (Exising Comments Available) | Hidden comments section should appear to show the list of existing comments applicable to the post | The comments section appears as expected and shows the list of existing comments | Pass | rslt img |
 | [#22](https://github.com/TonichaB/cleaning-blog/issues/22) | img | Click Show Comments Button (No Comments Available) | Hidden comments section should appear with a message to confirm there are no current comments. | The comments section appears as expected and a paragraph confirms no existing comments and encourages the user to post the first comment. | Pass | rslt img |
 | [#22](https://github.com/TonichaB/cleaning-blog/issues/22) | img | Input comment text and click submit | Notification appears to confirm comment posted, and comments section updates to show the new comment | Notification appears as expected, and comments section has been correctly updated | Pass | rslt img |
-| [#26](https://github.com/TonichaB/cleaning-blog/issues/26) | img |  |  |  |  | rslt img |
-|  | img | Click Like on a previously liked post |  |  |  | rslt img |
-|  | img | Click Like on a previously liked post |  |  |  | rslt img |
+| [#26](https://github.com/TonichaB/cleaning-blog/issues/26) | img | Via the Django Admin page, select a comment and delete | Confirmation message to appear to confirm if deletion successful, and comment removed from site | Successful deletion message appears as expected, and comment no longer visible on the site | Pass | rslt img |
 
 **Epic: Authentication & Authorisation**
 

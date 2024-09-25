@@ -189,11 +189,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Edit Post Modal
-    function openEditModal(postId, title, content) {
+    function openEditModal(postId, title, content, category) {
         const modal = document.getElementById('edit-post-modal');
         document.getElementById('edit-post-id').value = postId;
         document.getElementById('edit-post-title').value = title;
         document.getElementById('edit-post-content').value = content;
+        document.getElementById('edit-post-category').value = category;
         
         isEditing = true;
         modal.style.display = 'block';
@@ -227,6 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const postId = document.getElementById('edit-post-id').value;
         const title = document.getElementById('edit-post-title').value;
         const content = document.getElementById('edit-post-content').value;
+        const category = document.getElementById('edit-post-category').value;
 
         fetch(`/edit-post/${postId}/`, {
             method: 'PUT',
@@ -234,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            body: JSON.stringify({ title, content })
+            body: JSON.stringify({ title, content, category })
         })
         .then(response => {
             if (!response.ok) {
@@ -306,6 +308,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to Create a New Post
     function createNewPost(){
         const formData = new FormData(createPostForm);
+        const category = document.getElementById('category').value;
+        formData.append('category', category);
 
         fetch('/create-post/', {
             method: 'POST',

@@ -131,12 +131,14 @@ def create_post_view(request):
     if request.method == 'POST':
         title = request.POST['title']
         content = request.POST['content']
+        category = request.POST.get('category', 'No Category')
         user = request.user
 
         post = BlogPost.objects.create(
             author=request.user,
             title=title,
             content=content,
+            category=category,
             published_date=timezone.now(),
         )
 
@@ -151,11 +153,11 @@ def edit_post(request, post_id):
     post = BlogPost.objects.get(id=post_id)
     if request.user == post.author:
         data = json.loads(request.body)
-        post.title = data['title']
-        post.content = data['content']
+        post.title = data.get('title', post.title)
+        post.content = data.get('content', post.content)
+        post.category = data.get('category', post.category)
+
         if post.title and post.content:
-            post.title = post.title
-            post.content = post.content
             post.save()
             return JsonResponse({'success': True, 'message': 'Post Updated Successfully'})
         else:

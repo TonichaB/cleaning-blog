@@ -14,6 +14,7 @@
         {% for post in blog_posts %}
         <div class="blog-post" data-id="{{ post.id }}">
             <h2>{{ post.title }}</h2>
+            <p>Category: {{ post.category }}</p>
             <p>By {{ post.author.username }} on {{ post.published_date }}</p>
             <!-- Truncated Content -->
              <div class="post-summary">
