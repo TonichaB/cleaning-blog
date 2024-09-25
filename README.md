@@ -40,7 +40,6 @@ The live site can be found here! (link to be added)
     - [Potential Future Features](#potential-future-features)
       - [Comments Section](#comments-section)
       - [User Profile Management](#user-profile-management)
-      - [Search Bar](#search-bar)
   - [Responsive Layout and Design](#responsive-layout-and-design)
   - [Tools Used](#tools-used)
     - [Python Packages](#python-packages)
@@ -57,7 +56,7 @@ The live site can be found here! (link to be added)
 
 ## Overview
 
-Cleaning Together log is a community driven platform where cleaning enthusiasts and professionals alike can share tips, tricks and experiences. The blog aims to foster a supportive environmental for people interested in cleaning, providing a space for sharing valuable content and engaging with others through blog posts and likes.
+Cleaning Together blog is a community driven platform where cleaning enthusiasts and professionals alike can share tips, tricks and experiences. The blog aims to foster a supportive environment for people interested in cleaning, providing a space for sharing valuable content and engaging with others through blog posts and likes. The target audience is both cleaning professionals and homemakers. Users can view blog posts, and after logging into an account they can also interact by liking or commenting on the posts.
 
 ## UX
 
@@ -65,48 +64,104 @@ The site has been created whilst observing the Five Planes of Website Design:
 
 ### Strategy
 
-** User Stories and Epics **<br>
+**User Stories and Epics**<br>
 The User Stories and Epics created for this project can be found on the [project board.](https://github.com/users/TonichaB/projects/3) <br>
 
-** Project Goal ** <br>
+**Project Goal**<br>
 
 The goal for this project is to create a blog for cleaners with various experience to share their tips and tricks of the trade. <br>
 
-** Project Objectives **
+**Project Objectives**<br>
 - Develop blog website making use of UX to encourage a positive emotional response from users;
-- To provide clear layouts for staff and/or user login accounts;
+- To provide clear layouts for user and/or staff login accounts;
 - To implement a custom model alongside relevant features and design to enhance the user experience.
 - To make a responsive site that works well on multiple devices or screensizes.
 
 ### Scope
 
-**Simple and Intuitive UX**
-
 **Relevant Content**
 
-**Features for Upgraded Experience**
+The site contains content that is relevant to it's goal purpose as a blog website for cleaning tips and product reviews. It features the followwing content areas and functionalities;<br>
+
+1. **Home Page:** The entry point of the site that contains an engaging introduction to the blog, showcasing the most popular posts and a brief overview of the site's purpose.
+2. **Blog Section:** This page contains a collection of blog posts created by various users that can be filtered and sorted with criteria such as newest/oldest posts, author username and popularity (likes).
+3. **Comment Section:** For each blog post there is a dedicated comment section that authorised users can access and post comments, fostering community engagement amongst users.
+4. **User Accounts:** A user registration and login system is available in the head section of the site, allowing users the ability to create accounts, or log into an existing account.
+5. **Post Management:** A functionality for verified users that allows them to view, create, edit and delete their own posts. Staff users also have additional functionality to manage all posts.
+6. **Like System:** In order to enhance user engagement, the like feature is interactive and allows users to like/unlike published posts.
+7. **About Page:** Here users can find information about the team behind the blog, their motivations and what a user can expect from the content on the site.
 
 **Authorisation & Authentication**
 
-**Responsiveness**
+The site is designed with 3 different user types in mind, and each user type will have certain permissions relevant to their role.<br>
+
+- **Unverified User**- For any user visiting the site they will be able to navigate through the home, blog, about and contact site pages. They will also be able to view blog posts, and can register for an account to log into.
+- **Verified User**- For users who have logged in and therefore can be verified, they will have additional permissions that allow them to log into their account, create and manage posts, comment on posts, and like/unlike posts.
+- **Staff User**- Staff users are able to access a separate admin section of the site only available to them, wherein they will be able to manage all posts (creating, editing and deleting), and the ability to moderate, and if needed delete, comments. Staff users can also access details for verified users and can amend their details if required.
+
+**Accessibility and Responsiveness**
+
+The site contains a number of features designed for all users to have ease of navigation throughout the site and allows the site to be interacted with effectively. Some of the featueres include:<br>
+
+1. **Keyboard Navigation:** All interactive elements, like buttons and forms, are accessible via keyboard shortcuts allowing users who may be unable to user a mouse to still easily navigate through the site.
+2. **Screen Reader Compatibility:** Using HTML semantics (like headings, lists and landmarks) navigation remains efficient for users relying on screen readers.
+3. **Colour Contrast:** To enhance the readability for users with visual impairments the site is built with sufficient colour contrast between text and backgrounds.
+4. **Responsive Design:** The site adjusts to various devices, screen sizes and screen orientations to ensure accessibility for all users.
+5. ARIA Roles and Attributes:
+6. **Focus Indicators:** There are clear focus indicators for the navigation bar and other buttons on the site to make it clear when they are being selected via keyboard navigation.
+7. **Form Accessibility:** Any forms on the site have labelled fields and ARIA alerts provided to help feedback to the user and assist them in completing the form.
+
+**Security Features**
 
 ### Structure
 
-- Home
-- Blog
-- Register/Login
-- Logout
-- Staff Login
-- Create, view, edit, delete Posts
-- Comments
+The site's structure has been seperated into pages, with content dependant on the authorised status for users/staff, so as to ensure a seamless user experience and maintaining logical organisation of the content. The structure can be broken down into the following;<br>
 
-**Flowchart**
+- **Home Page**
+  - Serving as the landing page, a clear navigation menu is featured at the top of the page.
+  - Includes a brief introduction, links to the blog, about and contact pages.
+  - For verified users the site also includes links to the My Posts page.
+- **Blog Page**
+  - The blog posts are organised in a list layout showcasing multiple blog posts.
+  - Each post entry includes a post title, a brief excerpt, and metadata for the author and post date.
+  - Users can use a sidebar filtering section to sort the posts by date, popularity or filter by author.
+- **Comments Section** 
+  - Beneath each blog post the comment section can be located, including a text area for users to submit their own comments on the post.
+  - Existing comments are displayed in chronological order, including the username for the comment author and date the comment was posted.
+- **User Accounts**
+  - From the header a login/register is accessible. The button is prominently displayed for easy access.
+- **Post Management**
+  - Verified users have a dedicated area on the site to create, edit, and delete posts.
+  - Access to the My Posts section appears in the navigation bar for easy access
+  - Staff users have additional controls to view, edit or delete all posts.
+- **Like System**
+  - Each blog post features a like button, updating in real time to reflect the current like count and like status for the logged in user.
+  - The feature is integrated within the blog post layout to ensure easy access and avoids the user being navigated away from the site page.
+- **About Page**
+  - Accessible via the main navigation menu, encouraging users to connect with the blog's purpose and team.
+  - Simply structured to provide information regarding the team behind the blog, motivations for starting the blog and a overview of the blog goals.
+  - **Footer and Social Media Links**
+    - Located at the bottom of all pages across the site, the footer contains social media links and a link to the creators GitHub profile which are clearlty displayed for easy access.
+    - The links all open a seperate tab when clicked to avoid the user navigating away from the site.
 
 ### Skeleton
 
 **Wireframes** 
 
-**Models**
+**Flowchart**
+
+**Database**
+
+The project has used the PostgreSQL relational database for storing data. I have created 2 diagrams as a representation of the relationships between the tables. The first diagram has been created at the start of the project, and through development changes have taken place which are now presented in the second, and final, diagram.
+
+<details>
+  <summary>Initial Data Schema</summary>
+  <img src="">
+</details><br>
+<details>
+  <summary>Final Data Schema</summary>
+  <img src="">
+</details>
 
 ### Surface
 
@@ -116,9 +171,15 @@ The goal for this project is to create a blog for cleaners with various experien
 
 ## Agile Methodology
 
-epics & user stories registered using GitHub Issues. project board used to monitor progress.
+The blog site has been developed following the Agile Methodology. I have used [GitHub Issues](https://github.com/TonichaB/cleaning-blog/issues) to register the Epics and User Stories implementation. As each user story has been completed it has progressed in the Project Board from To Do, In Progress, Testing/Documentation and Done collumn lists. epics & user stories registered using GitHub Issues. project board used to monitor progress.<br>
+
+In addition, I have taken into account the MoSCoW Prioritization method to further organise each user story using the labels feature on GitHub. The labels used for this project can be found [here](https://github.com/TonichaB/cleaning-blog/labels).
 
 **Sprints**
+
+To track the completion of the project and ensure tasks and user stories are completed in a structured timeframe I have utilised the GitHub Milestones feature to create 4 Sprints to seperate the project tasks. <br>
+
+The Sprints can be viewed [here](https://github.com/TonichaB/cleaning-blog/milestones).
 
 ## Features
 
@@ -131,6 +192,10 @@ When first visiting the website, the user is presented with the home page. Withi
 *image of home page to go here*
 
 #### Contact Page
+
+At the moment, the contact page has been designed as a page still under construction. When users navigate to this page they will currently see a message advising that the page is unavailable currently, with a friendly message and animation.<br>
+
+*image of contact page*
 
 #### About Page
 
@@ -239,38 +304,48 @@ In the future I would like to expand on the functionality for the comments secti
 
 #### User Profile Management
 
-- Resetting password
-- Profile Pictures
-- Edit Account Details
-- Delete Account
+To further enhance the user experience relating to their profile there are a few additional features i would like to implement for User Profile Management. In particular I would like to implement the following;
 
-#### Search Bar
-
-- Basic Search
-- Advanced Search
+- Resetting password- Whilst there is currently the facility for staff users to aid in resetting passwords, there is a need for the user to also have the ability to reset their password. I would implement this initially in the pre-logged in stage to help users regain access to their account, and also within a settings option for the user to access and reset their password at any time after logging in.
+- Profile Pictures- To provide more options for a user to customise their account I would like to add a feature for profile pictures. A user's profile picture could then be shown on any of their blog posts or comments, and could also replace the current username link that holds the drop down for the logout button.
+- Edit Account Details- Similar to the resetting password function, I would like to give users the options to update their details. This could include updating their email address or changing their username.
+- Delete Account- Whilst not a desireable action for a site owner, I would like to give users the ability to delete their account if they wish. This could also be done to assist users who may have multiple accounts created.
 
 ## Responsive Layout and Design
 
-Breakpoints-
-tested devices-
+Using Bootstrap predefined breakpoints for the project, the design has been adapted to suit a multitude of devices.<br> 
+
+**Breakpoints:** <br>
+- max-width:
+- max-width:
+- max-width:
+
+**The site has been tested on the following devices;**<br>
+
+- Macbook Pro 16"
+- Ipad Pro
+- Samsung Galaxy A34
+- Huawei P20 Pro
+- 
 
 ## Tools Used
 
-- github
-- visual studio
-- heroku
-- balsamiq
+- [GitHub](https://github.com/)- The source code for the project has been hosted on GitHub.
+- [Visual Studio]()- I have used the Visual Studio IDE for writing and testing the project code.
+- [Heroku]()- The project has been deployed on Heroku.
+- [Balsamiq]()- The wireframes for the project have been created using the Balsamiq software.
 - visual paradigm (flowchart)
-- font awesome
-- google fonts
-- jshint
-- pep8 validator
-- w3c html validator
-- css jagsaw css validator
-- WAVE
-- Google Dev Tools
-- Code Institute PostgreSQL
-- lighthouse
+- [Font Awesome]()- I have used Font Awesome Icons throughout the project for morre attractive UX.
+- [Google Fonts]()- For the chosen typography used in the project.
+- [dbdiagram](https://dbdiagram.io/)- I have used this online tool to create a visual representation of the data schemas for the project.
+- [JSHint]()
+- [PEP8 Validator]()
+- [W3C HTML Validator]()
+- [CSS Jigsaw CSS Validator]()
+- [WAVE]()
+- [Google Dev Tools]()
+- [Code Institute PostgreSQL]()
+- [Lighthouse]()
 
 ### Python Packages
 
