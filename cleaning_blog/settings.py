@@ -33,7 +33,7 @@ LOGIN_URL = '/login/'
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False 
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-tonichab-cleaningblog-sb0kndpfmmw.ws.codeinstitute-ide.net',
@@ -62,7 +62,6 @@ INSTALLED_APPS = [
     'blog',
     'comments',
     'users',
-    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -155,14 +154,3 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-SUMMERNOTE_CONFIG = {
-    'toolbar': [
-        ['style', ['bold', 'italic', 'underline', 'clear']],
-        ['insert', ['link', 'picture', 'video']],
-        ['para', ['ul', 'ol', 'paragraph']],
-        ['height', ['height']],
-    ],
-    'width': '100%',
-    'height': '300px',
-}
