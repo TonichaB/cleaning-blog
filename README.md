@@ -156,11 +156,11 @@ The project has used the PostgreSQL relational database for storing data. I have
 
 <details>
   <summary>Initial Data Schema</summary>
-  <img src="">
+  <img src="/workspace/cleaning-blog/static/images/README.md/initial-schema.webp">
 </details><br>
 <details>
   <summary>Final Data Schema</summary>
-  <img src="">
+  <img src="/workspace/cleaning-blog/static/images/README.md/final-schema.webp">
 </details>
 
 ### Surface
@@ -324,8 +324,8 @@ To further enhance the user experience relating to their profile there are a few
 Using Bootstrap predefined breakpoints for the project, the design has been adapted to suit a multitude of devices.<br> 
 
 **Breakpoints:** <br>
-- max-width:
-- max-width:
+- max-width: 480px
+- max-width:768px
 - max-width:
 
 **The site has been tested on the following devices;**<br>
@@ -334,7 +334,12 @@ Using Bootstrap predefined breakpoints for the project, the design has been adap
 - Ipad Pro
 - Samsung Galaxy A34
 - Huawei P20 Pro
-- 
+- Iphone SE
+- Iphone 12 Pro
+- Dell Monitor
+- Samsung Monitor
+- Nest Hub
+- Nest Hub Max
 
 ## Tools Used
 
@@ -447,4 +452,4 @@ I would like to acknowledge my partner, Paul, who has continued to encourage me 
 
 I also want to thank the Slack community who are always so helpful and supportive.<br>
 
-Lastly, I would like to thank Code Institute who have taught me everything I know so far and have been very supportive throughout my time on the course.
+Lastly, I would like to thank Code Institute who have taught me everything I know so far and have been very supportive throughout my time on the course. In particular thank you to Sean in the Tutor Support team who helped me to fix the final issues on the site in time for my project submission.
