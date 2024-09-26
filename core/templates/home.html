@@ -17,15 +17,7 @@
 <section id="popular-posts">
     <h2>Top 5 Most Popular Posts</h2>
     <ul>
-        {% for post in popular_posts %}
-        <li>
-            <a href="{% url 'post_detail' post.id %}" id="post-title">{{ post.title }}</a> <!-- Link to the post detail page -->
-            <span id="author-name">by {{ post.author.username }}</span> <!-- Display Author Username -->
-            <p>{{ post.content|slice:":200" }}<a href="{% url 'post_detail' post.id %}" class="read-more">... Read More</a></p> <!-- Display an excerpt from the post content and link to post detail page -->
-        </li>
-        {% empty %}
-        <li id="no-posts">No Popular Posts Available</li>
-        {% endfor %}
+        <!-- JavaScript to insert list items -->
     </ul>
 </section>
 {% endblock %}

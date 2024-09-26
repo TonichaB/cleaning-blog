@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch('/get-popular-posts/')
             .then(response => response.json())
             .then(data => {
+                console.log('Fetched data:', data);
                 const postsContainer = document.querySelector('#popular-posts ul');
                 postsContainer.innerHTML = ''; // Clear current posts
 

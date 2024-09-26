@@ -75,6 +75,7 @@ def get_popular_posts(request):
         }
         for post in popular_posts
     ]
+    print(data)
     return JsonResponse({'popular_posts': data})
 
 # Display My Posts
