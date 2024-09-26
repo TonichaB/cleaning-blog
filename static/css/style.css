@@ -316,7 +316,7 @@ img {
     margin: 30px auto;
     padding: 20px;
     border: 1px solid #005050;
-    background-color: #00505088;
+    background-color: #00505054;
     border-radius: 8px;
     max-width: 90%;
 }
@@ -383,6 +383,21 @@ img {
     text-align: center;
 }
 
+.post-summary {
+    display: block;
+}
+
+.post-full-content {
+    display: none;
+}
+
+#popular-posts ul li .read-more {
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #005050;
+}
 /* Blog Page */
 
 #blog-intro {

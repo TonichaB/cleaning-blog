@@ -72,6 +72,8 @@ def get_popular_posts(request):
             'url': post.get_absolute_url(),
             'author': post.author.username,
             'excerpt': post.content[:200],
+            'content': post.content,
+            'likes': post.likes,
         }
         for post in popular_posts
     ]

@@ -61,9 +61,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     data.popular_posts.forEach(post => {
                         const postElement = document.createElement('li');
                         postElement.innerHTML = `
-                            <a href="${post.url}" id="post-title">${post.title}</a>
-                            <span id="author-name">by ${post.author}</span>
-                            <p>${post.excerpt}<a href="${post.url}" class="read-more">... Read More</a></p>
+                            <div class="post-item">
+                                <h3>${post.title}</h3>
+                                <span class="post-author">by ${post.author}</span>
+
+                                <p class="post-excerpt">${post.excerpt}</p>
+                                <p class="post-full-content" style="display:none">${post.content}</p>
+
+                                <a href="#" class="toggle-content">...Read More</a>
+
+                                <div class="post-likes">
+                                    <span>${post.likes} Likes</span>
+                                </div>
+                            </div>
                         `;
                         postsContainer.appendChild(postElement);
                     });
@@ -274,14 +284,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const summary = post.querySelector('.post-summary');
             const fullContent = post.querySelector('.post-full-content');
 
-            if (fullContent.style.display === 'none') {
+            if (fullContent.style.display === 'none' || fullContent.style.display === '') {
                 fullContent.style.display = 'block';
                 summary.style.display = 'none';
                 link.textContent = 'See Less';
             } else {
                 fullContent.style.display = 'none';
                 summary.style.display = 'block';
-                link.textContent = 'Read More';
+                link.textContent = '...Read More';
             }
         });
     });
