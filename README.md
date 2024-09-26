@@ -167,7 +167,15 @@ The project has used the PostgreSQL relational database for storing data. I have
 
 **Colour Scheme**
 
+For this project I have worked around a blue and green colour scheme as these colours can be associated with cleanliness and freshness which suits the purpose of the site. The colour scheme also needed to be accessible in terms of the contrast to ensure the site is suitable for all users. Below is the colour scheme used:<br>
+
+*image of colour scheme*
+
 **Fonts**
+
+I have imported the below fonts from Google Fonts to use within this project. <br>
+
+*image of google fonts*
 
 ## Agile Methodology
 
