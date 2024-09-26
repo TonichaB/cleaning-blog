@@ -81,8 +81,6 @@ The User Stories have been manually tested, including their corresponding featur
 | [#29](https://github.com/TonichaB/cleaning-blog/issues/29) | img | Click to confirm logout | Message appears to confirm logout successful, and user redirected to home page with register/login buttons presented | Message confirmation appears as expected and page redirects to home page with button to register/login present | Pass | rslt img |
 | [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | img | Click to like a post when not logged in | Notification should appear to advise user to register/login in order to like posts, and the login modal should open. | Notification appears as expected, advising only logged in users can like a post, and login modal opens automatically. | Pass | rslt img |
 | [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | img | Click to comment on a post when not logged in | Notification should appear to advise user to register/login in order to comment on a post, and login modal opens | Notification and login model appear as expected | Pass | rslt img |
-| [#31](https://github.com/TonichaB/cleaning-blog/issues/31) | img |  |  |  |  | rslt img |
-| [#32](https://github.com/TonichaB/cleaning-blog/issues/32) | img |  |  |  |  | rslt img |
 
 ## Automatic Testing
 
@@ -94,19 +92,6 @@ I have used the local db.sqlite3 database for testing the views contained within
     <img src="static/images/TESTING.md/simple-views-test-results.webp" width="700">
 
 </details><br>
-<details>
-    <summary>Core Views Tests</summary>
-</details><br>
-<details>
-    <summary>Blog Views Tests</summary>
-</details><br>
-<details>
-    <summary>Comments Views Tests</summary>
-</details><br>
-<details>
-    <summary>Users Views Tests</summary>
-</details>
-
 
 ## Accessibility Testing
 
@@ -118,6 +103,10 @@ I have used the local db.sqlite3 database for testing the views contained within
 
 ### Lighthouse
 
+- [Home Page](https://pagespeed.web.dev/analysis/https-8000-tonichab-cleaningblog-sb0kndpfmmw-ws-codeinstitute-ide-net/5b7ccdb324?form_factor=desktop&category=performance&category=accessibility&category=best-practices&category=seo&hl=en-GB&utm_source=lh-chrome-ext)
+- [Blog Post Page](https://pagespeed.web.dev/analysis/https-8000-tonichab-cleaningblog-sb0kndpfmmw-ws-codeinstitute-ide-net-blog/42bigetfuq?form_factor=desktop&category=performance&category=accessibility&category=best-practices&category=seo&hl=en-GB&utm_source=lh-chrome-ext)
+- [About Page](https://pagespeed.web.dev/analysis/https-8000-tonichab-cleaningblog-sb0kndpfmmw-ws-codeinstitute-ide-net-about/cufjg0prjp?form_factor=desktop&category=performance&category=accessibility&category=best-practices&category=seo&hl=en-GB&utm_source=lh-chrome-ext)
+- [Contact Page](https://pagespeed.web.dev/analysis/https-8000-tonichab-cleaningblog-sb0kndpfmmw-ws-codeinstitute-ide-net-contact/k2hy07izvj?form_factor=desktop&category=performance&category=accessibility&category=best-practices&category=seo&hl=en-GB&utm_source=lh-chrome-ext)
 ## Code Validation
 
 ### HTML
@@ -130,11 +119,11 @@ I have used the local db.sqlite3 database for testing the views contained within
 
 ## Bugs
 
-| **Bug** | **Fix** | **Status** | **Comments** |
+| **Bug** | **Fix** | **Status** |
 | -- | -- | -- | -- |
-| Register/Login Modal not displayed when clicking on the links in the header | Correct the CSS styling for the modal and modal content classes. | Bug Fixed |  |
-| 403 Forbidden Error- Get Popular Posts | Correct the url details within the JavaScript to correctly match the url pattern. | Bug Fixed |  |
-| 403 Forbidden Error- CSRF cookie not set | Correct typo errors within fetch requests, include CSRF verification in HTML, configure settings to include trusted CSRF origins | Bug Fixed |  |
-| Username link dropdown not displaying correctly. Logout link displays below username rather than inside the dropdown | Add JavaScript to deal with the dropdown function and update css styling for better positioning | Bug Fixed |  |
-| After logging out, user is not redirected to the home page | Amend the urlpatterns for the root url path to connect to the core homepage. | Bug Fixed |  |
-| Notifications do not appear when function called on | Correct the styling and using console.logs isolated the issue with the javascript functions calling the notification function incorrectly.  | Bug Fixed | |
+| Register/Login Modal not displayed when clicking on the links in the header | Correct the CSS styling for the modal and modal content classes. | Bug Fixed |
+| 403 Forbidden Error- Get Popular Posts | Correct the url details within the JavaScript to correctly match the url pattern. | Bug Fixed |
+| 403 Forbidden Error- CSRF cookie not set | Correct typo errors within fetch requests, include CSRF verification in HTML, configure settings to include trusted CSRF origins | Bug Fixed |
+| Username link dropdown not displaying correctly. Logout link displays below username rather than inside the dropdown | Add JavaScript to deal with the dropdown function and update css styling for better positioning | Bug Fixed |
+| After logging out, user is not redirected to the home page | Amend the urlpatterns for the root url path to connect to the core homepage. | Bug Fixed |
+| Notifications do not appear when function called on | Correct the styling and using console.logs isolated the issue with the javascript functions calling the notification function incorrectly.  | Bug Fixed |

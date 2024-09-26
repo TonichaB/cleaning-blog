@@ -29,8 +29,11 @@ body {
     font-family: 'Quicksand', sans-serif;
     line-height: 1.6;
     background-color: #f8f8ff;
-    padding-top: 60px; /* Create space for fixed header */
+    padding-top: 100px; /* Create space for fixed header */
     padding-bottom: 80px; /* Create space for fixed footer */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 main {
@@ -38,6 +41,7 @@ main {
     margin-top: 70px;
     margin-bottom: 70px;
     border-radius: 8px;
+    flex-grow: 1;
 }
 
 /* Container for logo and user auth */
@@ -224,7 +228,7 @@ nav ul li a:hover {
 
 /* Footer Styling */
 
-#footer {
+footer {
     background-color: #00ffff;
     color: #000000;
     padding: 10px 0;
@@ -864,6 +868,9 @@ a:focus, button:focus {
 
 @media (max-width: 480px) {
     
+    body{
+        padding-top: 150px;
+    }
     /* Popular Posts Section */
     #popular-posts h2 {
         font-size: 1rem;
@@ -908,4 +915,29 @@ a:focus, button:focus {
         align-items: flex-end;
     }
 
+}
+
+@media (max-width: 375px) {
+    body {
+        padding-top: 200px;
+    }
+}
+
+@media print {
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        page-break-before: avoid;
+        page-break-after: avoid;
+    }
+
+    main {
+        page-break-inside: avoid;
+    }
+
+    body {
+        min-height: auto;
+        height: auto;
+    }
 }

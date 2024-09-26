@@ -197,7 +197,7 @@ The Sprints can be viewed [here](https://github.com/TonichaB/cleaning-blog/miles
 
 When first visiting the website, the user is presented with the home page. Within the home page there is a site introuction and relevant image providing context to the purpose of the website.<br>
 
-*image of home page to go here*
+![home page image](/workspace/cleaning-blog/static/images/README.md/home-page.webp)
 
 #### Contact Page
 
