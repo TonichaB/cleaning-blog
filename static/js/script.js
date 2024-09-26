@@ -281,17 +281,17 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             const post = link.closest('.blog-post');
-            const summary = post.querySelector('.post-summary');
             const fullContent = post.querySelector('.post-full-content');
 
-            if (fullContent.style.display === 'none' || fullContent.style.display === '') {
+            const fullContentStyleSheet = window.getComputedStyle(fullContent, null);
+            let fullContantDisplayStyle = fullContentStyleSheet.getPropertyValue("display");
+
+            if (fullContantDisplayStyle  === 'none') {
                 fullContent.style.display = 'block';
-                summary.style.display = 'none';
-                link.textContent = 'See Less';
+                e.currentTarget.textContent = 'See Less';
             } else {
                 fullContent.style.display = 'none';
-                summary.style.display = 'block';
-                link.textContent = '...Read More';
+                e.currentTarget.textContent = 'Read More';
             }
         });
     });
