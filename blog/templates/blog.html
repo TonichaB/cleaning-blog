@@ -64,8 +64,8 @@
     <aside id="blog-filters">
         <h3>Filter Posts</h3>
         <form method="GET" action="{% url 'blog' %}">
-            <label for="category">Catagory:</label>
-            <select name="category" id="category">
+            <label for="category-filter">Category:</label>
+            <select name="category" id="category-filter" aria-label="category-dropdown">
                 <option value="">All</option>
                 <option value="product-reviews">Product Reviews</option>
                 <option value="tips-&-tricks">Tips & Tricks</option>
@@ -74,10 +74,10 @@
             <input type="text" name="author" id="author" placeholder="Search by Author Name">
             <label for="sort">Sort By:</label>
             <select name="sort" id="sort">
-                <option value="published_date_desc">Date: Newest First</option>
-                <option value="published_date_asc">Date: Oldest First</option>
-                <option value="popularity_desc">Most Popular</option>
-                <option value="popularity_asc">Least Popular</option>
+                <option value="published_date_desc" aria-label="order-posts-by-newest-first">Date: Newest First</option>
+                <option value="published_date_asc" aria-label="order-posts-by-oldest-first">Date: Oldest First</option>
+                <option value="popularity_desc" aria-label="order-by-most-popular">Most Popular</option>
+                <option value="popularity_asc" aria-label="order-by-least-popular">Least Popular</option>
             </select>
             <button type="submit">Filter</button>
         </form>
