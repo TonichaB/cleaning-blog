@@ -197,25 +197,25 @@ The Sprints can be viewed [here](https://github.com/TonichaB/cleaning-blog/miles
 
 When first visiting the website, the user is presented with the home page. Within the home page there is a site introuction and relevant image providing context to the purpose of the website.<br>
 
-![home page image](/workspace/cleaning-blog/static/images/README.md/home-page.webp)
+<img src="/workspace/cleaning-blog/static/images/README.md/home-page.webp" width="400">
 
 #### Contact Page
 
 At the moment, the contact page has been designed as a page still under construction. When users navigate to this page they will currently see a message advising that the page is unavailable currently, with a friendly message and animation.<br>
 
-*image of contact page*
+<im src="/workspace/cleaning-blog/static/images/README.md/contact-page.webp" width="400">
 
 #### About Page
 
 There is an about page containing a general introduction to the creators of the blog site and the story behind the site and it's purpose. The page provides further information for new users to the site who may want to know more before registering for an account.<br>
 
-*image of the about page*
+<img src="/workspace/cleaning-blog/static/images/README.md/about-page.webp" width="400">
 
 #### Blog Page
 
 On the blog page all published blog posts can be viewed with the options to filter/sort the results based on their desired content.<br>
 
-*image of blog page*
+<img src="/workspace/cleaning-blog/static/images/README.md/blog-post-page.webp" width="400">
 
 #### Footer
 
@@ -249,7 +249,7 @@ Within the header for the site, to the top right, there is a button for the user
 
 After a user logs into their account, the navbar is updated to show a My Posts page. On this page the user can view/edit/delete any of their own published posts. If a user does try to delete a post, they will first see a Confirm Post Deletion message to avoid any accidental deletions. Any posts confirmed to be deleted are then removed from the database and therefore do not show on the My Posts or Blog page. <br>
 
-*image of My Posts page*<br>
+<img src="static/images/README.md/my-posts-page.webp" width="400">
 
 #### Create New Post
 
@@ -324,9 +324,9 @@ To further enhance the user experience relating to their profile there are a few
 Using Bootstrap predefined breakpoints for the project, the design has been adapted to suit a multitude of devices.<br> 
 
 **Breakpoints:** <br>
+- max-width: 375px
 - max-width: 480px
-- max-width:768px
-- max-width:
+- max-width: 768px
 
 **The site has been tested on the following devices;**<br>
 
@@ -423,16 +423,18 @@ If you wish to ***Clone*** this repository on your local machine please follow t
 
 ### Content
 
-Most of the content contained in the site currently has been written by me, however I have used the following as guidance;
+I have used the following sources for the content of the site:
 
 - [Site Introduction Guidance](https://coschedule.com/blog/blog-post-introductions)- Guidance on writing an engaging site introduction for the home page.
+- [Chat GPT](https://chatgpt.com/)- To help with creating blog posts to populate the site and allow the testing of the pagination functionality.
 - 
+
 ### Media
 
 I have used the following for the media contained in the site;
 
 - The image contained in the home page of the site has been sourced using [Pexels.com](https://www.pexels.com/).
-- The burger drop down button and the like buttons have been created with icons from [fontawesome.](https://fontawesome.com/)
+- The burger drop down button, like buttons and social media links have been created with icons from [fontawesome.](https://fontawesome.com/)
 
 ### Code
 
@@ -441,7 +443,7 @@ I have utilised the following resources to assist me in writing the code for thi
 - [Secret Key Generator](https://djecrety.ir/) - Used to generate the required secret key variables for the site.
 - [Noopender and Noreferrer](https://stackoverflow.com/questions/50709625/link-with-target-blank-and-rel-noopener-noreferrer-still-vulnerable) - Used to understand the purpose of the two when considering site vulnerability following certian links.
 - [Django Password Hashing Framework](https://docs.djangoproject.com/en/5.1/topics/auth/passwords/#:~:text=By%20default%2C%20Django%20uses%20the,of%20computing%20time%20to%20break.) - the Django documentation has helped me in ensuring my site has been set up with the function of hashing passwords for additional security.
-- [ChatGPT](https://chatgpt.com/) - I have found ChatGPT to be very useful in assisting me to debug features within the project.
+- [ChatGPT](https://chatgpt.com/) - I have found ChatGPT to be very useful in assisting me to debug issues within the project.
 - The Code Institute learning portal has also been referred to throughout the development process to ensure I have the correct understanding on what is needed to build the site.
 - [Mozilla](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) - This site contains useful guidance on the javascript fetch API which has been utilised within various functions in the JavaScript file for this project.
 - [Stack Overflow](https://stackoverflow.com/questions/62879957/how-to-implement-a-like-system-in-django-templates)- This particular page was used as a reference point when building the 'Like' system model within the site.

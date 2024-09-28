@@ -1,3 +1,6 @@
+/*jshint esversion: 6 */
+/*jshint esversion: 11 */
+
 document.addEventListener('DOMContentLoaded', () => {
     // My Posts Modal
     const myPostsButton = document.getElementById('my-posts-button');
@@ -9,13 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeCreatePostButton = document.getElementById('close-create-post');
     const createPostForm = document.getElementById('create-post-form');
 
-    // Edit Post Modal
-    const editPostModal = document.getElementById('edit-post-modal');
-    const closedEditPostButton = document.getElementById('close-edit-post');
-    const editPostForm = document.getElementById('edit-post-form')
-
     // User Modals
-    const userPostsList = document.getElementById('user-posts-list');
     const registerLoginButton = document.getElementById('register-login-button');
     const registerModal = document.getElementById('register-modal');
     const loginModal = document.getElementById('login-modal');
@@ -352,23 +349,6 @@ document.addEventListener('DOMContentLoaded', () => {
             createNewPost();
         }
     });
-
-    // Update post on blog page
-    function updatePostOnPage(postId, post) {
-        const postElement = document.querySelector(`.post-item[data-id="${postId}"]`);
-        if (postElement) {
-            postElement.querySelector('h3').textContent = post.title;
-            postElement.querySelector('p').textContent = post.excerpt;
-        }
-    }
-
-    // Close Post Modal
-    function closeCreatePostModal() {
-        createPostModal.style.display = 'none';
-        createPostForm.rest();
-        delete createPostForm.dataset.postId;
-        delete createPostForm.dataset.method;
-    }
 
     // Open Register Modal
     registerLoginButton?.addEventListener('click', () => {
