@@ -46,7 +46,7 @@ def login_view(request):
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
-        return JsonResponse({'success': True, 'message': 'Logged out Successfully.'})
+        return JsonResponse({'success': True})
         return redirect('/')
 
     return JsonResponse({'success': False, 'message': 'Invalid Request.'})

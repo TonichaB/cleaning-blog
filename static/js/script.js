@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     const userButton = document.getElementById('user-button');
     const userDropdownContent = document.getElementById('user-dropdown-content');
-    const logoutLink = document.getElementById('logout-link');
+    const logoutLink = document.getElementById('logoutLink');
 
     const toggleLinks = document.querySelectorAll('.toggle-content');
 
@@ -159,7 +159,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Delete Post Function
 
     function deletePost(postId) {
-        if (confirm('Are you sure you want to delete this post?')) {
+        $('#deletePostModal').modal('show');
+
+        document.getElementById('confirmDelete').onclick = function() {
             fetch(`/delete-post/${postId}/`, {
                 method: 'DELETE',
                 headers: {
@@ -433,7 +435,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Logout
     logoutLink?.addEventListener('click', (e) => {
         e.preventDefault();
-        if(confirm('Are you sure you want to log out?')) {
+        $('#logoutModal').modal('show');
+    });
+
+    const confirmLogoutButton = document.getElementById('confirmLogout');
+    if (confirmLogoutButton) {
+        confirmLogoutButton.onclick = function() {
             fetch('/logout/', {
                 method: 'POST',
                 headers: {
@@ -454,8 +461,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .catch(error => console.error('Error:', error));
-        }
-    });
+        };
+    } else {
+        console.warn('Confirm Logout button not found');
+    }
 
     // Like Button Functionality
 

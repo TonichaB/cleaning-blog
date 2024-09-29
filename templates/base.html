@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Title -->
     <title>Cleaning Blog</title>
-    <!-- Stylesheet -->
+    <!-- Static Stylesheet -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
@@ -25,7 +27,7 @@
                     <div id="user-button">
                         <button id="user-button">{{ user.username }}</button>
                         <div id="user-dropdown-content" class="dropdown-content">
-                            <a href="/logout/" id="logout-link">Log Out</a>
+                            <a href="#" id="logoutLink" data-toggle="modal" data-target="#logoutModal">Log Out</a>
                             <!-- Check if Staff User-->
                              {% if user.is_staff %}
                              <a class="dropdown-item" href="/admin/">Admin Panel</a>
@@ -75,8 +77,10 @@
         {% include 'create_post_modal.html' %}
         <!-- Include Edit Post Modal -->
         {% include 'edit_post_modal.html' %}
-        <!-- Include Notifications Model -->
+        <!-- Include Notifications Modal -->
         {% include 'notifications_modal.html' %}
+        <!-- Include Confirmation Alert Modals-->
+         {% include 'confirmation_alert_modals.html' %}
 
     </main>
     <footer id="footer">
@@ -111,6 +115,11 @@
     </footer>
     <!-- Font Awesome Kit -->
     <script src="https://kit.fontawesome.com/96afde0967.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS and JQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+    <!-- Javascript -->
     <script src="{% static 'js/script.js' %}"></script>
     <!-- Is Authenticated Check -->
      <script>
