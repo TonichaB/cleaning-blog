@@ -472,6 +472,7 @@ I have used the following for the media contained in the site;
 
 - The image contained in the home page of the site has been sourced using [Pexels.com](https://www.pexels.com/).
 - The burger drop down button, like buttons and social media links have been created with icons from [fontawesome.](https://fontawesome.com/)
+- Favicon Image and Site Logo by [Clker-Free-Vector-Images](https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=303265) from [Pixabay](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=303265)
 
 ### Code
 
