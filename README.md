@@ -2,7 +2,7 @@
 
 The live site can be found here! (link to be added)
 
-*am i responsive image to go here*
+<img>
 
 ![Github last commit](https://img.shields.io/github/last-commit/TonichaB/cleaning-blog?color=green)
 ![GitHub contributors](https://img.shields.io/github/contributors/TonichaB/cleaning-blog?color=yellow)
@@ -25,6 +25,7 @@ The live site can be found here! (link to be added)
   - [Features](#features)
     - [Existing Features](#existing-features)
       - [Home Page](#home-page)
+      - [Popular Posts](#popular-posts)
       - [Contact Page](#contact-page)
       - [About Page](#about-page)
       - [Blog Page](#blog-page)
@@ -169,13 +170,13 @@ The project has used the PostgreSQL relational database for storing data. I have
 
 For this project I have worked around a blue and green colour scheme as these colours can be associated with cleanliness and freshness which suits the purpose of the site. The colour scheme also needed to be accessible in terms of the contrast to ensure the site is suitable for all users. Below is the colour scheme used:<br>
 
-*image of colour scheme*
+<img src="/workspace/cleaning-blog/static/images/README.md/colour-scheme.webp" width="450">
 
 **Fonts**
 
 I have imported the below fonts from Google Fonts to use within this project. <br>
 
-*image of google fonts*
+<img src="/workspace/cleaning-blog/static/images/README.md/google-fonts.webp">
 
 ## Agile Methodology
 
@@ -199,6 +200,16 @@ When first visiting the website, the user is presented with the home page. Withi
 
 <img src="/workspace/cleaning-blog/static/images/README.md/home-page.webp" width="400">
 
+#### Popular Posts
+
+On the home page there is a section displaying the top 5 most popular posts, which is dynamically updated every 60 seconds ensuring the display is accurate. <br>
+
+If there is an issue with the posts being displayed, the user will see a message to show that no posts are currently available. <br>
+<img src="/workspace/cleaning-blog/static/images/README.md/no posts available view on popular post section.webp" width="800"><br>
+
+Otherwise, the user is able to see a clear display of the applicable posts, showing the post title, author, like count and the post content.<br>
+<img src="">
+
 #### Contact Page
 
 At the moment, the contact page has been designed as a page still under construction. When users navigate to this page they will currently see a message advising that the page is unavailable currently, with a friendly message and animation.<br>
@@ -221,7 +232,8 @@ On the blog page all published blog posts can be viewed with the options to filt
 
 The site footer is present on all pages and fixed to the bottom of the page. Within the footer there are social media links that will open in a new tab when selected, and a general disclosure statement regarding the page contents. The footer is responsive to different screen sizes and adjusts the content accordingly to provide a positive user experience. <br>
 
-*2ximages or 1 combined image of footer for desktop/mobile view to go here*
+<img src="/workspace/cleaning-blog/static/images/README.md/footer-mobile.webp"><br>
+<img src="/workspace/cleaning-blog/static/images/README.md/footer-desktop.webp">
 
 #### Navigation Bar
 
