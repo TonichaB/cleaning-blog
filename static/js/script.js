@@ -61,18 +61,43 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="post-item">
                                 <h3>${post.title}</h3>
                                 <span class="post-author">by ${post.author}</span>
-
-                                <p class="post-excerpt">${post.excerpt}</p>
-                                <p class="post-full-content" style="display:none">${post.content}</p>
-
-                                <a href="#" class="toggle-content">...Read More</a>
-
+                                <div>
+                                    <p class="post-summary">${post.excerpt}</p>
+                                    <a href="#" class="toggle-content">...Read More</a>
+                                </div>
+                                <div>
+                                    <p class="post-full-content" style="display:none">${post.content}</p>
+                                </div>
                                 <div class="post-likes">
                                     <span>${post.likes} Likes</span>
                                 </div>
                             </div>
                         `;
                         postsContainer.appendChild(postElement);
+                    });
+
+                    const toggleLinks = postsContainer.querySelectorAll('.toggle-content');
+                    toggleLinks.forEach(link => {
+                        link.addEventListener('click', (e) => {
+                            e.preventDefault();
+
+                            const post = link.closest('.post-item');
+                            const fullContent = post.querySelector('.post-full-content');
+                            const summaryContent = post.querySelector('.post-summary');
+
+                            const fullContentStyleSheet = window.getComputedStyle(fullContent, null);
+                            let fullContentDisplayStyle = fullContentStyleSheet.getPropertyValue("display");
+
+                            if (fullContentDisplayStyle === 'none') {
+                                fullContent.style.display = 'block';
+                                summaryContent.style.display = 'none';
+                                e.currentTarget.textContent = 'See Less';
+                            } else {
+                                fullContent.style.display = 'none';
+                                summaryContent.style.display = 'block';
+                                e.currentTarget.textContent = '...Read More';
+                            }
+                        });
                     });
                 } else {
                     postsContainer.innerHTML = `<li id="no-posts">No Popular Posts Available</li>`;
