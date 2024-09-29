@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // My Posts Modal
+    // My Posts Page
 
     if (myPostsButton) {
         myPostsButton.addEventListener('click', () => {
@@ -119,13 +119,14 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 const userPostsList = document.querySelector('.my-posts-container ul');
                 userPostsList.innerHTML = '';
-                if (data.length > 0) {
+                if (data && data.length > 0) {
                     data.forEach(post => {
                         const postElement = document.createElement('li');
                         postElement.innerHTML = `
                             <div class="post-header">
                                 <h3>${post.title}</h3>
-                                <p id="my-post-content">${post.excerpt}</p>
+                                <p class="post-category">Category: ${post.category}</p>
+                                <p id="my-post-content">${post.content}</p>
                             </div>
                             <div>
                                 <a href="#" class="edit-post" data-id="${post.id}">Edit</a>
@@ -193,7 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const postId = button.getAttribute('data-id');
                 const title = button.closest('li').querySelector('h3').textContent;
                 const content = button.closest('li').querySelector('#my-post-content').textContent;
-                openEditModal(postId, title, content);
+                const category = button.closest('li').querySelector('.post-category').textContent.split(': ')[1];
+                openEditModal(postId, title, content, category);
             });
         });
     }
@@ -216,9 +218,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const currentContent = document.getElementById('edit-post-content').value;
 
                 if (currentTitle !== title || currentContent !== content) {
-                    if (confirm('You have unsaved changes. Do you want to disgard them?')) {
+                    $('#discardChangesModal').modal('show');
+                    document.getElementById('confirmDiscard').onclick = function() {
                         isEditing = false;
                         modal.style.display = 'none';
+                        $('#discardChangesModal').modal('hide');
                         showNotification("Changes have been discarded.");
                     }
                 } else {
@@ -318,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to Create a New Post
     function createNewPost(){
         const formData = new FormData(createPostForm);
-        const category = document.getElementById('category').value;
+        const category = document.getElementById('category-create').value;
         formData.append('category', category);
 
         fetch('/create-post/', {

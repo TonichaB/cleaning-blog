@@ -95,8 +95,10 @@ def user_posts_api(request):
         {
             'id': post.id,
             'title': post.title,
+            'content': post.content,
             'excerpt': post.content[:200],
             'url': post.get_absolute_url(),
+            'category': post.category,
         }
         for post in posts
     ]
