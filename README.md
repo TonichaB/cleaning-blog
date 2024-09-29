@@ -67,6 +67,7 @@ The site has been created whilst observing the Five Planes of Website Design:
 
 **User Stories and Epics**<br>
 The User Stories and Epics created for this project can be found on the [project board.](https://github.com/users/TonichaB/projects/3) <br>
+<img src="static/images/README.md/github-project-view.webp"><br>
 
 **Project Goal**<br>
 
@@ -157,11 +158,11 @@ The project has used the PostgreSQL relational database for storing data. I have
 
 <details>
   <summary>Initial Data Schema</summary>
-  <img src="/workspace/cleaning-blog/static/images/README.md/initial-schema.webp">
+  <img src="static/images/README.md/initial-schema.webp">
 </details><br>
 <details>
   <summary>Final Data Schema</summary>
-  <img src="/workspace/cleaning-blog/static/images/README.md/final-schema.webp">
+  <img src="static/images/README.md/final-schema.webp">
 </details>
 
 ### Surface
@@ -170,25 +171,31 @@ The project has used the PostgreSQL relational database for storing data. I have
 
 For this project I have worked around a blue and green colour scheme as these colours can be associated with cleanliness and freshness which suits the purpose of the site. The colour scheme also needed to be accessible in terms of the contrast to ensure the site is suitable for all users. Below is the colour scheme used:<br>
 
-<img src="/workspace/cleaning-blog/static/images/README.md/colour-scheme.webp" width="450">
+<img src="static/images/README.md/colour-scheme.webp" width="450">
 
 **Fonts**
 
 I have imported the below fonts from Google Fonts to use within this project. <br>
 
-<img src="/workspace/cleaning-blog/static/images/README.md/google-fonts.webp">
+<img src="static/images/README.md/google-fonts.webp">
 
 ## Agile Methodology
 
-The blog site has been developed following the Agile Methodology. I have used [GitHub Issues](https://github.com/TonichaB/cleaning-blog/issues) to register the Epics and User Stories implementation. As each user story has been completed it has progressed in the Project Board from To Do, In Progress, Testing/Documentation and Done collumn lists. epics & user stories registered using GitHub Issues. project board used to monitor progress.<br>
+The blog site has been developed following the Agile Methodology. I have used [GitHub Issues](https://github.com/TonichaB/cleaning-blog/issues) to register the Epics and User Stories implementation. As each user story has been completed it has progressed in the Project Board from To Do, In Progress, Testing/Documentation and Done column lists.<br>
 
-In addition, I have taken into account the MoSCoW Prioritization method to further organise each user story using the labels feature on GitHub. The labels used for this project can be found [here](https://github.com/TonichaB/cleaning-blog/labels).
+<img src="static/images/README.md/github-issues.webp"><br>
+
+In addition, I have taken into account the MoSCoW Prioritization method to further organise each user story using the labels feature on GitHub. The labels used for this project can be found [here](https://github.com/TonichaB/cleaning-blog/labels).<br>
+
+<img src="static/images/README.md/github-labels.webp"><br>
 
 **Sprints**
 
 To track the completion of the project and ensure tasks and user stories are completed in a structured timeframe I have utilised the GitHub Milestones feature to create 4 Sprints to seperate the project tasks. <br>
 
-The Sprints can be viewed [here](https://github.com/TonichaB/cleaning-blog/milestones).
+<img src="static/images/README.md/github-milestones.webp"><br>
+
+The live Sprints can be viewed [here](https://github.com/TonichaB/cleaning-blog/milestones).
 
 ## Features
 
@@ -198,64 +205,77 @@ The Sprints can be viewed [here](https://github.com/TonichaB/cleaning-blog/miles
 
 When first visiting the website, the user is presented with the home page. Within the home page there is a site introuction and relevant image providing context to the purpose of the website.<br>
 
-<img src="/workspace/cleaning-blog/static/images/README.md/home-page.webp" width="400">
+<img src="static/images/README.md/home-page.webp" width="400">
 
 #### Popular Posts
 
 On the home page there is a section displaying the top 5 most popular posts, which is dynamically updated every 60 seconds ensuring the display is accurate. <br>
 
 If there is an issue with the posts being displayed, the user will see a message to show that no posts are currently available. <br>
-<img src="/workspace/cleaning-blog/static/images/README.md/no posts available view on popular post section.webp" width="800"><br>
+<img src="static/images/README.md/no posts available view on popular post section.webp" width="800"><br>
 
 Otherwise, the user is able to see a clear display of the applicable posts, showing the post title, author, like count and the post content.<br>
-<img src="">
+<img src="static/images/README.md/popular-posts-section.webp">
 
 #### Contact Page
 
 At the moment, the contact page has been designed as a page still under construction. When users navigate to this page they will currently see a message advising that the page is unavailable currently, with a friendly message and animation.<br>
 
-<im src="/workspace/cleaning-blog/static/images/README.md/contact-page.webp" width="400">
+<im src="static/images/README.md/contact-page.webp" width="400">
 
 #### About Page
 
 There is an about page containing a general introduction to the creators of the blog site and the story behind the site and it's purpose. The page provides further information for new users to the site who may want to know more before registering for an account.<br>
 
-<img src="/workspace/cleaning-blog/static/images/README.md/about-page.webp" width="400">
+<img src="static/images/README.md/about-page.webp" width="400">
 
 #### Blog Page
 
 On the blog page all published blog posts can be viewed with the options to filter/sort the results based on their desired content.<br>
 
-<img src="/workspace/cleaning-blog/static/images/README.md/blog-post-page.webp" width="400">
+<img src="static/images/README.md/blog-post-page.webp" width="400">
 
 #### Footer
 
 The site footer is present on all pages and fixed to the bottom of the page. Within the footer there are social media links that will open in a new tab when selected, and a general disclosure statement regarding the page contents. The footer is responsive to different screen sizes and adjusts the content accordingly to provide a positive user experience. <br>
 
-<img src="/workspace/cleaning-blog/static/images/README.md/footer-mobile.webp"><br>
-<img src="/workspace/cleaning-blog/static/images/README.md/footer-desktop.webp">
+<img src="static/images/README.md/footer-mobile.webp"><br>
+<img src="static/images/README.md/footer-desktop.webp">
 
 #### Navigation Bar
 
 The header contains a Navigation Bar with links to the home page, blog page, about page and contact page. This component is present on all pages of the site. The site page links are shown centrally for desktop view or larger screen sizes. Below is the standard nav bar accesible for all users. <br>
 
-*image of initial navbar here*<br>
+<img src="static/images/README.md/logged-out-navbar-desktop.webp"><br>
 
 If a user has been authenticated the nav bar updates to also include a 'My Posts' link allowing logged in users to access a list of their own posts. <br>
 
-*image of authenticated navbar here* <br>
+<img src="static/images/README.md/logged-in-navbar-desktop.webp"> <br>
 
 For smaller screen sizes the navigation bar becomes hidden and the user is presented with a burger drop down icon which, when clicked, will show a dropdown list containing the navigation links. <br>
 
-*2 images/combined image for responsive navbar and dropdown display*
+Logged Out User:<br>
+<img src="static/images/README.md/logged-out-navbar-mobile.webp"><br>
+Logged In User:<br>
+<img src="static/images/README.md/logged-in-navbar-mobile.webp">
 
 #### Register/Login/Logout
 
-Within the header for the site, to the top right, there is a button for the user to firstly Register/Login to an account. This button will change after the user has logged in to instead show the username as a new dropdown link that when clicked shows an option for the user to log out. When first selecting to Register/Login the user is also presented initially with a Register modal containing a form to register, or if they already have an account they can select to login instead which amends the modal to now request the login details.
+Within the header for the site, to the top right, there is a button for the user to firstly Register/Login to an account. This button will change after the user has logged in to instead show the username as a new dropdown link that when clicked shows an option for the user to log out. When first selecting to Register/Login the user is also presented initially with a Register modal containing a form to register, or if they already have an account they can select to login instead which amends the modal to now request the login details.<br>
 
+Register/Login Button:<br>
 *image of register/login button* <br>
-*image of logged in username and dropdown for logout*<br>
+
+Logged In User Dropdown:<br>
+<img src="static/images/README.md/logged-in-user-dropdown.webp"><br>
+
+Staff User Dropdown:<br>
+<img src="static/images/README.md/staff-user-dropdown.webp"><br>
+
+Register Modal:<br>
 *image of register modal* *image of login modal*
+
+Login Modal:<br>
 
 #### My Posts
 
@@ -267,8 +287,10 @@ After a user logs into their account, the navbar is updated to show a My Posts p
 
 On the My Posts page, the user is presented with a button to create a new post, and by clicking this they will open a modal with a form to complete in order to create the post. After completed all required fields, the user can click to publish their post, which will become available via the My Posts and Blog pages. For a post to be succesfully posted it must contain a title, content and a selected catagory, if any of these items are missed the user will not be able to publish, and is shown the missing items to be completed. There are also confirmation messages that will appear to notify the user if their post has been Successfully Published, or if there has been an Publishing Post Error<br>
 
-*image of create post button*<br>
+<img src="static/images/README.md/create-post-button.gif"><br>
+
 *image of create post modal*
+
 
 #### Editing Posts
 
@@ -280,32 +302,35 @@ For each of the post entries shown on the My Posts page, there is an edit button
 
 Each of the published posts on the Blog Page have a like button that allows authorised users the ability to like posts. When a post has already been liked by a user, the icon shows as a filled in thumbs up, whilst unliked posts will show with an unfilled thumbs up. When a post is liked or unliked, the counter to the right of the icon also updates accordingly. As this is only for authorised users, should a user who has not logged into their account try to like a post, they will receive a Non-Verified User Confirmation Message which encourages them to Register/Login so that they can interact with posts or even create their own. <br>
 
-*image of like button (liked)*<br>
-*image of like button (unliked)*<br>
+Liked Post:<br>
+<img src="static/images/README.md/liked-post.webp"><br>
+Unliked Post:<br>
+<img src="static/images/README.md/unliked-post.webp"><br>
 
 #### Confirmation Messages
 
 Throughout the site there are various occassions for a confirmation message to be presented to the user. Each confirmation message is shown below;<br>
 
-- Registration Successful- When the registration form has been completed successfully a notification is displayed to the user confirming and welcoming them to the site.
-  - *image of registration successful notification*
-- Login Successful - When a user has sucessfully logged in a notification appears to confirm, with a welcome back message.
-  - *image of successful login notification*
+- Registration Successful- When the registration form has been completed successfully a notification is displayed to the user confirming and welcoming them to the site.<br>
+  <img src="static/images/README.md/registration-success-notification.webp">
+- Login Successful - When a user has sucessfully logged in a notification appears to confirm, with a welcome back message.<br>
+  <img src="static/images/README.md/login-success-notification.webp">
 - Log Out- Are you sure?
-- Log Out- Successful- After a user has confirmed they want to log out, and once the home page has loaded a notification appears to confirm the user has successfully logged out.
-  - *logout successful notification image*
-- Non-Verified User- There are some actions that are limited to users who are logged in only. If a non-verified user attempts to complete these actions they receive a notification encouraging them to register/login;
-  - *image of non-verified user notification when trying to like a post*
-  - *image of non-verified user notification when trying to comment on a post*
+- Log Out- Successful- After a user has confirmed they want to log out, and once the home page has loaded a notification appears to confirm the user has successfully logged out.<br>
+  <img src="static/images/README.md/logout-sucess-notification.webp">
+- Non-Verified User- There are some actions that are limited to users who are logged in only. If a non-verified user attempts to complete these actions they receive a notification encouraging them to register/login;<br>
+  <img src="static/images/README.md/logged-out-like-notification.webp">
+  <img src="static/images/README.md/logged-out-comment-notification.webp">
 - Confirm Post Deletion- 
 - Successfully Published Post - After a user creates a new blog post, they will receive a notification to confirm the post has been successfully published.
   - *image of post successfully published notification*
 - Publishing Post Error
-- Confirm discard changes
-- Unsaved Changes Notification- if a user exits the editing post modal and confirms they are happy to discard their changes, they will see a notification to confirm the changes have not been saved.
-  - *image of discarded changes notification*
-- Successfully Updated Notification- After making changes to one of their existing posts and saving the changes, the user received a notification to confirm the edits have been updated successfully.
-  - *image of successful edit update notification*
+- Confirm discard changes- If a user chooses to exit the edit post modal without saving their changes, they will receive a notification to confirm any changes have been discarded.<br>
+  - *image of confirm alert to discard changes*
+- Unsaved Changes Notification- if a user exits the editing post modal and confirms they are happy to discard their changes, they will see a notification to confirm the changes have not been saved.<br>
+  <img src="static/images/README.md/changes-discarded-notification.webp">
+- Successfully Updated Notification- After making changes to one of their existing posts and saving the changes, the user received a notification to confirm the edits have been updated successfully.<br>
+  <img src="static/images/README.md/post-updated-notification.webp">
 
 #### Blog Post Comments
 
