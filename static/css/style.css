@@ -617,30 +617,37 @@ p {
 }
 
 .my-posts-container a {
-    background-color: #fefefe;
-    color: #000000;
+    background-color: #005050;
+    color: #fefefe;
     margin-right: 10px;
     transition: background-color 0.3s;
 }
 
 .my-posts-container a:hover {
-    background-color: #005050;
-    color: #fefefe;
+    background-color: #fefefe;
+    color: #005050;
+    border: 1px solid #005050;
 }
 
 .edit-post {
     margin-left: auto;    
 }
 
+.post-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 20px;
+}
+
 .my-posts-container button {
-    background-color: #dc143c;
+    background-color: #005050;
     color: #fefefe;
 }
 
 .my-posts-container button:hover {
     background-color: #fefefe;
-    color: #000000;
-    border: 1px solid #dc143c;
+    color: #005050;
+    border: 1px solid #005050;
 }
 
 /* Contact Us Page */
@@ -661,7 +668,7 @@ iframe {
 /* Accessibility */
 
 a:focus, button:focus {
-    outline: 2px solid #04a086;
+    outline: 2px solid #005050;
     outline-offset: 2px;
 }
 
@@ -852,12 +859,20 @@ a:focus, button:focus {
 
     .my-posts-container {
         padding: 15px;
+        max-width: 95%;
     }
 
-    .my-posts-container a, .my-posts-container button {
+    .post-buttons {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+    }
+
+    .post-buttons a,
+    .post-buttons button {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
     }
 
     /* Footer */
@@ -955,13 +970,14 @@ a:focus, button:focus {
 
     .my-posts-container {
         padding: 15px;
-        max-width: 95%;
+        max-width: 100%;
     }
-
-    .my-posts-container a, .my-posts-container button {
+    
+    .post-buttons a, .post-buttons button {
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        text-align: center;
+        font-size: 0.8rem;
     }
 
 }
@@ -1013,5 +1029,19 @@ a:focus, button:focus {
 
     .post-likes {
         font-size: 0.85rem;
+    }
+
+    /* My Posts Page */
+
+    .my-posts-container {
+        padding: 5px;
+        max-width: 100%;
+    }
+    
+    .post-buttons a, .post-buttons button {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 0.55rem;
     }
 }
