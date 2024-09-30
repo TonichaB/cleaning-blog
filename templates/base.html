@@ -26,10 +26,39 @@
 </head>
 <body>
     <header>
-        <div class="header-container">
+        <div class="logo-container">
             <a href="{% url 'home' %}">
-                <h1 id="logo">Cleaning Together Blog</h1>
+                <img src="{% static 'images/site-logo.webp' %}" id="logo">
             </a>
+            <h1 id="logo-title">Cleaning Together Blog</h1>
+        </div>
+        <div class="nav-auth-container">
+            <nav role="navigation" aria-label="Main navigation">
+                <ul id="menu">
+                    <li>
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'blog' %}">Blog</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'my_posts' %}" id="my-posts-button">My Posts</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a href="{% url 'about' %}">About</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+                <input type="checkbox" id="nav-toggle" name="nav-toggle" aria-expanded="false">
+                <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                <span class="sr-only">Menu</span>
+            </label>
+            </nav>
             <div class="user-auth">
                 {% if user.is_authenticated %}
                     <div id="user-button">
@@ -37,9 +66,9 @@
                         <div id="user-dropdown-content" class="dropdown-content">
                             <a href="#" id="logoutLink" data-toggle="modal" data-target="#logoutModal">Log Out</a>
                             <!-- Check if Staff User-->
-                             {% if user.is_staff %}
-                             <a class="dropdown-item" href="/admin/">Admin Panel</a>
-                             {% endif %}
+                            {% if user.is_staff %}
+                            <a class="dropdown-item" href="/admin/">Admin Panel</a>
+                            {% endif %}
                         </div>
                     </div>
                 {% else %}
@@ -47,32 +76,6 @@
                 {% endif %}
             </div>
         </div>
-        <input type="checkbox" id="nav-toggle" name="nav-toggle" aria-expanded="false">
-        <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
-            <i class="fa-solid fa-bars" aria-hidden="true"></i>
-            <span class="sr-only">Menu</span>
-        </label>
-        <nav role="navigation" aria-label="Main navigation">
-            <ul id="menu">
-                <li>
-                    <a href="{% url 'home' %}">Home</a>
-                </li>
-                <li>
-                    <a href="{% url 'blog' %}">Blog</a>
-                </li>
-                {% if user.is_authenticated %}
-                <li>
-                    <a href="{% url 'my_posts' %}" id="my-posts-button">My Posts</a>
-                </li>
-                {% endif %}
-                <li>
-                    <a href="{% url 'about' %}">About</a>
-                </li>
-                <li>
-                    <a href="{% url 'contact' %}">Contact</a>
-                </li>
-            </ul>
-        </nav>
     </header>
     <main>
         <!-- Main Content Block-->
