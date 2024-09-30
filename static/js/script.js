@@ -27,6 +27,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutLink = document.getElementById('logoutLink');
 
     const toggleLinks = document.querySelectorAll('.toggle-content');
+    const navToggle = document.getElementById('nav-toggle');
+    const menu = document.querySelector('#menu');
+
+    // Navbar Toggle
+
+    navToggle.addEventListener('change', () => {
+        if(navToggle.checked) {
+            menu.style.display = 'flex';
+        } else {
+            menu.style.display = 'none';
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if(window.innerWidth > 768) {
+            menu.style.display = 'flex';
+        } else if (!navToggle.checked) {
+            menu.style.display = 'none';
+        }
+    });
 
     // Notification Storage Check
 

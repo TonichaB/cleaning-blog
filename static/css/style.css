@@ -32,8 +32,7 @@ body {
     font-family: 'Quicksand', sans-serif;
     line-height: 1.6;
     background-color: #f8f8ff;
-    padding-top: 100px; /* Create space for fixed header */
-    padding-bottom: 80px; /* Create space for fixed footer */
+    padding-top: 70px; /* Create space for fixed header */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -42,7 +41,7 @@ body {
 main {
     padding: 20px;
     margin-top: 70px;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
     border-radius: 8px;
     flex-grow: 1;
 }
@@ -61,6 +60,7 @@ main {
     height: auto;
     margin-right: 10px;
 }
+
 #logo-title {
     font-family: "Raleway", system-ui;
     font-weight: 700;
@@ -75,6 +75,7 @@ main {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    position: relative;
 }
 
 /* Navigation Styling */
@@ -126,6 +127,7 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    position: relative;
 }
 
 .user-auth button {
@@ -143,6 +145,8 @@ nav ul li a:hover {
 .dropdown-content {
     display: none;
     position: absolute;
+    background-color: #77FFBF;
+    margin-top: 20px;
     min-width: 160px;
     z-index: 1;
     right: 0;
@@ -253,7 +257,6 @@ footer {
     color: #000000;
     padding: 10px 0;
     text-align: center;
-    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -337,7 +340,7 @@ p {
 /* Popular Posts Section */
 
 #popular-posts {
-    margin: 30px auto;
+    margin: auto;
     padding: 20px;
     border: 1px solid #005050;
     background-color: #00505054;
@@ -348,6 +351,7 @@ p {
 #popular-posts h2 {
     margin-bottom: 15px;
     font-size: 1.5rem;
+    font-weight: bolder;
     color: #000000;
     font-family: "Raleway", system-ui;
     text-align: center;
@@ -360,24 +364,23 @@ p {
 }
 
 #popular-posts li {
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #005050;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #000000;
 }
 
-#popular-posts li #post-title {
+.post-item h3 {
     text-decoration: none;
     font-weight: bold;
-    color: #005050;
+    color: #000000;
     display: block;
     margin-bottom: 5px;
     font-size: 1rem;
 }
 
-#popular-posts li #author-name {
+.post-author {
     text-decoration: none;
-    font-weight: bold;
-    color: #005050;
+    color: #000000;
     display: block;
     margin-bottom: 5px;
     font-size: 0.75rem;
@@ -517,41 +520,6 @@ p {
     display: block;
 }
 
-.comment .reply-button,
-.comment .edit-comment-button,
-.comment .delete-comment-button,
-.comment .like-comment-button {
-    background: none;
-    border: none;
-    color: #005050;
-    cursor: pointer;
-    font-size: 0.85rem;
-    margin-right: 10px;
-    transition: color 0.3s ease;
-}
-
-.comment .reply-button:hover,
-.comment .edit-comment-button:hover,
-.comment .delete-comment-button:hover,
-.comment .like-comment-button:hover {
-    color: #008080;
-}
-
-.comment .like-comment-button i {
-    margin-right: 5px;
-}
-
-.comment .like-comment-button .like-count {
-    font-size: 0.85rem;
-}
-
-.replies {
-    margin-left: 30px;
-    padding-left: 15px;
-    border-left: 1px solid #ddd;
-    margin-top: 10px;
-}
-
 .comments-container p {
     font-size: 0.9rem;
     color: #666;
@@ -607,14 +575,13 @@ p {
 .my-posts-container {
     max-width: 80%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0;
     background-color: #fefefe;
     border-radius: 8px;
 }
 
 .my-posts-container h2 {
     font-size: 2rem;
-    margin-top: 20px;
     text-align: center;
 }
 
@@ -729,6 +696,14 @@ a:focus, button:focus {
         align-items: center;
     }
 
+    main {
+        margin-top: 40px;
+    }
+
+    body {
+        padding-top: 80px;
+    }
+
     .logo-container {
         margin-bottom: 10px;
         flex: 1;
@@ -745,7 +720,12 @@ a:focus, button:focus {
     nav ul {
         flex-direction: column;
         display: none;
-        width: 100%;
+        width: 40%;
+        position: absolute;
+        top: 100%;
+        left: -20px;
+        z-index: 1000;
+        background-color: #77FFBF;
     }
 
     nav ul li {
@@ -753,7 +733,7 @@ a:focus, button:focus {
     }
 
     nav ul li a {
-        padding: 10px;
+        padding: 5px;
         text-align: center;
     }
 
@@ -773,38 +753,54 @@ a:focus, button:focus {
         margin-right: auto;
     }
 
+    .nav-auth-container nav {
+        margin: 0;
+    }
+
+    .nav-toggle-label i {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    /* User Auth & Dropdown */
     .user-auth {
         display: flex;
         justify-content: flex-end;
         align-items: center;
     }
+
+    .dropdown-content {
+        margin-top: 10px;
+    }
     
     /* Home Page*/
 
-    img {
+    #home-img {
         max-width: 70%;
     }
 
     /* Popular Posts Section */
 
     #popular-posts h2 {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
+        font-weight: bolder;
     }
 
     #popular-posts li {
         padding: 10px;
     }
 
-    #popular-posts li #post-title {
+    .post-item h3 {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .post-author {
         font-size: 1rem;
     }
 
-    #popular-posts li #author-name {
-        font-size: 0.85rem;
-    }
-
     #popular-posts p {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     /* Blog Posts Page */
@@ -869,7 +865,6 @@ a:focus, button:focus {
     #footer {
         padding: 10px;
         text-align: center;
-        position: fixed;
     }
 
     #footer p {
@@ -900,29 +895,49 @@ a:focus, button:focus {
 
 }
 
-@media (max-width: 480px) {
+@media (max-width: 425px) {
     
     body{
-        padding-top: 150px;
+        padding-top: 80px;
     }
+
+    #logo-title {
+        font-size: 1.35rem;
+    }
+
+    main h2 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
     /* Popular Posts Section */
     #popular-posts h2 {
-        font-size: 1rem;
+        font-size: 1.25rem;
+        font-weight: bolder;
     }
 
     #popular-posts li {
         padding: 10px;
     }
 
-    #popular-posts li #post-title {
+    .post-item h3 {
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+
+    .post-author {
         font-size: 0.9rem;
     }
 
-    #popular-posts li #author-name {
+    #popular-posts p {
         font-size: 0.85rem;
     }
 
-    #popular-posts p {
+    .toggle-content {
+        font-size: 0.9rem;
+    }
+
+    .post-likes {
         font-size: 0.9rem;
     }
 
@@ -953,25 +968,50 @@ a:focus, button:focus {
 
 @media (max-width: 375px) {
     body {
-        padding-top: 200px;
-    }
-}
-
-@media print {
-    footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        page-break-before: avoid;
-        page-break-after: avoid;
+        padding-top: 80px;
     }
 
-    main {
-        page-break-inside: avoid;
+    main h2 {
+        font-size: 1.5rem;
+        text-align: center;
     }
 
-    body {
-        min-height: auto;
-        height: auto;
+    main p {
+        font-size: 0.8rem;
+    }
+
+    #logo-title {
+        font-size: 1.15rem;
+    }
+
+    /* Popular Posts Section */
+    #popular-posts h2 {
+        font-size: 1rem;
+        font-weight: bolder;
+    }
+
+    #popular-posts li {
+        padding: 10px;
+    }
+
+    .post-item h3 {
+        font-size: 0.85rem;
+        font-weight: bold;
+    }
+
+    .post-author {
+        font-size: 0.85rem;
+    }
+
+    #popular-posts p {
+        font-size: 0.8rem;
+    }
+
+    .toggle-content {
+        font-size: 0.85rem;
+    }
+
+    .post-likes {
+        font-size: 0.85rem;
     }
 }
