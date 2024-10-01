@@ -443,6 +443,7 @@ p {
     flex: 3;
     border: 1px solid #062e21c0;
     border-radius: 5px;
+    padding: 15px;
 }
 
 .blog-post {
@@ -490,6 +491,78 @@ p {
     margin-top: 0;
 }
 
+#blog-filters form {
+    display: flex;
+    flex-direction: column;
+}
+
+#blog-filters label {
+    margin-top: 5px;
+}
+
+#blog-filters select,
+#blog-filters input {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#filter-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#blog-filters button {
+    padding: 10px 15px;
+    margin-top: 15px;
+    width: 50%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#blog-filters button:hover {
+    background-color: #005050;
+    color: #ffffff;
+}
+
+/* Pagination Controls */
+
+#pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#pagination a {
+    padding: 10px 15px;
+    margin: 0 2px;
+    text-decoration: none;
+    color: #000000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#pagination a:hover {
+    background-color: #005050;
+    color: #ffffff;
+}
+
+#pagination .disabled {
+    color: #aaa;
+    pointer-events: none;
+    cursor: default;
+}
+
+#pagination .prev,
+#pagination .next {
+    font-weight: bold;
+}
+
 /* Comments Section */
 
 .comments-container {
@@ -499,12 +572,33 @@ p {
 }
 
 .comment {
-    margin-bottom: 15px;
+    margin: 10px;
     padding: 10px;
     background-color: #f9f9f9;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
     position: relative;
+}
+
+.show-comments {
+    background-color: #0050503f;
+    color: #000000;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-left: 0;
+}
+
+.show-comments:hover {
+    background-color: #005050;
+    color: #fefefe;
+}
+
+.show-comments:focus {
+    outline: none;
 }
 
 .comment p {
@@ -560,14 +654,6 @@ p {
 
 .comment-form button:hover {
     background-color: #005050;
-}
-
-.comment.reply {
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 5px;
 }
 
 /* My Posts Page */
@@ -815,6 +901,7 @@ a:focus, button:focus {
     #blog-intro {
         margin-top: -20px;
     }
+
     #blog-container {
         flex-direction: column;
         align-items: center;
@@ -824,7 +911,9 @@ a:focus, button:focus {
         order: -1;
         position: static;
         margin-bottom: 5px;
-        width: 90%;
+        width: 80%;
+        flex-direction: row;
+        justify-content: center;
     }
 
     #blog-posts {
@@ -832,27 +921,95 @@ a:focus, button:focus {
         width: 90%;
     }
 
+    .blog-post h2 {
+        font-size: 1.5rem;
+    }
+
+    #blog-posts p {
+        font-size: 0.8rem;
+    }
+
+    /* Filtering Section */
+
+
+    #blog-filters h3 {
+        font-size: 0.8rem;
+    }
+
+    #blog-filters label {
+        margin-top: 3px;
+        font-size: 0.7rem;
+    }
+
+    #blog-filters select,
+    #blog-filters input {
+        padding: 5px;
+        margin-top: 3px;
+        font-size: 0.7rem;
+    }
+
+    #filter-buttons {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #blog-filters button {
+        padding: 10px;
+        margin: 15px;
+        font-size: 0.7rem;
+    }
+    
     /* Pagination Controls */
 
     #pagination {
+        margin-top: 15px;
+    }
+
+    #pagination a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    /* Comments Section */
+
+    .comments-container {
         margin-top: 20px;
-        text-align: center;
+        padding-top: 15px;
     }
 
-    #pagination .step-links {
+    .comment {
+        margin: 10px;
         padding: 10px;
-        margin: 0 2px;
-        text-decoration: none;
-        color: #000000;
     }
 
-    #pagination .step-links a:hover {
-        background-color: #005050;
+    .show-comments {
+        padding: 10px;
+        font-size: 0.8rem;
     }
 
-    #pagination .step-links .disabled {
-        color: #aaa;
-        pointer-events: none;
+    .comment p {
+        font-size: 0.8rem;
+    }
+
+    .comment span.author-info {
+        font-size: 0.85rem;
+    }
+
+    .comments-container p {
+        font-size: 0.9rem;
+    }
+
+    .comment-form {
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .comment-form textarea {
+        font-size: 0.8rem;
+    }
+
+    .comment-form button {
+        font-size: 0.8rem;
     }
 
     /* My Posts Page*/
@@ -964,6 +1121,11 @@ a:focus, button:focus {
 
     .like-button {
         left: 80%;
+        font-size: 0.85rem;
+    }
+
+    #blog-posts h2 {
+        text-align: left;
     }
 
     /* My Posts Page */

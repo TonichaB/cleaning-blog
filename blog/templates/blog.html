@@ -29,37 +29,39 @@
                 <i class="{% if post.id in liked_posts %}fa-solid fa-thumbs-up{% else %}fa-regular{% endif %} fa-thumbs-up"></i>
                 <span class="like-count">{{ post.likes }}</span>
             </button>
-            
-            <!-- Comments Button -->
-            <button class="show-comments" data-post-id="{{ post.id }}">See Comments...</button>
+            <div>
+                <!-- Comments Button -->
+                <button class="show-comments" data-post-id="{{ post.id }}">See Comments...</button>
 
-            <!-- Comments Collapsible Tab Section -->
-            <div class="comments-section" id="comments-container-{{ post.id }}" style="display: none;">
-                <ul class="comment-list">
-                    <!-- list of comments to be popuated via JS -->
-                </ul>
+                <!-- Comments Collapsible Tab Section -->
+                <div class="comments-section" id="comments-container-{{ post.id }}" style="display: none;">
+                    <ul class="comment-list">
+                        <!-- list of comments to be popuated via JS -->
+                    </ul>
 
-                <!-- Include Comment Form -->
-                {% include 'comment_form.html' with post_id=post.id %}
+                    <!-- Include Comment Form -->
+                    {% include 'comment_form.html' with post_id=post.id %}
+                </div>
             </div>
         </div>
         {% empty %}
         <p id="no-posts">No Blog Posts Available</p>
         {% endfor %}
+
+        <!-- Pagination Controls -->
+        <div id="pagination">
+            <span>
+                {% if blog_posts.has_previous %}
+                    <a href="?page={{ blog_posts.previous_page_number }}" class="prev">&laquo; Previous</a>
+                {% endif %}
+
+                {% if blog_posts.has_next %}
+                    <a href="?page={{ blog_posts.next_page_number }}" class="next">Next &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
     </div>
 
-    <!-- Pagination Controls -->
-     <div>
-        <span>
-            {% if blog_posts.has_previous %}
-                <a href="?page={{ blog_posts.previous_page_number }}">&laquo; Previous</a>
-            {% endif %}
-
-            {% if blog_posts.has_next %}
-                <a href="?page={{ blog_posts.next_page_number }}">Next &raquo;</a>
-            {% endif %}
-        </span>
-     </div>
     <!-- Filtering Section -->
     <aside id="blog-filters">
         <h3>Filter Posts</h3>
@@ -70,8 +72,10 @@
                 <option value="product-reviews">Product Reviews</option>
                 <option value="tips-&-tricks">Tips & Tricks</option>
             </select>
+
             <label for="author">Author:</label>
             <input type="text" name="author" id="author" placeholder="Search by Author Name">
+
             <label for="sort">Sort By:</label>
             <select name="sort" id="sort">
                 <option value="published_date_desc" aria-label="order-posts-by-newest-first">Date: Newest First</option>
@@ -79,7 +83,10 @@
                 <option value="popularity_desc" aria-label="order-by-most-popular">Most Popular</option>
                 <option value="popularity_asc" aria-label="order-by-least-popular">Least Popular</option>
             </select>
-            <button type="submit">Filter</button>
+            <div id="filter-buttons">
+                <button type="submit">Filter</button>
+                <button type="reset">Reset Filter</button>
+            </div>
         </form>
     </aside>
 </div>
