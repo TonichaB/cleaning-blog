@@ -176,14 +176,24 @@ nav ul li a:hover {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 80px auto;
     padding: 20px;
     border: 1px solid #88888850;
-    width: 75%;
+    width: 80%;
     max-width: 600px;
 }
 
-.close {
+.modal-content h2 {
+    align-self: center;
+}
+
+.modal-content textarea {
+    resize: vertical;
+    height: 200px;
+}
+
+.close,
+.close-edit-post {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -194,6 +204,46 @@ nav ul li a:hover {
     color: #000000;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Edit Post Modal*/
+#edit-post-form button {
+    position: relative;
+    left: 30%;
+}
+
+/* Register/Login Modal */
+
+#register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#register-form button {
+    align-self: center;
+}
+
+#register-form input {
+    font-size: 0.8rem;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+/* Login Modal */
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form button {
+    align-self: center;
+}
+
+#login-form input {
+    font-size: 0.8rem;
+    margin: 10px 0;
+    padding: 10px;
 }
 
 /* Notifications Modal */
@@ -218,6 +268,12 @@ nav ul li a:hover {
 
 /* Create Post Modal */
 
+#create-post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .modal-content input[type='text'],
 .modal-content input[type='file'],
 .modal-content textarea {
@@ -230,24 +286,18 @@ nav ul li a:hover {
     box-sizing: border-box;
 }
 
-.modal-content button[type='submit'] {
+.modal-content button[type='submit'],
+.open-modal-btn {
     background-color: #7fffd4;
     color: #000000;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-.open-modal-btn {
-    background-color: #7fffd4;
-    color: #000000;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 10px;
-    display: inline-block;
+    margin: 25px 0;
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
 }
 
 /* Footer Styling */
@@ -1080,6 +1130,10 @@ a:focus, button:focus {
     main h2 {
         text-align: center;
         font-size: 1.5rem;
+    }
+
+    .modal-content {
+        width: 90%;
     }
 
     /* Popular Posts Section */
