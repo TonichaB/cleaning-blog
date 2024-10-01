@@ -1132,8 +1132,13 @@ a:focus, button:focus {
         font-size: 1.5rem;
     }
 
-    .modal-content {
+    #edit-modal,
+    #create-post-modal,
+    #register-modal,
+    #login-modal {
         width: 90%;
+        align-self: center;
+        margin-left: 25px;
     }
 
     /* Popular Posts Section */
