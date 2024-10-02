@@ -14,8 +14,13 @@ h1, h2, h3 {
     color: #000000;
 }
 
+a {
+    color: #234FFF;
+    font-weight: bold;
+}
+
 header {
-    background-color: #7fffd4;
+    background-color: #77FFBF;
     font-family: "Raleway", system-ui;
     padding: 10px 20px;
     position: fixed;
@@ -23,14 +28,16 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 body {
     font-family: 'Quicksand', sans-serif;
     line-height: 1.6;
     background-color: #f8f8ff;
-    padding-top: 100px; /* Create space for fixed header */
-    padding-bottom: 80px; /* Create space for fixed footer */
+    padding-top: 70px; /* Create space for fixed header */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -39,31 +46,95 @@ body {
 main {
     padding: 20px;
     margin-top: 70px;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
     border-radius: 8px;
     flex-grow: 1;
 }
 
 /* Container for logo and user auth */
-.header-container {
+.logo-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 #logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+#logo-title {
     font-family: "Raleway", system-ui;
     font-weight: 700;
     font-size: 2.5rem;
     margin: 0;
-    text-align: center;
+    line-height: 1;
+}
+
+/* Navbar and User Auth Container */
+.nav-auth-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     position: relative;
-    left: 40px;
+}
+
+/* Navigation Styling */
+
+nav {
+    display: flex;
+    text-align: center;
+    background-color: #77FFBF;
+    margin-top: 0;
+    flex-grow: 1;
+    margin-left: 80px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    display: block;
+    color: #000000;
+}
+
+nav ul li a:hover {
+    background-color: #00640077;
+    border-radius: 2px;
+    color: #fefefe;
+}
+
+#my-posts-button {
+    border-color: #00505081;
+    border-radius: 0;
+}
+
+#my-posts-button:hover {
+    border-color: #005050c4;
 }
 
 .user-auth {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    position: relative;
 }
 
 .user-auth button {
@@ -81,6 +152,8 @@ main {
 .dropdown-content {
     display: none;
     position: absolute;
+    background-color: #77FFBF;
+    margin-top: 20px;
     min-width: 160px;
     z-index: 1;
     right: 0;
@@ -93,6 +166,13 @@ main {
     padding: 5px 16px;
     text-decoration: none;
     display: block;
+    font-weight: bold;
+}
+
+.dropdown-content a:hover {
+    background-color: #77FFBF;
+    text-decoration: underline;
+    color: #007bff;
 }
 
 /* Modals General Styling */
@@ -110,15 +190,25 @@ main {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 80px auto;
     padding: 20px;
     border: 1px solid #88888850;
-    width: 75%;
+    width: 80%;
     max-width: 600px;
 }
 
-.close {
-    color: #aaa;
+.modal-content h2 {
+    align-self: center;
+}
+
+.modal-content textarea {
+    resize: vertical;
+    height: 200px;
+}
+
+.close,
+.close-edit-post {
+    color: #000000;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -128,6 +218,46 @@ main {
     color: #000000;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Edit Post Modal*/
+#edit-post-form button {
+    position: relative;
+    left: 30%;
+}
+
+/* Register/Login Modal */
+
+#register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#register-form button {
+    align-self: center;
+}
+
+#register-form input {
+    font-size: 0.8rem;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+/* Login Modal */
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form button {
+    align-self: center;
+}
+
+#login-form input {
+    font-size: 0.8rem;
+    margin: 10px 0;
+    padding: 10px;
 }
 
 /* Notifications Modal */
@@ -150,7 +280,17 @@ main {
     top: 50px;
 }
 
+#close-notification-modal {
+    color: #fefefe;
+}
+
 /* Create Post Modal */
+
+#create-post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .modal-content input[type='text'],
 .modal-content input[type='file'],
@@ -164,66 +304,18 @@ main {
     box-sizing: border-box;
 }
 
-.modal-content button[type='submit'] {
+.modal-content button[type='submit'],
+.open-modal-btn {
     background-color: #7fffd4;
     color: #000000;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-.open-modal-btn {
-    background-color: #7fffd4;
-    color: #000000;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 10px;
-    display: inline-block;
-}
-
-/* Navigation Styling */
-
-nav {
-    display: flex;
-    justify-content: center;
-    background-color: #7fffd4;
-    margin-top: 0;
-    padding: 5px 0;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-    display: block;
-}
-
-nav ul li a:hover {
-    background-color: #00640077;
-    border-radius: 2px;
-}
-
-#my-posts-button {
-    border-color: #00505081;
-    border-radius: 0;
-}
-
-#my-posts-button:hover {
-    border-color: #005050c4;
+    margin: 25px 0;
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
 }
 
 /* Footer Styling */
@@ -233,7 +325,6 @@ footer {
     color: #000000;
     padding: 10px 0;
     text-align: center;
-    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -304,7 +395,7 @@ p {
     margin-bottom: 20px;
 }
 
-img {
+#home-img {
     display: block;
     max-width: 40%;
     height: auto;
@@ -317,7 +408,7 @@ img {
 /* Popular Posts Section */
 
 #popular-posts {
-    margin: 30px auto;
+    margin: auto;
     padding: 20px;
     border: 1px solid #005050;
     background-color: #00505054;
@@ -328,6 +419,7 @@ img {
 #popular-posts h2 {
     margin-bottom: 15px;
     font-size: 1.5rem;
+    font-weight: bolder;
     color: #000000;
     font-family: "Raleway", system-ui;
     text-align: center;
@@ -340,24 +432,23 @@ img {
 }
 
 #popular-posts li {
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #005050;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #000000;
 }
 
-#popular-posts li #post-title {
+.post-item h3 {
     text-decoration: none;
     font-weight: bold;
-    color: #005050;
+    color: #000000;
     display: block;
     margin-bottom: 5px;
     font-size: 1rem;
 }
 
-#popular-posts li #author-name {
+.post-author {
     text-decoration: none;
-    font-weight: bold;
-    color: #005050;
+    color: #000000;
     display: block;
     margin-bottom: 5px;
     font-size: 0.75rem;
@@ -420,6 +511,7 @@ img {
     flex: 3;
     border: 1px solid #062e21c0;
     border-radius: 5px;
+    padding: 15px;
 }
 
 .blog-post {
@@ -467,6 +559,78 @@ img {
     margin-top: 0;
 }
 
+#blog-filters form {
+    display: flex;
+    flex-direction: column;
+}
+
+#blog-filters label {
+    margin-top: 5px;
+}
+
+#blog-filters select,
+#blog-filters input {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#filter-buttons {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+#blog-filters button {
+    padding: 10px 15px;
+    margin-top: 15px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#blog-filters button:hover {
+    background-color: #005050;
+    color: #ffffff;
+}
+
+/* Pagination Controls */
+
+#pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#pagination a {
+    padding: 10px 15px;
+    margin: 0 2px;
+    text-decoration: none;
+    color: #000000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#pagination a:hover {
+    background-color: #005050;
+    color: #ffffff;
+}
+
+#pagination .disabled {
+    color: #aaa;
+    pointer-events: none;
+    cursor: default;
+}
+
+#pagination .prev,
+#pagination .next {
+    font-weight: bold;
+}
+
 /* Comments Section */
 
 .comments-container {
@@ -476,12 +640,33 @@ img {
 }
 
 .comment {
-    margin-bottom: 15px;
+    margin: 10px;
     padding: 10px;
     background-color: #f9f9f9;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
     position: relative;
+}
+
+.show-comments {
+    background-color: #0050503f;
+    color: #000000;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-left: 0;
+}
+
+.show-comments:hover {
+    background-color: #005050;
+    color: #fefefe;
+}
+
+.show-comments:focus {
+    outline: none;
 }
 
 .comment p {
@@ -495,41 +680,6 @@ img {
     color: #777;
     margin-top: 5px;
     display: block;
-}
-
-.comment .reply-button,
-.comment .edit-comment-button,
-.comment .delete-comment-button,
-.comment .like-comment-button {
-    background: none;
-    border: none;
-    color: #005050;
-    cursor: pointer;
-    font-size: 0.85rem;
-    margin-right: 10px;
-    transition: color 0.3s ease;
-}
-
-.comment .reply-button:hover,
-.comment .edit-comment-button:hover,
-.comment .delete-comment-button:hover,
-.comment .like-comment-button:hover {
-    color: #008080;
-}
-
-.comment .like-comment-button i {
-    margin-right: 5px;
-}
-
-.comment .like-comment-button .like-count {
-    font-size: 0.85rem;
-}
-
-.replies {
-    margin-left: 30px;
-    padding-left: 15px;
-    border-left: 1px solid #ddd;
-    margin-top: 10px;
 }
 
 .comments-container p {
@@ -574,27 +724,18 @@ img {
     background-color: #005050;
 }
 
-.comment.reply {
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 5px;
-}
-
 /* My Posts Page */
 
 .my-posts-container {
     max-width: 80%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0;
     background-color: #fefefe;
     border-radius: 8px;
 }
 
 .my-posts-container h2 {
     font-size: 2rem;
-    margin-top: 20px;
     text-align: center;
 }
 
@@ -630,30 +771,37 @@ img {
 }
 
 .my-posts-container a {
-    background-color: #fefefe;
-    color: #000000;
+    background-color: #005050;
+    color: #fefefe;
     margin-right: 10px;
     transition: background-color 0.3s;
 }
 
 .my-posts-container a:hover {
-    background-color: #005050;
-    color: #fefefe;
+    background-color: #fefefe;
+    color: #005050;
+    border: 1px solid #005050;
 }
 
 .edit-post {
     margin-left: auto;    
 }
 
+.post-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 20px;
+}
+
 .my-posts-container button {
-    background-color: #dc143c;
+    background-color: #005050;
     color: #fefefe;
 }
 
 .my-posts-container button:hover {
     background-color: #fefefe;
-    color: #000000;
-    border: 1px solid #dc143c;
+    color: #005050;
+    border: 1px solid #005050;
 }
 
 /* Contact Us Page */
@@ -674,7 +822,7 @@ iframe {
 /* Accessibility */
 
 a:focus, button:focus {
-    outline: 2px solid #04a086;
+    outline: 2px solid #005050;
     outline-offset: 2px;
 }
 
@@ -699,14 +847,33 @@ a:focus, button:focus {
     display: none;
 }
 
+.toggle-content {
+    color: #000000;
+}
+
 /* Media Queries */
 
 @media (max-width: 768px) {
     
     /* Header Container */
-    .header-container {
+    header {
         flex-direction: column;
         align-items: center;
+    }
+
+    main {
+        margin-top: 40px;
+    }
+
+    body {
+        padding-top: 80px;
+    }
+
+    .logo-container {
+        margin-bottom: 10px;
+        flex: 1;
+        display: flex;
+        justify-content: center;
     }
 
     #logo {
@@ -718,7 +885,12 @@ a:focus, button:focus {
     nav ul {
         flex-direction: column;
         display: none;
-        width: 100%;
+        width: 40%;
+        position: absolute;
+        top: 100%;
+        left: -20px;
+        z-index: 1000;
+        background-color: #77FFBF;
     }
 
     nav ul li {
@@ -726,7 +898,7 @@ a:focus, button:focus {
     }
 
     nav ul li a {
-        padding: 10px;
+        padding: 5px;
         text-align: center;
     }
 
@@ -742,35 +914,58 @@ a:focus, button:focus {
         display: block;
         cursor: pointer;
         padding: 0;
-        background-color: #7fffd4;
+        background-color: #77FFBF;
+        margin-right: auto;
+    }
+
+    .nav-auth-container nav {
+        margin: 0;
+    }
+
+    .nav-toggle-label i {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    /* User Auth & Dropdown */
+    .user-auth {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .dropdown-content {
+        margin-top: 10px;
     }
     
     /* Home Page*/
 
-    img{
+    #home-img {
         max-width: 70%;
     }
 
     /* Popular Posts Section */
 
     #popular-posts h2 {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
+        font-weight: bolder;
     }
 
     #popular-posts li {
         padding: 10px;
     }
 
-    #popular-posts li #post-title {
+    .post-item h3 {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .post-author {
         font-size: 1rem;
     }
 
-    #popular-posts li #author-name {
-        font-size: 0.85rem;
-    }
-
     #popular-posts p {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     /* Blog Posts Page */
@@ -778,6 +973,7 @@ a:focus, button:focus {
     #blog-intro {
         margin-top: -20px;
     }
+
     #blog-container {
         flex-direction: column;
         align-items: center;
@@ -787,7 +983,9 @@ a:focus, button:focus {
         order: -1;
         position: static;
         margin-bottom: 5px;
-        width: 90%;
+        width: 80%;
+        flex-direction: row;
+        justify-content: center;
     }
 
     #blog-posts {
@@ -795,39 +993,115 @@ a:focus, button:focus {
         width: 90%;
     }
 
+    .blog-post h2 {
+        font-size: 1.5rem;
+    }
+
+    #blog-posts p {
+        font-size: 0.8rem;
+    }
+
+    /* Filtering Section */
+
+
+    #blog-filters h3 {
+        font-size: 0.8rem;
+    }
+
+    #blog-filters label {
+        margin-top: 3px;
+        font-size: 0.7rem;
+    }
+
+    #blog-filters select,
+    #blog-filters input {
+        padding: 5px;
+        margin-top: 3px;
+        font-size: 0.7rem;
+    }
+
+    #filter-buttons {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #blog-filters button {
+        padding: 10px;
+        margin: 15px;
+        font-size: 0.7rem;
+    }
+    
     /* Pagination Controls */
 
     #pagination {
+        margin-top: 15px;
+    }
+
+    #pagination a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    /* Comments Section */
+
+    .comments-container {
         margin-top: 20px;
-        text-align: center;
+        padding-top: 15px;
     }
 
-    #pagination .step-links {
+    .comment {
+        margin: 10px;
         padding: 10px;
-        margin: 0 2px;
-        text-decoration: none;
-        color: #000000;
     }
 
-    #pagination .step-links a:hover {
-        background-color: #005050;
+    .show-comments {
+        padding: 10px;
+        font-size: 0.8rem;
     }
 
-    #pagination .step-links .disabled {
-        color: #aaa;
-        pointer-events: none;
+    .comment p {
+        font-size: 0.8rem;
+    }
+
+    .comment span.author-info {
+        font-size: 0.85rem;
+    }
+
+    .comments-container p {
+        font-size: 0.9rem;
+    }
+
+    .comment-form {
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .comment-form textarea {
+        font-size: 0.8rem;
+    }
+
+    .comment-form button {
+        font-size: 0.8rem;
     }
 
     /* My Posts Page*/
 
     .my-posts-container {
         padding: 15px;
+        max-width: 95%;
     }
 
-    .my-posts-container a, .my-posts-container button {
+    .post-buttons {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+    }
+
+    .post-buttons a,
+    .post-buttons button {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
     }
 
     /* Footer */
@@ -835,7 +1109,6 @@ a:focus, button:focus {
     #footer {
         padding: 10px;
         text-align: center;
-        position: fixed;
     }
 
     #footer p {
@@ -866,29 +1139,58 @@ a:focus, button:focus {
 
 }
 
-@media (max-width: 480px) {
+@media (max-width: 425px) {
     
     body{
-        padding-top: 150px;
+        padding-top: 80px;
     }
+
+    #logo-title {
+        font-size: 1.35rem;
+    }
+
+    main h2 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    #edit-modal,
+    #create-post-modal,
+    #register-modal,
+    #login-modal {
+        width: 90%;
+        align-self: center;
+        margin-left: 25px;
+    }
+
     /* Popular Posts Section */
     #popular-posts h2 {
-        font-size: 1rem;
+        font-size: 1.25rem;
+        font-weight: bolder;
     }
 
     #popular-posts li {
         padding: 10px;
     }
 
-    #popular-posts li #post-title {
+    .post-item h3 {
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+
+    .post-author {
         font-size: 0.9rem;
     }
 
-    #popular-posts li #author-name {
+    #popular-posts p {
         font-size: 0.85rem;
     }
 
-    #popular-posts p {
+    .toggle-content {
+        font-size: 0.9rem;
+    }
+
+    .post-likes {
         font-size: 0.9rem;
     }
 
@@ -900,44 +1202,89 @@ a:focus, button:focus {
 
     .like-button {
         left: 80%;
+        font-size: 0.85rem;
+    }
+
+    #blog-posts h2 {
+        text-align: left;
     }
 
     /* My Posts Page */
 
     .my-posts-container {
         padding: 15px;
-        max-width: 95%;
+        max-width: 100%;
     }
-
-    .my-posts-container a, .my-posts-container button {
+    
+    .post-buttons a, .post-buttons button {
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        text-align: center;
+        font-size: 0.8rem;
     }
 
 }
 
 @media (max-width: 375px) {
     body {
-        padding-top: 200px;
-    }
-}
-
-@media print {
-    footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        page-break-before: avoid;
-        page-break-after: avoid;
+        padding-top: 80px;
     }
 
-    main {
-        page-break-inside: avoid;
+    main h2 {
+        font-size: 1.5rem;
+        text-align: center;
     }
 
-    body {
-        min-height: auto;
-        height: auto;
+    main p {
+        font-size: 0.8rem;
+    }
+
+    #logo-title {
+        font-size: 1.15rem;
+    }
+
+    /* Popular Posts Section */
+    #popular-posts h2 {
+        font-size: 1rem;
+        font-weight: bolder;
+    }
+
+    #popular-posts li {
+        padding: 10px;
+    }
+
+    .post-item h3 {
+        font-size: 0.85rem;
+        font-weight: bold;
+    }
+
+    .post-author {
+        font-size: 0.85rem;
+    }
+
+    #popular-posts p {
+        font-size: 0.8rem;
+    }
+
+    .toggle-content {
+        font-size: 0.85rem;
+    }
+
+    .post-likes {
+        font-size: 0.85rem;
+    }
+
+    /* My Posts Page */
+
+    .my-posts-container {
+        padding: 5px;
+        max-width: 100%;
+    }
+    
+    .post-buttons a, .post-buttons button {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 0.55rem;
     }
 }
