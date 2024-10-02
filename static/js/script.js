@@ -658,6 +658,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Blog Post Filtering
+
+    const filterForm = document.getElementById('blog-filters');
+
+    if (filterForm) {
+        filterForm.addEventListener('ssubmit', (e) => {
+            e.preventDefault();
+
+            const category = document.getElementById('category').value;
+            const author = document.getElementById('author').value;
+            const sort = document.getElementById('sort').value;
+
+            window.location.href = `blog?category=${category}&author=${author}&sort=${sort}`;
+        });
+    }
+
     // Function to get CSRF Token from cookies
 
     function getCookie(name) {
