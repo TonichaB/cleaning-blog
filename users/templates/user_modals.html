@@ -6,13 +6,13 @@
         <form id="register-form" method="post" action="{% url 'register' %}">
             {% csrf_token %}
             <label for="username">Username:</label>
-            <input type="text" name="username" placeholder="Username" aria-label="username" required>
+            <input type="text" id="username" name="username" placeholder="Username" aria-label="username" required>
             <label for="email">Email:</label>
-            <input type="email" name="email" placeholder="Email" aria-label="email" required>
+            <input type="email" id="email" name="email" placeholder="Email" aria-label="email" required>
             <label for="password1">Password:</label>
-            <input type="password" name="password1" placeholder="Password" aria-label="password" required>
+            <input type="password" id="password1" name="password1" placeholder="Password" aria-label="password" required>
             <label for="password2">Confirm Your Password:</label>
-            <input type="password" name="password2" placeholder="Confirm Password" aria-label="confirm-password" required>
+            <input type="password" id="password2" name="password2" placeholder="Confirm Password" aria-label="confirm-password" required>
             <button type="submit">Register!</button>
         </form>
         <p>Already have an account? <a href="#" id="show-login-modal">Log in here!</a></p>
@@ -26,10 +26,10 @@
         <h2 id="login-heading">Login</h2>
         <form id="login-form" method="post" action="{% url 'login' %}">
             {% csrf_token %}
-            <label for="username">Username/Email:</label>
-            <input type="text" name="username" placeholder="Username or Email" aria-label="username" required>
-            <label for="password">Password:</label>
-            <input type="password" name="password" placeholder="Password" aria-label="password" required>
+            <label for="login-username">Username/Email:</label>
+            <input type="text" id="login-username" name="username" placeholder="Username or Email" aria-label="username" required>
+            <label for="password3">Password:</label>
+            <input type="password" id="password3" name="password" placeholder="Password" aria-label="password" required>
             <button type="submit" aria-label="register-login-button">Login!</button>
         </form>
         <p>Don't yet have an account? <a href="#" id="open-register-modal">Register Here!</a></p>

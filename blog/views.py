@@ -33,8 +33,6 @@ def blog(request):
     elif sort == 'popularity_asc':
         blog_posts = blog_posts.order_by('likes')
 
-    return render(request, 'blog.html', {'blog_posts': blog_posts})
-
     # Get the likes for the current user
     liked_posts = []
     print(liked_posts)
