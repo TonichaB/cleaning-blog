@@ -15,17 +15,29 @@ def register_view(request):
         password2 = request.POST['password2']
 
         if password1 != password2:
-            return JsonResponse({'success': False, 'message': 'Passwords do not match.'})
+            return JsonResponse(
+                {'success': False, 'message': 'Passwords do not match.'}
+            )
 
         if User.objects.filter(username=username).exists():
-            return JsonResponse({'success': False, 'message': 'Username already exists.'})
+            return JsonResponse(
+                {'success': False, 'message': 'Username already exists.'}
+            )
 
-        user = User.objects.create_user(username=username, email=email, password=password1)
+        user = User.objects.create_user(
+            username=username,
+            email=email,
+            password=password1
+        )
+
         user.save()
         login(request, user)
-        return JsonResponse({'success': True, 'message': 'Registration Successful'})
+        return JsonResponse(
+            {'success': True, 'message': 'Registration Successful'}
+        )
 
     return JsonResponse({'success': False, 'message': 'Invalid Request.'})
+
 
 # User Login
 def login_view(request):
@@ -38,9 +50,12 @@ def login_view(request):
             login(request, user)
             return JsonResponse({'success': True})
         else:
-            return JsonResponse({'success': False, 'message': 'Invalid username or password.'})
+            return JsonResponse(
+                {'success': False, 'message': 'Invalid username or password.'}
+            )
 
     return JsonResponse({'success': False, 'message': 'Invalid Request'})
+
 
 # User Logout
 def logout_view(request):

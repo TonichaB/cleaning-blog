@@ -1,18 +1,18 @@
 <!-- Register Modal -->
 <div id="register-modal" class="modal" role="dialog" aria-labelledby="register-heading">
     <div class="modal-content">
-        <span class="close" id="close-register" aria-label="close">&times;</span>
+        <span class="close" id="close-register">&times;</span>
         <h2 id="register-heading">Register</h2>
         <form id="register-form" method="post" action="{% url 'register' %}">
             {% csrf_token %}
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Username" aria-label="username" required>
+            <input type="text" id="username" name="username" placeholder="Username" aria-label="username" required autocomplete="username">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Email" aria-label="email" required>
             <label for="password1">Password:</label>
-            <input type="password" id="password1" name="password1" placeholder="Password" aria-label="password" required>
+            <input type="password" id="password1" name="password1" placeholder="Password" aria-label="password" required autocomplete="new-password">
             <label for="password2">Confirm Your Password:</label>
-            <input type="password" id="password2" name="password2" placeholder="Confirm Password" aria-label="confirm-password" required>
+            <input type="password" id="password2" name="password2" placeholder="Confirm Password" aria-label="confirm-password" required autocomplete="new-password">
             <button type="submit">Register!</button>
         </form>
         <p>Already have an account? <a href="#" id="show-login-modal">Log in here!</a></p>
@@ -22,14 +22,14 @@
 <!-- Login Modal -->
 <div id="login-modal" class="modal" role="dialog" aria-labelledby="login-heading">
     <div class="modal-content">
-        <span class="close" id="close-login" aria-label="close">&times;</span>
+        <span class="close" id="close-login">&times;</span>
         <h2 id="login-heading">Login</h2>
         <form id="login-form" method="post" action="{% url 'login' %}">
             {% csrf_token %}
             <label for="login-username">Username/Email:</label>
-            <input type="text" id="login-username" name="username" placeholder="Username or Email" aria-label="username" required>
+            <input type="text" id="login-username" name="username" placeholder="Username or Email" aria-label="username" required autocomplete="username">
             <label for="password3">Password:</label>
-            <input type="password" id="password3" name="password" placeholder="Password" aria-label="password" required>
+            <input type="password" id="password3" name="password" placeholder="Password" aria-label="password" required autocomplete="current-password">
             <button type="submit" aria-label="register-login-button">Login!</button>
         </form>
         <p>Don't yet have an account? <a href="#" id="open-register-modal">Register Here!</a></p>

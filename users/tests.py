@@ -3,6 +3,7 @@ from django.urls import reverse
 
 # Create your tests here.
 
+
 class SimpleViewTests(TestCase):
     def test_users_view(self):
         # Make a GET request to the user view

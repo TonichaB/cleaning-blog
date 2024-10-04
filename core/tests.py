@@ -3,6 +3,7 @@ from django.urls import reverse
 
 # Create your tests here.
 
+
 class CoreViewsTests(TestCase):
 
     def test_home_page_uses_correct_template(self):

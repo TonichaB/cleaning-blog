@@ -31,13 +31,13 @@
     <header>
         <div class="logo-container">
             <a href="{% url 'home' %}">
-                <img src="{% static 'images/site-logo.webp' %}" id="logo" alt="site logo showing cleaning supplies">
+                <img src="{% static 'images/site-logo.webp' %}" id="logo" alt="site logo showing cleaning supplies" width="50" height="48">
             </a>
             <h1 id="logo-title">Cleaning Together Blog</h1>
         </div>
         <div class="nav-auth-container">
-            <nav role="navigation" aria-label="Main navigation">
-                <input type="checkbox" id="nav-toggle" name="nav-toggle" aria-expanded="false">
+            <nav aria-label="Main navigation">
+                <input type="checkbox" id="nav-toggle" name="nav-toggle">
                 <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
                     <i class="fa-solid fa-bars" aria-hidden="true"></i>
                     <span class="sr-only">Menu</span>
@@ -64,7 +64,7 @@
             </nav>
             <div class="user-auth">
                 {% if user.is_authenticated %}
-                    <div id="user-button">
+                    <div id="user-button-{{ user.id }}">
                         <button id="user-button">{{ user.username }}</button>
                         <div id="user-dropdown-content" class="dropdown-content">
                             <a href="#" id="logoutLink" data-toggle="modal" data-target="#logoutModal">Log Out</a>
@@ -94,7 +94,7 @@
         <!-- Include Notifications Modal -->
         {% include 'notifications_modal.html' %}
         <!-- Include Confirmation Alert Modals-->
-         {% include 'confirmation_alert_modals.html' %}
+        {% include 'confirmation_alert_modals.html' %}
 
     </main>
     <footer id="footer">

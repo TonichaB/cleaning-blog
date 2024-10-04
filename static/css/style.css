@@ -804,6 +804,24 @@ p {
     border: 1px solid #005050;
 }
 
+/* About Page */
+
+#about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about-container p {
+    width: 80%;
+}
+
+#about-img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 5px;
+}
+
 /* Contact Us Page */
 
 .under-construction {
@@ -833,7 +851,7 @@ a:focus, button:focus {
     margin: -1px;
     padding: 0;
     overflow: hidden;
-    clip-path: rect(0, 0, 0, 0);
+    clip-path: inset(0);
     border: 0;
 }
 
@@ -939,10 +957,6 @@ a:focus, button:focus {
     }
     
     /* Home Page*/
-
-    #home-img {
-        max-width: 70%;
-    }
 
     /* Popular Posts Section */
 

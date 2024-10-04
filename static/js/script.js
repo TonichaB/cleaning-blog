@@ -1,7 +1,12 @@
-/*jshint esversion: 6 */
-/*jshint esversion: 11 */
+/* jshint esversion: 6 */
+/* jshint esversion: 11 */
+/* jshint jquery: true */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    const isAuthElement = document.getElementById('is-authenticated');
+    const isAuthenticated = isAuthElement ? isAuthElement.value === 'true' : false;
+
     // My Posts Modal
     const myPostsButton = document.getElementById('my-posts-button');
 
@@ -159,9 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to fetch User Posts
 
     function fetchUserPosts() {
+        console.log("fetchUserPosts function called");
         fetch('/user-posts-api/')
             .then(response => response.json())
             .then(data => {
+                console.log('Fetched user posts:', data);
                 const userPostsList = document.querySelector('.my-posts-container ul');
                 userPostsList.innerHTML = '';
                 if (data && data.length > 0) {
@@ -171,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="post-header">
                                 <h3>${post.title}</h3>
                                 <p class="post-category">Category: ${post.category}</p>
-                                <p id="my-post-content">${post.content}</p>
+                                <p id="my-post-content-{{ post.id }}">${post.content}</p>
                             </div>
                             <div>
                                 <a href="#" class="edit-post" data-id="${post.id}">Edit</a>
@@ -224,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .catch(error => console.error('Error deleting post:', error));
-        }
+        };
     }
 
     addDeleteEventListeners();
@@ -238,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const postId = button.getAttribute('data-id');
                 const title = button.closest('li').querySelector('h3').textContent;
-                const content = button.closest('li').querySelector('#my-post-content').textContent;
+                const content = button.closest('li').querySelector(`#my-post-content-${postId}`).textContent;
                 const category = button.closest('li').querySelector('.post-category').textContent.split(': ')[1];
                 openEditModal(postId, title, content, category);
             });
@@ -269,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         modal.style.display = 'none';
                         $('#discardChangesModal').modal('hide');
                         showNotification("Changes have been discarded.");
-                    }
+                    };
                 } else {
                     isEditing = false;
                     modal.style.display = 'none';
@@ -299,14 +306,14 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Newtwork response was not ok' + response.statusText);
+                throw new Error('Network response was not ok' + response.statusText);
             }
             return response.json();
         })
         .then(data => {
             if (data.success) {
                 fetchUserPosts();
-                isEditing = false,
+                isEditing = false;
                 document.getElementById('edit-post-modal').style.display = 'none';
                 showNotification("Post has been updated.");
             } else {
@@ -318,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error udpating post:', error);
             showNotification("An error has occured whilst editing the post. Please try again.");
         });
-    })
+    });
 
     addEditEventListeners();
 
@@ -392,13 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createPostForm?.addEventListener('submit', (e) => {
         e.preventDefault();
-        const postId = createPostForm.dataset.postId;
-
-        if (postId) {
-            submitPostChanges(postId);
-        } else {
-            createNewPost();
-        }
+        createNewPost();
     });
 
     // Open Register Modal
@@ -410,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         loginModal.style.display = 'none';
         registerModal.style.display = 'flex';
-    })
+    });
 
     // Show login modal from register modal
     showLoginModal?.addEventListener('click', (e) => {
@@ -525,7 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             console.log('isAuthentication value:', isAuthenticated);
             
-            if (isAuthenticated === 'false') {
+            if (!isAuthenticated) {
                 showNotification("Please Log In or Register to like posts.");
 
                 const loginModal = document.getElementById('login-modal');
@@ -605,13 +606,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById(`comment-form-${postId}`).addEventListener('submit', (e) => {
                     e.preventDefault();
 
-                    if (isAuthenticated === 'false') {
+                    if (!isAuthenticated) {
                         showNotification("Please Log In or Register to comment.");
                         document.getElementById('login-modal').style.display = 'block';
                         return;
                     }
 
-                    const formData = new FormData(e.target);
+                    const formElement = document.getElementById(`comment-form-${postId}`);
+                    const formData = new FormData(formElement);
                     fetch(`/add-comment/${postId}/`, {
                         method: 'POST',
                         body: formData,
@@ -663,14 +665,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterForm = document.getElementById('blog-filters');
 
     if (filterForm) {
-        filterForm.addEventListener('ssubmit', (e) => {
+        filterForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const category = document.getElementById('category').value;
+            const category = document.getElementById('category-filter').value;
             const author = document.getElementById('author').value;
             const sort = document.getElementById('sort').value;
 
-            window.location.href = `blog?category=${category}&author=${author}&sort=${sort}`;
+            window.location.href = `/blog?category=${category}&author=${author}&sort=${sort}`;
         });
     }
 
@@ -691,4 +693,3 @@ document.addEventListener('DOMContentLoaded', () => {
         return cookieValue;
     }
 });
-

@@ -2,13 +2,18 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_GET, require_POST, require_http_methods
+from django.views.decorators.http import (
+    require_GET,
+    require_POST,
+    require_http_methods
+)
 from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 import json
 from .models import BlogPost, Like
 
 # Create your views here.
+
 
 # Show blog.html content
 def blog(request):
@@ -19,10 +24,10 @@ def blog(request):
     blog_posts = BlogPost.objects.all()
 
     # Blog Post display Filtering/Sorting options
-    if category:
+    if category and category in dict(BlogPost.CATEGORY_CHOICES).keys():
         blog_posts = blog_posts.filter(category=category)
     if author:
-        blog_posts = blog_posts.filter(author__username__contains=author)
+        blog_posts = blog_posts.filter(author__username__icontains=author)
 
     if sort == 'published_date_desc':
         blog_posts = blog_posts.order_by('-published_date')
@@ -58,10 +63,12 @@ def blog(request):
 
     return render(request, 'blog.html', context)
 
+
 # Obtain the initial top 5 popular posts
 def top_posts(request):
     popular_posts = BlogPost.objects.order_by('-likes')[:5]
     return render(request, 'core/home.html', {'popular_posts': popular_posts})
+
 
 # Fetch the latest popular posts
 def get_popular_posts(request):
@@ -80,11 +87,17 @@ def get_popular_posts(request):
     print(data)
     return JsonResponse({'popular_posts': data})
 
+
 # Display My Posts
 @login_required
 def my_posts(request):
     posts = BlogPost.objects.filter(author=request.user)
-    return render(request, 'my_posts.html', {'posts': posts})
+    return render(
+        request,
+        'my_posts.html',
+        {'posts': posts, 'is_authenticated': request.user.is_authenticated}
+    )
+
 
 # API to fetch user-specific posts
 @login_required
@@ -104,6 +117,7 @@ def user_posts_api(request):
     ]
     return JsonResponse(data, safe=False)
 
+
 # API to handle post deletions
 @login_required
 def user_post_detail(request, post_id):
@@ -111,7 +125,9 @@ def user_post_detail(request, post_id):
         try:
             post = BlogPost.objects.get(id=post_id, author=request.user)
         except BlogPost.DoesNotExist:
-            return HttpResponseForbidden('You do not have permission to delete this post.')
+            return HttpResponseForbidden(
+                'You do not have permission to delete this post.'
+            )
 
         post.delete()
         return JsonResponse({'success': True})
@@ -125,10 +141,13 @@ def user_post_detail(request, post_id):
             }
             return JsonResponse({'success': True, 'post': data})
         except BlogPost.DoesNotExist:
-            return JsonResponse({'success': False, 'message': 'Post not found'})
-            
+            return JsonResponse(
+                {'success': False, 'message': 'Post not found'}
+            )
+
     else:
         return JsonResponse({'error': 'Method not allowed'}, status=405)
+
 
 # Create Blog Post
 @login_required
@@ -147,9 +166,12 @@ def create_post_view(request):
             published_date=timezone.now(),
         )
 
-        return JsonResponse({'success': True, 'message': 'Post Successfully Published!'})
+        return JsonResponse(
+            {'success': True, 'message': 'Post Successfully Published!'}
+        )
 
     return JsonResponse({'success': False, 'message': 'Invalid Request'})
+
 
 # Edit Blog Post
 @login_required
@@ -164,18 +186,25 @@ def edit_post(request, post_id):
 
         if post.title and post.content:
             post.save()
-            return JsonResponse({'success': True, 'message': 'Post Updated Successfully'})
+            return JsonResponse(
+                {'success': True, 'message': 'Post Updated Successfully'}
+            )
         else:
-            return JsonResponse({'success': False, 'message': 'Title and Content are required.'})
+            return JsonResponse(
+                {'success': False, 'message': 'Title & Content are required.'}
+            )
     else:
         return JsonResponse({'success': False, 'message': 'Unauthorised'})
 
-# Delete Blog Post
 
+# Delete Blog Post
 def delete_post(request, pk):
     post = get_object_or_404(BlogPost, pk=pk, author=request.user)
     post.delete()
-    return JsonResponse({'success': True, 'message': 'Post Deleted Successfully'})
+    return JsonResponse(
+        {'success': True, 'message': 'Post Deleted Successfully'}
+    )
+
 
 # Like Posts
 @login_required
@@ -188,7 +217,7 @@ def like_post(request):
             post = BlogPost.objects.get(id=post_id)
         except BlogPost.DoesNotExist:
             return JsonResponse({'error': 'Post not found'}, status=404)
-        
+
         like, created = Like.objects.get_or_create(user=user, blog_post=post)
 
         if not created:
@@ -198,9 +227,14 @@ def like_post(request):
         else:
             post.likes += 1
             liked = True
-        
+
         post.save()
-        
-        return JsonResponse({'status': 'success', 'likes': post.likes, 'liked': liked})
-    
-    return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
+
+        return JsonResponse(
+            {'status': 'success', 'likes': post.likes, 'liked': liked}
+        )
+
+    return JsonResponse(
+        {'status': 'error', 'message': 'Invalid request'},
+        status=400
+    )

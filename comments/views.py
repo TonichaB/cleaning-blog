@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+
 # Load the Comments Section
 def load_comments(request, post_id):
     post = get_object_or_404(BlogPost, id=post_id)
@@ -22,6 +23,7 @@ def load_comments(request, post_id):
         })
     return JsonResponse({'comments': comments_data}, status=200)
 
+
 # Adding New Comments/Replies
 @login_required
 def add_comment(request, post_id):
@@ -32,5 +34,8 @@ def add_comment(request, post_id):
         Comment.objects.create(user=request.user, post=post, content=content)
 
         return JsonResponse({'success': True, 'message': 'Comment added'})
-    
-    return JsonResponse({'success': False, 'message': 'Invalid request'}, status=400)
+
+    return JsonResponse(
+        {'success': False, 'message': 'Invalid request'},
+        status=400
+    )

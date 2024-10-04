@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<input type="hidden" id="is-authenticated" value="{{ user.is_authenticated|yesno:'true,false' }}">
 <!-- Intro Section -->
 <div id="blog-intro">
     <p>Welcome to the Blog Page! Here you can see a list of the blog posts submitted by other users- so take some time and have a look through. You can refine your search using the filter options available.</p>
@@ -79,10 +80,10 @@
 
             <label for="sort">Sort By:</label>
             <select name="sort" id="sort">
-                <option value="published_date_desc" aria-label="order-posts-by-newest-first">Date: Newest First</option>
-                <option value="published_date_asc" aria-label="order-posts-by-oldest-first">Date: Oldest First</option>
-                <option value="popularity_desc" aria-label="order-by-most-popular">Most Popular</option>
-                <option value="popularity_asc" aria-label="order-by-least-popular">Least Popular</option>
+                <option value="published_date_desc">Date: Newest First</option>
+                <option value="published_date_asc">Date: Oldest First</option>
+                <option value="popularity_desc">Most Popular</option>
+                <option value="popularity_asc">Least Popular</option>
             </select>
             <div id="filter-buttons">
                 <button type="submit">Filter</button>

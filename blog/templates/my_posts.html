@@ -12,7 +12,7 @@
             <div class="post-header">
                 <h3>{{ post.title }}</h3>
                 <p class="post-category">Category: {{ post.category }}</p>
-                <p id="my-post-content">{{ post.content }}</p>
+                <p id="my-post-content-{{ post.id }}">{{ post.content }}</p>
             </div>
             <div class="post-buttons">
                 <a href="#" class="edit-post" data-id="{{ post.id }}">Edit</a>

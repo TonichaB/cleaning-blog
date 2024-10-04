@@ -3,6 +3,7 @@ from django.urls import reverse
 
 # Create your tests here.
 
+
 class SimpleViewTests(TestCase):
     def test_comments_view(self):
         # Make a GET request to the blog view
