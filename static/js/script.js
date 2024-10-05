@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <p class="post-category">Category: ${post.category}</p>
                                 <p id="my-post-content-{{ post.id }}">${post.content}</p>
                             </div>
-                            <div>
+                            <div class="post-buttons">
                                 <a href="#" class="edit-post" data-id="${post.id}">Edit</a>
                                 <button class="delete-post" data-id="${post.id}">Delete</button>
                             </div>
@@ -312,10 +312,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             if (data.success) {
-                fetchUserPosts();
-                isEditing = false;
-                document.getElementById('edit-post-modal').style.display = 'none';
-                showNotification("Post has been updated.");
+                sessionStorage.setItem('notificationMessage', "Post has been updated");
+                location.reload();
             } else {
                 console.error('Error updating post:', data.message);
                 showNotification('Error:' + data.message);

@@ -480,6 +480,7 @@ p {
 
 .post-summary {
     display: block;
+    overflow: hidden;
 }
 
 .post-full-content {
