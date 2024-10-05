@@ -1,16 +1,32 @@
 from django.test import TestCase
 from django.urls import reverse
+from .models import Comment
+from blog.models import BlogPost
+from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your tests here.
 
 
-class SimpleViewTests(TestCase):
-    def test_comments_view(self):
-        # Make a GET request to the blog view
-        response = self.client.get(reverse('comments'))
+class CommentsViewTests(TestCase):
 
-        # Check if the view returns a 200 OK status
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='password')
+        self.client.login(username='testuser', password='password')
+        self.blog_post = BlogPost.objects.create(
+            title='Test Post',
+            content='Content',
+            author=self.user,
+            published_date=timezone.now()
+        )
+
+    def test_comments_view_users_correct_template(self):
+        response = self.client.get(reverse('load_comments', args=[self.blog_post.id]))
         self.assertEqual(response.status_code, 200)
 
-        # Check if the response contains the expected text
-        self.assertContains(response, "Hello World 3")
+    def test_create_comment(self):
+        response = self.client.post(reverse('add_comment', args=[self.blog_post.id]), {
+            'content': 'This is a test comment.',
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(Comment.objects.filter(content='This is a test comment.').exists())

@@ -68,14 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const postsContainer = document.querySelector('#popular-posts ul');
 
         if (!postsContainer) {
-            console.log('Popular posts container not found on this page');
             return;
         }
 
         fetch('/get-popular-posts/')
             .then(response => response.json())
             .then(data => {
-                console.log('Fetched data:', data);
                 const postsContainer = document.querySelector('#popular-posts ul');
                 postsContainer.innerHTML = ''; // Clear current posts
 
@@ -136,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Notifications Modal
     function showNotification(message) {
-        console.log("showing notifications:", message);
         const notificationModal = document.getElementById('notification-modal');
         const notificationMessage = document.getElementById('notification-message');
 
@@ -164,11 +161,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to fetch User Posts
 
     function fetchUserPosts() {
-        console.log("fetchUserPosts function called");
         fetch('/user-posts-api/')
             .then(response => response.json())
             .then(data => {
-                console.log('Fetched user posts:', data);
                 const userPostsList = document.querySelector('.my-posts-container ul');
                 userPostsList.innerHTML = '';
                 if (data && data.length > 0) {
@@ -385,7 +380,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                console.log("notification triggered with message:", data.message);
                 sessionStorage.setItem('notificationMessage', "Post Successfully Published!");
                 location.reload();
             }
@@ -429,7 +423,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Register Form Submission
     registerForm?.addEventListener('submit', (e) => {
         e.preventDefault();
-        console.log('Register form submitted');
         const formData = new FormData(registerForm);
 
         fetch('/register/', {
@@ -521,8 +514,6 @@ document.addEventListener('DOMContentLoaded', () => {
     likeButtons.forEach(button => {
         button.addEventListener('click', function (event) {
             event.preventDefault();
-
-            console.log('isAuthentication value:', isAuthenticated);
             
             if (!isAuthenticated) {
                 showNotification("Please Log In or Register to like posts.");
@@ -638,9 +629,6 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const postId = button.dataset.postId;
             const commentsContainer = document.getElementById(`comments-container-${postId}`);
-
-            console.log(`Post ID: ${postId}`);
-            console.log(`Comments Container:`, commentsContainer);
 
             if (!commentsContainer) {
                 console.error(`Comments container for post ${postId} not found!`);

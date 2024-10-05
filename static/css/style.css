@@ -37,7 +37,7 @@ body {
     font-family: 'Quicksand', sans-serif;
     line-height: 1.6;
     background-color: #f8f8ff;
-    padding-top: 70px; /* Create space for fixed header */
+    padding-top: 70px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -173,6 +173,63 @@ nav ul li a:hover {
     background-color: #77FFBF;
     text-decoration: underline;
     color: #007bff;
+}
+
+/* Footer Styling */
+
+footer {
+    background-color: #00ffff;
+    color: #000000;
+    padding: 10px 0;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+#social-media-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+#social-media-links li a {
+    color:#005050;
+    font-size: 2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#social-media-links li a:hover {
+    color: #000000;
+    transform: scale(1.2);
+    outline: none;
+}
+
+#social-media-links li a:focus {
+    color: #000000;
+    transform: scale(1.2);
+    outline: 2px solid #005050;
+    outline-offset: 4px;
+}
+
+#footer p {
+    margin-top: 5px;
+    font-size: 1rem;
+}
+
+#footer p a {
+    color: #005050;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+#footer p a:hover, #footer p a:focus {
+    color: #000000;
+    outline: none;
 }
 
 /* Modals General Styling */
@@ -316,63 +373,6 @@ nav ul li a:hover {
     width: 100%;
     max-width: 200px;
     text-align: center;
-}
-
-/* Footer Styling */
-
-footer {
-    background-color: #00ffff;
-    color: #000000;
-    padding: 10px 0;
-    text-align: center;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-#social-media-links {
-    list-style-type: none;
-    padding: 0;
-    margin: 0 0 10px 0;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
-
-#social-media-links li a {
-    color:#005050;
-    font-size: 2rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-#social-media-links li a:hover {
-    color: #000000;
-    transform: scale(1.2);
-    outline: none;
-}
-
-#social-media-links li a:focus {
-    color: #000000;
-    transform: scale(1.2);
-    outline: 2px solid #005050;
-    outline-offset: 4px;
-}
-
-#footer p {
-    margin-top: 5px;
-    font-size: 1rem;
-}
-
-#footer p a {
-    color: #005050;
-    text-decoration: underline;
-    transition: color 0.3s ease;
-}
-
-#footer p a:hover, #footer p a:focus {
-    color: #000000;
-    outline: none;
 }
 
 /* Home Page */
