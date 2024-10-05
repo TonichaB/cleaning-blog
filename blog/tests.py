@@ -9,7 +9,10 @@ from django.utils import timezone
 class BlogViewsTests(TestCase):
 
     def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='password')
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='password'
+        )
         self.blog_post = BlogPost.objects.create(
             title='Test Blog Post',
             content='This is a test blog post content.',
@@ -17,7 +20,7 @@ class BlogViewsTests(TestCase):
             category='Product Review',
             published_date=timezone.now()
         )
-    
+
     def test_blog_page_uses_correct_template(self):
         response = self.client.get(reverse('blog'))
         self.assertTemplateUsed(response, 'blog.html')
@@ -38,14 +41,18 @@ class BlogViewsTests(TestCase):
         })
 
         self.assertEqual(response.status_code, 200)
-        self.assertTrue(BlogPost.objects.filter(title='New Blog Post').exists())
-    
+        self.assertTrue(BlogPost.objects.filter(
+            title='New Blog Post'
+        ).exists())
+
     def test_no_blog_posts_displayed(self):
         BlogPost.objects.all().delete()
         response = self.client.get(reverse('blog'))
         self.assertContains(response, 'No Blog Posts Available')
-    
+
     def test_filtering_by_category(self):
-        response = self.client.get(reverse('blog') + '?category=Product Review')
+        response = self.client.get(
+            reverse('blog') + '?category=Product Review'
+        )
         self.assertContains(response, 'Test Blog Post')
         self.assertNotContains(response, 'Other Blog Post')

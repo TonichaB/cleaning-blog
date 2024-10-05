@@ -22,7 +22,9 @@ class SimpleViewTests(TestCase):
             'email': self.user_data['email'],
         })
         self.assertEqual(response.status_code, 200)
-        self.assertTrue(User.objects.filter(username=self.user_data['username']).exists())
+        self.assertTrue(User.objects.filter(
+            username=self.user_data['username']
+        ).exists())
 
     def test_user_login(self):
         self.client.post(reverse('register'), {
@@ -38,7 +40,7 @@ class SimpleViewTests(TestCase):
         })
         self.assertEqual(response.status_code, 200)
         self.assertTrue(response.wsgi_request.user.is_authenticated)
-    
+
     def test_user_logout(self):
         self.client.post(reverse('register'), {
             'username': self.user_data['username'],
@@ -46,9 +48,11 @@ class SimpleViewTests(TestCase):
             'password2': self.user_data['password'],
             'email': self.user_data['email'],
         })
-        self.client.login(username=self.user_data['username'], password=self.user_data['password'])
+        self.client.login(
+            username=self.user_data['username'],
+            password=self.user_data['password']
+        )
 
         response = self.client.post(reverse('logout'))
         self.assertEqual(response.status_code, 200)
         self.assertFalse(response.wsgi_request.user.is_authenticated)
-

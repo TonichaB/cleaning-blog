@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from core.views import home, about, contact
-from blog.views import blog, top_posts, get_popular_posts, user_post_detail, user_posts_api,create_post_view, edit_post, delete_post, like_post, my_posts
+from blog.views import blog, top_posts, get_popular_posts, user_post_detail, user_posts_api, create_post_view, edit_post, delete_post, like_post, my_posts
 from comments.views import add_comment, load_comments
 from users.views import register_view, login_view, logout_view
 from django.conf import settings
