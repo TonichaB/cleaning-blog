@@ -9,11 +9,31 @@
   - [Automatic Testing](#automatic-testing)
   - [Accessibility Testing](#accessibility-testing)
     - [WAVE](#wave)
+    - [Webaim Contrast Checker](#webaim-contrast-checker)
     - [Adobe Colour Accessibility](#adobe-colour-accessibility)
   - [Performance Testing](#performance-testing)
     - [Lighthouse](#lighthouse)
+      - [Mobile View:](#mobile-view)
+      - [Desktop View:](#desktop-view)
+      - [Mobile View:](#mobile-view-1)
+      - [Desktop View:](#desktop-view-1)
+      - [Mobile View:](#mobile-view-2)
+      - [Desktop View:](#desktop-view-2)
+      - [Mobile View:](#mobile-view-3)
+      - [Desktop View:](#desktop-view-3)
+      - [Mobile View:](#mobile-view-4)
+      - [Desktop View:](#desktop-view-4)
   - [Code Validation](#code-validation)
     - [HTML](#html)
+      - [URL Input](#url-input)
+      - [Direct Source Input](#direct-source-input)
+      - [URL Input](#url-input-1)
+      - [Direct Source Input](#direct-source-input-1)
+      - [URL Input](#url-input-2)
+      - [Direct Source Input](#direct-source-input-2)
+      - [URL Input](#url-input-3)
+      - [Direct Source Input](#direct-source-input-3)
+      - [Direct Source Input](#direct-source-input-4)
     - [CSS](#css)
     - [Python](#python)
     - [Javascript](#javascript)
@@ -27,8 +47,8 @@ The User Stories have been manually tested, including their corresponding featur
 
 | User Story | Test Action | Expected Result | Actual Result | Pass/Fail | Result |
 | -- | -- | -- | -- | -- | -- |
-| [#11](https://github.com/TonichaB/cleaning-blog/issues/11) | Click on all navbar links for home, blog, about, and contact pages | User is redirected to the correct site page based on the link clicked | Redirection occurs as intended | Pass | rslt img |
-| [#12](https://github.com/TonichaB/cleaning-blog/issues/12) | Navigate to the site Home Page  | Site introduction should be clearly presented and responsive  | Site introduction on the home page is clearly presented and responds as expected to changes in screen sizes  | Pass  | rslt img  |
+| [#11](https://github.com/TonichaB/cleaning-blog/issues/11) | Click on all navbar links for home, blog, about, and contact pages | User is redirected to the correct site page based on the link clicked | Redirection occurs as intended | Pass | <video controls width="600"><source src="static/videos/navigation-links.webm" type="video/webm">Your browser does not support the video tag.</video> |
+| [#12](https://github.com/TonichaB/cleaning-blog/issues/12) | Navigate to the site Home Page | Site introduction should be clearly presented and responsive  | Site introduction on the home page is clearly presented and responds as expected to changes in screen sizes  | Pass  | rslt img  |
 | [#13](https://github.com/TonichaB/cleaning-blog/issues/13) | Click on the social media links in the footer | A new tab opens to reflect the correct social media platform relevant to the icon clicked | New tabs open and the correct platform website is shown | Pass | rslt img |
 | [#14](https://github.com/TonichaB/cleaning-blog/issues/14) | Scroll to view the popular posts section and refresh page | The Popular Posts section shows a message if no posts available | Popular post section correctly shows the correct message | Pass | <img src="static/images/README.md/no posts available view on popular post section.webp"> | 
 | [#14](https://github.com/TonichaB/cleaning-blog/issues/14) | When blog posts have been created, scroll to view the popular posts section on the home page | The top 5 most popular posts, based on a 'likes' metric, are presented in order | Popular posts are displayed as expected | Pass | <img src="static/images/README.md/popular-posts-section.webp"> |
@@ -84,18 +104,153 @@ The User Stories have been manually tested, including their corresponding featur
 
 ## Automatic Testing
 
-I have used the local db.sqlite3 database for testing the views contained within the project. Please see the below regarding the results obtained:
+I have used the local db.sqlite3 database for testing the views contained within the project. Please see the below regarding the results obtained:<br>
 
+At the start of the project I included initial tests for each of the views.py files contained in each app to ensure they were all configured correctly. Below is an example of the results obtained for the comments views designed to test for the presence of the HTTP Response "Hello World 3".
 <details>
-    <summary>Simple Views Tests</summary>
-    At the start of the project I included initial tests for each of the views.py files contained in each app to ensure they were all configured correctly. Below is an example of the results obtained for the comments views designed to test for the presence of the HTTP Response "Hello World 3".<br>
+    <summary>Initial Views Tests</summary>
     <img src="static/images/TESTING.md/simple-views-test-results.webp" width="700">
 
 </details><br>
 
+At the end of the project, the tests for each app had been updated, so an overall test was completed which returned successfuly results.
+<details>
+  <summary>Final Views Tests</summary>
+
+  ![Automated Test Results](static/images/TESTING.md/python-final-tests.webp)
+
+</details><br>
+
+The individual test results were broken down as follows:
+
+<details>
+  <summary>Blog Views Tests</summary>
+
+  ![Automated Test Results](static/images/TESTING.md/python-blog-test-results.webp)
+      
+</details>
+
+<details>
+  <summary>Comments Views Tests</summary>
+
+  ![Automated Test Results](static/images/TESTING.md/python-comments-test-results.webp)
+      
+</details>
+
+<details>
+  <summary>Users Views Tests</summary>
+
+  ![Automated Test Results](static/images/TESTING.md/python-users-test-results.webp)
+      
+</details>
+
+<details>
+  <summary>Core Views Tests</summary>
+
+  ![Automated Test Results](static/images/TESTING.md/python-core-test-results.webp)
+      
+</details>
+
 ## Accessibility Testing
 
 ### WAVE
+
+I have used the WAVE Chromer Extension to test the accessibility for each site page. The results have confirmed 
+
+<details>
+  <summary>Home Page</summary>
+
+  ![Home Page WAVE Results](static/images/TESTING.md/wave-home.webp)
+
+</details>
+
+<details>
+  <summary>Blog Page</summary>
+
+  ![Blog Page WAVE Results](static/images/TESTING.md/wave-blog.webp)
+
+</details>
+
+<details>
+  <summary>My Posts Page</summary>
+
+  ![My Posts Page WAVE Results](static/images/TESTING.md/wave-my-posts.webp)
+
+</details>
+
+<details>
+  <summary>About Page</summary>
+
+  ![About Page WAVE Results](static/images/TESTING.md/wave-about.webp)
+
+</details>
+
+<details>
+  <summary>Contact Page</summary>
+
+  ![Contact Page WAVE Results](static/images/TESTING.md/wave-contact.webp)
+
+</details>
+
+### Webaim Contrast Checker
+
+Alongside the WAVE feature, I have completed specified checks for the colour contrasts throughout the project. To do so I have used the Webaim contrast checker and the results are shown below. In some cases, the Hex values shows in the results will vary from the codebase due to the codebase using transparency values. I therefore used an eyedropper tool to get the hex value for the presenting colour in order to complete the tests (applicable tests have been marked * for reference)<br>
+
+<details>
+  <summary>*Popular Posts Section</summary>
+
+  ![Webaim Contrast Checker Results](static/images/TESTING.md/WebAim-colour-contrast-1.webp)
+
+</details>
+
+<details>
+  <summary>Header Text and Background</summary>
+
+  ![Webaim Contrast Checker Results](static/images/TESTING.md/WebAim-colour-contrast-2.webp)
+
+</details>
+
+<details>
+  <summary>Footer Text and Background</summary>
+
+  ![Webaim Contrast Checker Results](static/images/TESTING.md/WebAim-colour-contrast-3.webp)
+  
+</details>
+
+<details>
+  <summary>*See Comments Button</summary>
+
+  ![Webaim Contrast Checker Results](static/images/TESTING.md/WebAim-colour-contrast-4.webp)
+  
+</details>
+
+<details>
+  <summary>*Filter Posts Text and Background</summary>
+
+  ![Webaim Contrast Checker Results](static/images/TESTING.md/WebAim-colour-contrast-5.webp)
+  
+</details>
+
+<details>
+  <summary>Text Links and Background</summary>
+
+  ![Webaim Contrast Checker Results](static/images/TESTING.md/WebAim-colour-contrast-6.webp)
+  
+</details>
+
+<details>
+  <summary>My Posts Buttons and User Notifications</summary>
+
+  ![Webaim Contrast Checker Results](static/images/TESTING.md/WebAim-colour-contrast-7.webp)
+  
+</details>
+
+<details>
+  <summary>Social Media Links and Footer Background</summary>
+
+  ![Webaim Contrast Checker Results](static/images/TESTING.md/WebAim-colour-contrast-8.webp)
+  
+</details>
 
 ### Adobe Colour Accessibility
 
@@ -106,19 +261,301 @@ Using the Adobe Colour page I have tested my colour scheme for the project to en
 
 ### Lighthouse
 
-- [Home Page](https://pagespeed.web.dev/analysis/https-8000-tonichab-cleaningblog-sb0kndpfmmw-ws-codeinstitute-ide-net/5b7ccdb324?form_factor=desktop&category=performance&category=accessibility&category=best-practices&category=seo&hl=en-GB&utm_source=lh-chrome-ext)
-- [Blog Post Page](https://pagespeed.web.dev/analysis/https-8000-tonichab-cleaningblog-sb0kndpfmmw-ws-codeinstitute-ide-net-blog/42bigetfuq?form_factor=desktop&category=performance&category=accessibility&category=best-practices&category=seo&hl=en-GB&utm_source=lh-chrome-ext)
-- [About Page](https://pagespeed.web.dev/analysis/https-8000-tonichab-cleaningblog-sb0kndpfmmw-ws-codeinstitute-ide-net-about/cufjg0prjp?form_factor=desktop&category=performance&category=accessibility&category=best-practices&category=seo&hl=en-GB&utm_source=lh-chrome-ext)
-- [Contact Page](https://pagespeed.web.dev/analysis/https-8000-tonichab-cleaningblog-sb0kndpfmmw-ws-codeinstitute-ide-net-contact/k2hy07izvj?form_factor=desktop&category=performance&category=accessibility&category=best-practices&category=seo&hl=en-GB&utm_source=lh-chrome-ext)
+Using the Lighthouse feature contained in the Google Dev Tools extension I was able to test the performance for each page of the site both on desktop and mobile views. The overall results are very positive, however improvements could be made in future iterrations to increase the performance score for the mobile views. The results can be seen below:<br>
+
+<details>
+  <summary>Home Page Results</summary>
+
+  #### Mobile View:
+  ![Mobile Lighthouse Results](/static/images/TESTING.md/lighthouse-home-mobile.webp)
+
+  #### Desktop View:
+  ![Desktop Lighthouse Results](/static/images/TESTING.md/lighthouse-home-page.webp)
+
+</details>
+
+<details>
+  <summary>Blog Page Results</summary>
+
+  #### Mobile View:
+  ![Mobile Lighthouse Results](/static/images/TESTING.md/lighthouse-blog-mobile.webp)
+
+  #### Desktop View:
+  ![Desktop Lighthouse Results](/static/images/TESTING.md/lighthouse-blog-page.webp)
+
+</details>
+
+<details>
+  <summary>My Posts Page Results</summary>
+
+  #### Mobile View:
+  ![Mobile Lighthouse Results](/static/images/TESTING.md/lighthouse-my-posts-mobile.webp)
+
+  #### Desktop View:
+  ![Desktop Lighthouse Results](/static/images/TESTING.md/lighthouse-my-posts.webp)
+
+</details>
+
+<details>
+  <summary>About Page Results</summary>
+
+  #### Mobile View:
+  ![Mobile Lighthouse Results](/static/images/TESTING.md/lighthouse-about-mobile.webp)
+
+  #### Desktop View:
+  ![Desktop Lighthouse Results](/static/images/TESTING.md/lighthouse-about-page.webp)
+
+</details>
+
+<details>
+  <summary>Contact Page Results</summary>
+
+  #### Mobile View:
+  ![Mobile Lighthouse Results](/static/images/TESTING.md/lighthouse-contact-mobile.webp)
+
+  #### Desktop View:
+  ![Desktop Lighthouse Results](/static/images/TESTING.md/lighthouse-contact-page.webp)
+
+</details>
+
 ## Code Validation
 
 ### HTML
 
+I have completed thorough testing to validate the HTML used in the project by checking using the url input where possible, and also validating the direct source input. All results have passed and can be seen below:<br>
+
+<details>
+  <summary>Home Page</summary>
+
+  #### URL Input
+
+  ![HTML URL Input Validation](static/images/TESTING.md/html-home-url.webp)
+
+  #### Direct Source Input
+
+  ![HTML Direct Source Input Validation](static/images/TESTING.md/html-home-dsi.webp)
+
+</details>
+
+<details>
+  <summary>Blog Page</summary>
+
+  #### URL Input
+
+  ![HTML URL Input Validation](static/images/TESTING.md/html-blog-url.webp)
+
+  #### Direct Source Input
+
+  ![HTML Direct Source Input Validation](static/images/TESTING.md/html-blog-dsi.webp)
+
+</details>
+
+<details>
+  <summary>About Page</summary>
+
+  #### URL Input
+
+  ![HTML URL Input Validation](static/images/TESTING.md/html-about-url.webp)
+
+  #### Direct Source Input
+
+  ![HTML Direct Source Input Validation](static/images/TESTING.md/html-about-dsi.webp)
+
+</details>
+
+<details>
+  <summary>Contact Page</summary>
+
+  #### URL Input
+
+  ![HTML URL Input Validation](static/images/TESTING.md/html-contact-url.webp)
+
+  #### Direct Source Input
+
+  ![HTML Direct Source Input Validation](static/images/TESTING.md/html-contact-dsi.webp)
+
+</details>
+
+<details>
+  <summary>My Posts Page</summary>
+
+  #### Direct Source Input
+
+  ![HTML Direct Source Input Validation](static/images/TESTING.md/html-my-posts-dsi.webp)
+
+</details>
+
 ### CSS
+
+The CSS for the project has also been tested by validating the direct input of the full css file, validating the url input for each of the main site pages, and testing the direct input for the My Posts Page. The results have passed with no errors and are shown below:<br>
+
+<details>
+  <summary>"style.css" File Validation</summary>
+
+  ![W3C CSS Validation Results](static/images/TESTING.md/css-direct-input.webp)
+
+</details>
+
+<details>
+  <summary>Home URL Input</summary>
+
+  ![W3C CSS Validation Results](static/images/TESTING.md/css-home-url.webp)
+
+</details>
+
+<details>
+  <summary>Blog Page URL Input</summary>
+
+  ![W3C CSS Validation Results](static/images/TESTING.md/css-blog-url.webp)
+
+</details>
+
+<details>
+  <summary>About Page URL Input</summary>
+
+  ![W3C CSS Validation Results](static/images/TESTING.md/css-about-url.webp)
+
+</details>
+
+<details>
+  <summary>Contact Page URL Input</summary>
+
+  ![W3C CSS Validation Results](static/images/TESTING.md/css-contact-url.webp)
+
+</details>
+
+<details>
+  <summary>My Posts Page Direct Source Input</summary>
+
+  ![W3C CSS Validation Results](static/images/TESTING.md/css-my-posts-dsi.webp)
+
+</details>
 
 ### Python
 
+Each App contained in the project has utilised python files that have each been validated using the [Code Institute CI Python Linter](https://pep8ci.herokuapp.com/). Please see the below for the results obtained for each app.<br>
+
+<details>
+  <summary>Blog App</summary>
+
+  - <details>
+      <summary>admin.py</summary>
+
+      ![PEP8 Validation Results](static/images/TESTING.md/python-blog-admin.py-validation.webp)
+      
+      </details>
+
+  - <details>
+      <summary>models.py</summary>
+
+      ![PEP8 Validation Results](static/images/TESTING.md/python-blog-models.py-validation.webp)
+      
+      </details>
+
+  - <details>
+      <summary>tests.py</summary>
+
+      ![PEP8 Validation Results](static/images/TESTING.md/python-blog-tests.py-validation.webp)
+      
+      </details>
+
+  - <details>
+      <summary>views.py</summary>
+
+      ![PEP8 Validation Results](static/images/TESTING.md/python-blog-views.py-validation.webp)
+      
+      </details>
+
+    </details>
+
+<details>
+  <summary>Comments App</summary>
+
+  - <details>
+      <summary>admin.py</summary>
+
+      ![PEP8 Validation Results](static/images/TESTING.md/python-comments-admin.py-validation.webp)
+      
+      </details>
+
+  - <details>
+      <summary>models.py</summary>
+
+      ![PEP8 Validation Results](static/images/TESTING.md/python-comments-models.py-validation.webp)
+      
+      </details>
+
+  - <details>
+      <summary>tests.py</summary>
+
+      ![PEP8 Validation Results](static/images/TESTING.md/python-comments-tests.py-validation.webp)
+      
+      </details>
+
+  - <details>
+      <summary>views.py</summary>
+
+      ![PEP8 Validation Results](static/images/TESTING.md/python-comments-views.py-validation.webp)
+      
+      </details>
+  
+</details>
+
+<details>
+  <summary>Users App</summary>
+
+  - <details>
+      <summary>apps.py</summary>
+
+      ![PEP8 Validation Results](static/images/TESTING.md/python-users-apps.py-validation.webp)
+      
+      </details>
+
+  - <details>
+      <summary>test.py</summary>
+
+      ![PEP8 Validation Results](static/images/TESTING.md/python-users-test.py-validation.webp)
+      
+      </details>
+
+  - <details>
+      <summary>views.py</summary>
+
+      ![PEP8 Validation Results](static/images/TESTING.md/python-users-views.py-validation.webp)
+      
+      </details>
+  
+</details>
+
+<details>
+  <summary>Core App</summary>
+
+  - <details>
+      <summary>tests.py</summary>
+
+      ![PEP8 Validation Results](static/images/TESTING.md/python-core-tests.py-validation.webp)
+      
+      </details>
+
+  - <details>
+      <summary>views.py</summary>
+
+      ![PEP8 Validation Results](static/images/TESTING.md/python-core-views.py-validation.webp)
+      
+      </details>
+  
+</details>
+
 ### Javascript
+
+I have validated the Javascript code using the online JSHint validator. The results have passed with no errors and are shown below:<br>
+
+<details>
+  <summary>JSHint Results</summary>
+
+  ![JSHint Validation Results](static/images/TESTING.md/jshint-results.webp)
+
+</details>
 
 ## Bugs
 
