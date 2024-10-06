@@ -101,6 +101,9 @@ The User Stories have been manually tested, including their corresponding featur
 | [#29](https://github.com/TonichaB/cleaning-blog/issues/29) | Click to confirm logout | Message appears to confirm logout successful, and user redirected to home page with register/login buttons presented | Message confirmation appears as expected and page redirects to home page with button to register/login present | Pass | ![Video of Test Results](static/images/TESTING.md/GIFS/confirm-logout.gif) |
 | [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | Click to like a post when not logged in | Notification should appear to advise user to register/login in order to like posts, and the login modal should open. | Notification appears as expected, advising only logged in users can like a post, and login modal opens automatically. | Pass | ![Video of Test Results](static/images/TESTING.md/GIFS/like-post-logged-out.gif)|
 | [#30](https://github.com/TonichaB/cleaning-blog/issues/30) | Click to comment on a post when not logged in | Notification should appear to advise user to register/login in order to comment on a post, and login modal opens | Notification and login model appear as expected | Pass | ![Video of Test Results](static/images/TESTING.md/GIFS/comment-logged-out.gif) |
+<br>
+
+[Back to Top](#contents-table)
 
 ## Automatic Testing
 
@@ -150,6 +153,9 @@ The individual test results were broken down as follows:
   ![Automated Test Results](static/images/TESTING.md/python-core-test-results.webp)
       
 </details>
+<br>
+
+[Back to Top](#contents-table)
 
 ## Accessibility Testing
 
@@ -256,6 +262,9 @@ Alongside the WAVE feature, I have completed specified checks for the colour con
 
 Using the Adobe Colour page I have tested my colour scheme for the project to ensure the colours used are suitable for any users with colour blindness.<br>
 <img src="static/images/TESTING.md/colour-scheme-accessibility.webp" width="900">
+<br>
+
+[Back to Top](#contents-table)
 
 ## Performance Testing
 
@@ -317,6 +326,9 @@ Using the Lighthouse feature contained in the Google Dev Tools extension I was a
   ![Desktop Lighthouse Results](/static/images/TESTING.md/lighthouse-contact-page.webp)
 
 </details>
+<br>
+
+[Back to Top](#contents-table)
 
 ## Code Validation
 
@@ -565,8 +577,13 @@ I have validated the Javascript code using the online JSHint validator. The resu
   ![JSHint Validation Results](static/images/TESTING.md/jshint-results.webp)
 
 </details>
+<br>
+
+[Back to Top](#contents-table)
 
 ## Bugs
+
+At the time of final deployment, there were no known bugs to be fixed.
 
 | **Bug** | **Fix** | **Status** |
 | -- | -- | -- |
