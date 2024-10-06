@@ -437,6 +437,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.success) {
                 sessionStorage.setItem('notificationMessage', "Registration Successful. Welcome!");
                 location.reload();
+            } else {
+                showNotification(data.message);
             }
         })
         .catch(error => console.error('Error', error));
@@ -460,6 +462,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.success) {
                 sessionStorage.setItem('notificationMessage', "Login Successful. Welcome Back!");
                 location.reload();
+            } else {
+                showNotification(data.message);
             }
         })
         .catch(error => console.error('Error:', error));
