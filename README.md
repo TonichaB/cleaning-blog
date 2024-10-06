@@ -55,9 +55,9 @@
 
 ## Overview
 
-Cleaning Together blog is a community driven platform where cleaning enthusiasts and professionals alike can share tips, tricks and experiences. The blog aims to foster a supportive environment for people interested in cleaning, providing a space for sharing valuable content and engaging with others through blog posts and likes. The target audience is both cleaning professionals and homemakers. Users can view blog posts, and after logging into an account they can also interact by liking or commenting on the posts.<br>
+The Cleaning Together blog is a community-driven platform where cleaning enthusiasts and professionals alike can share tips, tricks, and experiences. The blog aims to foster a supportive environment for people interested in cleaning, providing a space for sharing valuable content and engaging with others through blog posts and likes. The target audience is both cleaning professionals and homemakers. Users can view blog posts, and after logging into an account they can also interact by liking or commenting on the posts.<br>
 
-You can access the live site [here!]()
+You can access the live site [here!](https://cleaning-blog-a7931fa873c1.herokuapp.com/)
 
 ## UX
 
@@ -231,6 +231,15 @@ Wireframes for the mobile and desktop site designs were created using Balsamiq t
 </details><br>
 
 **Flowchart**
+
+The flowchart for the project has been created using LucidChart to illustrate the site functionality.<br>
+
+<details>
+  <summary>View Flowchart</summary>
+
+  ![Flowchart Image](static/images/README.md/flowchart.png)
+
+</details><br>
 
 **Database**
 
@@ -707,21 +716,24 @@ Using the Google Developer Tools I was also able to test the responsiveness of t
 ## Tools Used
 
 - [GitHub](https://github.com/)- The source code for the project has been hosted on GitHub.
-- [Visual Studio]()- I have used the Visual Studio IDE for writing and testing the project code.
-- [Heroku]()- The project has been deployed on Heroku.
-- [Balsamiq]()- The wireframes for the project have been created using the Balsamiq software.
-- visual paradigm (flowchart)
-- [Font Awesome]()- I have used Font Awesome Icons throughout the project for more attractive UX.
-- [Google Fonts]()- For the chosen typography used in the project.
+- [Visual Studio](https://code.visualstudio.com/)- I have used the Visual Studio IDE for writing and testing the project code.
+- [Heroku](http://www.heroku.com/)- The project has been deployed on Heroku.
+- [Balsamiq](https://balsamiq.com/)- The wireframes for the project have been created using the Balsamiq software.
+- [LucidChart](https://lucid.app/)- I have created a flowchart to represent the site functionalities using LucidChart.
+- [Font Awesome](https://fontawesome.com/)- I have used Font Awesome Icons throughout the project for more attractive UX.
+- [Google Fonts](https://fonts.google.com/)- For the chosen typography used in the project.
 - [dbdiagram](https://dbdiagram.io/)- I have used this online tool to create a visual representation of the data schemas for the project.
-- [JSHint]()
-- [PEP8 Validator]()
-- [W3C HTML Validator]()
-- [CSS Jigsaw CSS Validator]()
-- [WAVE]()
-- [Google Dev Tools]()
-- [Code Institute PostgreSQL]()
-- [Lighthouse]()
+- [Ezgif.com](https://ezgif.com/video-to-gif)- I have used this website to convert screen recording video files into GIFS to include in the project documentation.
+- [Pixelied](https://pixelied.com/convert/png-converter/png-to-webp)- I have used this website to convert my png image files to webp files.
+- [JSHint](https://jshint.com/)- I have used the JSHint site to validate my Javascript code and aid in debugging.
+- [PEP8 Validator](https://pep8ci.herokuapp.com/)- I have used the Code Institute Python Linter to validate my python files for the project.
+- [W3C HTML Validator](https://validator.w3.org/)- I have used the W3C Markup Validation Service to validate the html files for this project.
+- [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/)- I have used the W3C Jigsaw validator to check my css file for any errors.
+- [WAVE](https://wave.webaim.org/)- I have made use of the WAVE Chrome Extension in order to check the accessibility of my site pages.
+- [Google Dev Tools](https://developer.chrome.com/docs/devtools)- I have made use of the Google Chrome Developer tools throughout the development process to assist with functionality debugging and css styling for the site.
+- [Code Institute PostgreSQL](https://dbs.ci-dbs.net/)- To create the PostgreSQL database required for this project I have obtained a database URL from Code Institute's database url generator.
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview)- I have made use also of the Lighouse feature within the Google Developer Tools in order to test the performance of each page of the site for both mobile and desktop views.
+- [RealFaviconGenerator](https://realfavicongenerator.net/)- I have used this site to create the favicon used for the site.
 
 ### Python Packages
 
@@ -799,6 +811,7 @@ I have used the following for the media contained in the site;
 - The image contained in the home page of the site has been sourced using [Pexels.com](https://www.pexels.com/).
 - The burger drop down button, like buttons and social media links have been created with icons from [fontawesome.](https://fontawesome.com/)
 - Favicon Image and Site Logo by [Clker-Free-Vector-Images](https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=303265) from [Pixabay](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=303265)
+- The animation on the Contact us page was obtained from [LottieFiles](https://lottiefiles.com/free-animation/the-robot-broke-and-404-error-byg3iPIzFr) created by [Abdul Latif](https://lottiefiles.com/animoox).
 
 ### Code
 
@@ -811,6 +824,9 @@ I have utilised the following resources to assist me in writing the code for thi
 - The Code Institute learning portal has also been referred to throughout the development process to ensure I have the correct understanding on what is needed to build the site.
 - [Mozilla](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) - This site contains useful guidance on the javascript fetch API which has been utilised within various functions in the JavaScript file for this project.
 - [Stack Overflow](https://stackoverflow.com/questions/62879957/how-to-implement-a-like-system-in-django-templates)- This particular page was used as a reference point when building the 'Like' system model within the site.
+- [Bootstrap](https://getbootstrap.com/docs/4.0/components/modal/)The confirmation messages and modals have been created with the influence Bootstrap modals. This documentation was very useful in guiding me when creating the confirmation messages applicable throughout the site (for example confirmation of logout request or post deletion).
+- [Django DOcuments](https://docs.djangoproject.com/en/5.1/topics/testing/overview/)- I have referred to this documentation to assist me in creating the automated tests for the project.
+- In addition to the above source, a lot of time has been spent going over the great resources provided by Code Institute as part of my course, including content regaridng the Agile Methodologies, Automatic Testing, and creating Django based projects.
 
 ## Acknowledgements
 
