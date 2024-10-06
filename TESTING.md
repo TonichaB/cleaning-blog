@@ -155,6 +155,15 @@ The individual test results were broken down as follows:
 </details>
 <br>
 
+I have also completed a coverage report to see the tests coverage for the project. Overall the results show 82% of the codebase has been covered by the currently implemented tests, in future interations for the site development I would aim to achieve 100%.
+
+<details>
+  <summary>Coverage Report</summary>
+
+  ![Coverage Terminal Report](static/images/TESTING.md/coverage-report.webp)
+
+</details><br>
+
 [Back to Top](#contents-table)
 
 ## Accessibility Testing

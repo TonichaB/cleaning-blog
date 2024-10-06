@@ -1,8 +1,6 @@
 # Cleaning Together Blog
 
-The live site can be found here! (link to be added)
-
-<img>
+![Am I Responsive Image](static/images/README.md/am-i-responsive.webp)
 
 ![Github last commit](https://img.shields.io/github/last-commit/TonichaB/cleaning-blog?color=green)
 ![GitHub contributors](https://img.shields.io/github/contributors/TonichaB/cleaning-blog?color=yellow)
@@ -57,7 +55,9 @@ The live site can be found here! (link to be added)
 
 ## Overview
 
-Cleaning Together blog is a community driven platform where cleaning enthusiasts and professionals alike can share tips, tricks and experiences. The blog aims to foster a supportive environment for people interested in cleaning, providing a space for sharing valuable content and engaging with others through blog posts and likes. The target audience is both cleaning professionals and homemakers. Users can view blog posts, and after logging into an account they can also interact by liking or commenting on the posts.
+Cleaning Together blog is a community driven platform where cleaning enthusiasts and professionals alike can share tips, tricks and experiences. The blog aims to foster a supportive environment for people interested in cleaning, providing a space for sharing valuable content and engaging with others through blog posts and likes. The target audience is both cleaning professionals and homemakers. Users can view blog posts, and after logging into an account they can also interact by liking or commenting on the posts.<br>
+
+You can access the live site [here!]()
 
 ## UX
 
