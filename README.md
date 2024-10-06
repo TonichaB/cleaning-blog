@@ -122,11 +122,11 @@ The site contains a number of features designed for all users to have ease of na
 **Security Features**
 
 - **Django Password Hashing**:
-  Password Hashing is a process in which a plain-text password is converted into a fixed-length string of characters that cannot be easily reversed (known has a hashed password). This process enhances security by ensuring that should the worst happen and the password database be compromised, the actual password data remains protected.
+  Password Hashing is a process in which a plain-text password is converted into a fixed-length string of characters that cannot be easily reversed (known has hashed passwords). This process enhances security by ensuring that should the worst happen and the password database be compromised, the actual password data remains protected.
 
-  The Django Frameworks uses PBKDF2, a secure hashing algorithm, that applies a salt and multiple iterations to the hashing process. By doing so, it makes it computationally expensive to try and crack the password. Furthermore, there are built in functions to allow for a hashed password to be stored, and later verified when a user logs into their account.
+  The Django framework uses PBKDF2, a secure hashing algorithm, that applies a salt and multiple iterations to the hashing process. By doing so, it makes it computationally expensive to try and crack the password. Furthermore, there are built-in functions to store hashed password and verify them when a user logs into their account.
 
-  I have utilised this framwork in this project so that when a user firsts sets up a password as part of the registration form, the data is stored as a hashed password keeping the user's account better protected.
+  I have utilised this framwork in this project so that when a user first sets up a password as part of the registration form, the data is stored as a hashed password keeping the user's account better protected. This approach not only protects the user accounts but also aligns with best practices for secure password management.
 
 ### Structure
 
@@ -660,7 +660,7 @@ For each of the published blog posts, there is a comments section where users ca
 
   ![Comments Section Image](static/images/README.md/comments-section.webp)
 
-</details><br>
+</details>
 
 ### Potential Future Features
 
@@ -688,7 +688,6 @@ Using Bootstrap predefined breakpoints for the project, the design has been adap
 - max-width: 375px
 - max-width: 480px
 - max-width: 768px
-<br>
 
 Using the Google Developer Tools I was also able to test the responsiveness of the site on various devices. <br>
 
